@@ -2,12 +2,16 @@
 title: "基于线性回归模型的城市水资源预测模型"
 description: 
 date: 2025-10-07T05:54:32Z
-image: 
 math: true
-license: 
 hidden: false
 comments: true
 draft: false
+tags:
+    - Mathematical Modeling
+    - Python 3
+categories:
+    - Math Modeling
+    - Python
 ---
 
 > 参赛选手：陈君逸、黄孜勇、罗梓宁、谢瑜恩、叶彬</br>
