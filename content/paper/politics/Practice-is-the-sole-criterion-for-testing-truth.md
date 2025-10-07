@@ -1,5 +1,5 @@
 ---
-title: 实践是检验真理的唯一标准
+title: "实践是检验真理的唯一标准"
 description: 1978-光明日报
 date: 2022-03-06 00:00:00+0000
 categories:
