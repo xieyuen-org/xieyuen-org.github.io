@@ -1,5 +1,4 @@
 # Change baseurl before deploy
-
 baseurl = "https://xieyuen-org.github.io"
 languageCode = "zh-cn"
 title = "Hugo Theme Stack Starter"
