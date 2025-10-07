@@ -1,4 +1,9 @@
 ---
-title: "论文列表"
-layout: "papers"
+title: "Papers and Articles"
+slug: "papers"
+menu:
+    main:
+        weight: 5
+        params: 
+            icon: link
 ---
