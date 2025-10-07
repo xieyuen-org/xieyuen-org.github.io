@@ -1,6 +1,0 @@
-# 启用多语言支持，仅保留中文
-[zh-cn]
-languageName = "简体中文"
-languagedirection = "ltr"
-title = "xieyuen 的个人站点"
-weight = 1
