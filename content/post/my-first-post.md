@@ -12,4 +12,4 @@ draft: false
 
 My first post!
 
-This site will hold all my artical
+This site will hold all my articles
