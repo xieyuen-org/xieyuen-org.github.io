@@ -3,6 +3,10 @@ date: 2023-7-25
 title: emmmm... 一道小题目
 draft: false
 math: true
+tags:
+  - Question
+categories:
+  - Mathematics
 ---
 
 这道小题目有亿丢丢复杂，看下面（

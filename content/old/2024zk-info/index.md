@@ -2,6 +2,11 @@
 date: 2023-10-2
 title: 【转载】广东2024中考改革
 draft: false
+tags:
+  - Examination
+  - Announcement
+categories:
+  - Education
 ---
 
 这里有两篇相关文章

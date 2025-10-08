@@ -2,7 +2,11 @@
 date: 2023-8-10
 title: 我自己的第一个 MCDR 插件
 draft: false
-math: true
+math: false
+tags:
+  - MCDR-Plugin
+categories:
+  - MCDR-Plugin
 ---
 
 对 MC 服务器卡死无法关闭的情况做了优化
@@ -29,7 +33,7 @@ def stop(self, server: PluginServerInterface):
     server.logger.info('服务端已停止')
 ```
 
-当服务器关闭命令发送 \(20s\) 后仍在运行状态就执行 `server.kill()` 方法杀死服务端进程
+当服务器关闭命令发送 `20s` 后仍在运行状态就执行 `server.kill()` 方法杀死服务端进程
 
 还有一个改写过的 `exit()` 方法
 

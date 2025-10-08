@@ -2,6 +2,8 @@
 date: 2023-7-5
 title: 一些红色诗歌
 draft: false
+tags: [Poetry]
+categories: [Literature]
 ---
 
 ## 《可爱的中国》

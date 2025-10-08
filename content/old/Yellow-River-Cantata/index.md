@@ -2,6 +2,8 @@
 date: 2023-4-15
 title: 《黄河大合唱》
 draft: false
+tags: [Music]
+categories: [Music]
 ---
 
 但是，中华民族的儿女啊，我们要抱着必死的决心，保卫黄河，保卫华北，保卫全中国！

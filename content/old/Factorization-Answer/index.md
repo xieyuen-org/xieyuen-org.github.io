@@ -3,6 +3,11 @@ date: 2023-4-30
 title: 4-27 因式分解专题练习答案
 draft: false
 math: true
+tags:
+  - Exercise
+  - Answer
+categories:
+  - Mathematics
 ---
 
 题目📜：[🔗](</posts/2023/4/28/factorization>)

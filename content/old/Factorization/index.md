@@ -3,6 +3,11 @@ date: 2023-4-28
 title: 因式分解专题练习
 draft: false
 math: true
+tags:
+  - Exercise
+description: 练习题
+categories:
+  - Mathematics
 ---
 
 共 \(76\) 道题

@@ -10,7 +10,7 @@ tags:
   - Mathematical Modeling
   - Python 3
 categories:
-  - Mathematical Modeling
+  - Mathematics
   - Paper
 ---
 

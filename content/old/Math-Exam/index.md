@@ -3,6 +3,11 @@ date: 2023-6-7
 title: 2023高考数学真题
 draft: false
 math: true
+tags:
+  - 高考真题
+  - Examination
+categories:
+  - Education
 ---
 
 ## 一、单项选择题

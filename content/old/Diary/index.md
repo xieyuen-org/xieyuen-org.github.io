@@ -2,6 +2,8 @@
 date: 2023-3-11
 title: Diary 2023-3-11
 draft: true
+tags: [Diary]
+categories: [Diary]
 ---
 
 Diary！

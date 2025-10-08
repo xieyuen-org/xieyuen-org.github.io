@@ -2,6 +2,10 @@
 date: 2023-4-15
 title: 500 Miles
 draft: false
+tags:
+  - Music
+categories:
+  - Music
 ---
 
 Lord, I can't go back home this ole away

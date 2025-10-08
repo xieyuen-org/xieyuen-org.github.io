@@ -3,6 +3,10 @@ date: 2023-7-26
 title: 黄诗雯的问题
 draft: false
 math: true
+tags:
+  - Question
+  - Solution
+
 ---
 
 ![](</pictures/2023-7-math-ques/20230726_091701.png>)

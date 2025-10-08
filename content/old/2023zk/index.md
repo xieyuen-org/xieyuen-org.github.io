@@ -2,6 +2,11 @@
 date: 2023-3-18
 title: 【转载】关于2023年初中学业水平考试时间安排的通知
 draft: false
+tags:
+  - Examination
+  - Announcement
+categories:
+  - Education
 ---
 
 >时间 : 2023-01-12 17:12:38 <br>

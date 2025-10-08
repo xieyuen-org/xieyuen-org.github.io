@@ -2,6 +2,10 @@
 date: 2023-4-16
 title: Lucky Charms
 draft: false
+tags:
+  - Music
+categories:
+  - Music
 ---
 
 Don't remember the bad things. If you forget that, you will be happy

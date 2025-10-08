@@ -2,6 +2,8 @@
 date: 2023-9-22
 title: One Day
 draft: false
+tags: [Music]
+categories: [Music]
 ---
 
 One day there will be no wars

@@ -2,6 +2,10 @@
 date: 2023-4-1
 title: 2023-4 Love 列表
 draft: false
+tags:
+  - Music
+categories:
+  - Music
 ---
 
 黄河大合唱！
