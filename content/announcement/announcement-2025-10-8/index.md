@@ -3,7 +3,8 @@ title: Announcement
 slug: announcement/2025/10/8
 date: 2025-10-08 15:16:00+0000
 categories:
-    - Announcement
+  - Announcement
+draft: false
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 
