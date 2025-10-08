@@ -1,5 +1,5 @@
 ---
-date: 2023-4-28
+date: 2023-04-28
 title: 因式分解专题练习
 draft: false
 math: true

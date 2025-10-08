@@ -1,5 +1,5 @@
 ---
-date: 2024-1-1
+date: 2024-01-01
 title: 2024 新年快乐！
 draft: false
 math: true

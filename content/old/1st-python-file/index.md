@@ -1,5 +1,5 @@
 ---
-date: 2023-8-10
+date: 2023-08-10
 title: 我自己的第一个 MCDR 插件
 draft: false
 math: false

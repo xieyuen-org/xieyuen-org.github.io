@@ -1,5 +1,5 @@
 ---
-date: 2023-7-25
+date: 2023-07-25
 title: emmmm... 一道小题目
 draft: false
 math: true

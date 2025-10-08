@@ -1,5 +1,5 @@
 ---
-date: 2023-10-2
+date: 2023-10-02
 title: 【转载】广东2024中考改革
 draft: false
 tags:
