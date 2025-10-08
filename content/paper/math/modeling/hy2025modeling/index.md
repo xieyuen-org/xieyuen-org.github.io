@@ -11,7 +11,7 @@ tags:
   - Python 3
 categories:
   - Mathematical Modeling
-  - Python
+  - Paper
 ---
 
 > 参赛选手：陈君逸、黄孜勇、罗梓宁、谢瑜恩、叶彬</br>
