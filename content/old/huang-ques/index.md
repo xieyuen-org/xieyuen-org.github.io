@@ -1,5 +1,5 @@
 ---
-date: 2023-7-26
+date: 2023-07-26
 title: 黄诗雯的问题
 draft: false
 math: true

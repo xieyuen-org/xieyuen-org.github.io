@@ -1,5 +1,5 @@
 ---
-date: 2023-4-16
+date: 2023-04-16
 title: Lucky Charms
 draft: false
 tags:

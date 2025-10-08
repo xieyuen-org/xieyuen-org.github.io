@@ -1,5 +1,5 @@
 ---
-date: 2023-9-22
+date: 2023-09-22
 title: One Day
 draft: false
 tags: [Music]

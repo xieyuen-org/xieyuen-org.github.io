@@ -1,5 +1,5 @@
 ---
-date: 2023-7-5
+date: 2023-07-05
 title: 一些红色诗歌
 draft: false
 tags: [Poetry]

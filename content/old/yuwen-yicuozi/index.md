@@ -1,5 +1,5 @@
 ---
-date: 2023-4-22
+date: 2023-04-22
 title: 部编版古诗文全册混淆字
 draft: false
 tags:

@@ -1,5 +1,5 @@
 ---
-date: 2023-4-15
+date: 2023-04-15
 title: 《黄河大合唱》
 draft: false
 tags: [Music]

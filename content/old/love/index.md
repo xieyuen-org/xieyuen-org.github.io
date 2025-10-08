@@ -1,5 +1,5 @@
 ---
-date: 2023-4-1
+date: 2023-04-01
 title: 2023-4 Love 列表
 draft: false
 tags:
