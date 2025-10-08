@@ -1,6 +1,6 @@
 ---
 title: Announcement
-slug: announcement/2025/10/8
+slug: 2025/10/8
 date: 2025-10-08 15:16:00+0000
 categories:
   - Announcement
