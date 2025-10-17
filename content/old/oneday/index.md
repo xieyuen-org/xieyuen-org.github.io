@@ -8,7 +8,7 @@ categories: [Music]
 
 One day there will be no wars
 
-<iframe src="//player.bilibili.com/player.html?aid=329943795&bvid=BV1cA411E7M9&cid=246720207&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+{{< bilibili "BV1cA411E7M9" >}}
 
 歌词:
 

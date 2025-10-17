@@ -1,5 +1,5 @@
 {
-	"name": "Hugo (Community)",
+	"name": "xieyuen-org/website dev codespace",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {

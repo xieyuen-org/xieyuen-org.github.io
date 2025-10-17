@@ -10,10 +10,11 @@ categories:
 
 Lord, I can't go back home this ole away
 
-<iframe src="//player.bilibili.com/player.html?aid=330624190&bvid=BV1FA411s7df&cid=262875402&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+{{< bilibili "BV1FA411s7df" >}}
 
 歌词：
-```
+
+```plaintext
 If you missed the train I'm on,
 You will know that I'm gone.
 You can hear the whistle blow a hundred miles.
@@ -46,4 +47,3 @@ You can hear the whistle blow a hundred miles.
 
 - [QQ 音乐](<https://y.qq.com/#type=song&mid=00262GDA2fW2H3&tpl=yqq_song_detail>)
 - [网易云音乐](<https://music.163.com/#/song?id=1346285259>)
-
