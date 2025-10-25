@@ -9,7 +9,7 @@ hidden: false
 comments: true
 draft: false
 categories:
-  - MCDR-Plugins
+  - MCDR-Plugin
 tags:
   - MCDRpost
 ---
