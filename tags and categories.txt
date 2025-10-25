@@ -1,0 +1,24 @@
+Categories:
+
+- Example Categories
+- Music
+- Education
+- Mathematics
+- Paper
+- Literature
+- MCDR-Plugin
+- Syntax
+- Theme
+
+Tags:
+
+- Music
+- Examination
+- Announcement
+- Exercise
+- Question
+- Answer
+- Css
+- Html
+- Markdown
+- MCDRpost

@@ -1,5 +1,5 @@
 {
-	"name": "xieyuen-org/website dev codespace",
+	"name": "xieyuen-org:website dev codespace",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
@@ -22,7 +22,14 @@
 		"vscode": {
 			// Set *default* container specific settings.json values on container create.
 			"settings": { 
-				"html.format.templating": true
+				"html.format.templating": true,
+				// 设置终端使用 fish
+				"terminal.integrated.defaultProfile.linux": "fish",
+				"terminal.integrated.profiles.linux": {
+					"fish": {
+						"path": "/usr/bin/fish"
+					}
+				}
 			},
 			
 			// Add the IDs of extensions you want installed when the container is created.
@@ -46,6 +53,12 @@
 	"features": {
 		"ghcr.io/devcontainers/features/go:1": {
 			"version": "latest"
-		}
+		},
+		"ghcr.io/devcontainers/features/github-cli:1": {
+			"version": "latest"
+		}//,
+		// "ghcr.io/devcontainers/features/fish:1": {
+		// 	"version": "latest"
+		// }
 	}
 }
