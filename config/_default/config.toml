@@ -17,3 +17,13 @@ disqusShortname = "hugo-theme-stack"
 
 [pagination]
 pagerSize = 5
+
+# [markup.goldmark.renderer]
+# unsafe = true
+
+[markup.goldmark.extensions]
+strikethrough = true
+taskList = true  
+table = true
+linkify = true
+typographer = false
