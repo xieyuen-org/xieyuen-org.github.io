@@ -106,6 +106,11 @@ tags:
 
 - 放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler
 
+## [3.3.2] - [YANKED]
+
+> [!CAUTION]
+> Due to a critical bug, this version is yanked.
+
 ## [3.3.2-rc.2] - 2025-09-21
 
 ### Added
