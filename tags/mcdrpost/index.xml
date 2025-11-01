@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MCDRpost on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/tags/mcdrpost/</link><description>Recent content in MCDRpost on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 25 Oct 2025 17:59:10 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/tags/mcdrpost/index.xml" rel="self" type="application/rss+xml"/><item><title>MCDRpost v3.3.3</title><link>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</link><pubDate>Sat, 25 Oct 2025 17:59:10 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;[!IMPORTANT]
+此版本强烈建议更新！除非你没有更新3.3.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="changelog"&gt;ChangeLog
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;li&gt;（&lt;strong&gt;严重&lt;/strong&gt;）修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>MCDRpost 更新日志</title><link>https://xieyuen-org.github.io/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</link><pubDate>Sat, 25 Oct 2025 17:42:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</guid><description>&lt;!-- markdownlint-disable MD024 --&gt;
+&lt;h2 id="340-alpha3"&gt;[3.4.0-alpha.3]
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新开分支专门准备放弃 Python 3.10 的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;内置处理器的条件函数替换成元组比较&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="340-alpha2"&gt;[3.4.0-alpha.2]
+&lt;/h2&gt;&lt;h3 id="added-1"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;补充了一些类型注解&lt;/li&gt;
+&lt;li&gt;添加弃用提示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-1"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;简化协调器模块的命名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="deprecated"&gt;Deprecated
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;弃用的配置&lt;/th&gt;
+&lt;th style="text-align: center"&gt;新配置&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;command_prefixed&lt;/td&gt;
+&lt;td style="text-align: center"&gt;prefix.more_prefix&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;allow_alias&lt;/td&gt;
+&lt;td style="text-align: center"&gt;prefix.enable_addition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;command_permission&lt;/td&gt;
+&lt;td style="text-align: center"&gt;permissions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="340-alpha1"&gt;[3.4.0-alpha.1]
+&lt;/h2&gt;&lt;h3 id="added-2"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;env.server_version&lt;/code&gt; 支持元组比较
+&lt;ul&gt;
+&lt;li&gt;e.g. &lt;code&gt;env.server_version &amp;gt;= (1, 20, 5)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;补充了 TranslationKeyItem 的 docstring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-2"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构了 CommandManager, 分离 UI 和命令解析
+&lt;ul&gt;
+&lt;li&gt;新增 CommandPreHandler 处理解析的类型与功能类的交互&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重构了 PostManager, 保持邮寄核心功能的单一职责
+&lt;ul&gt;
+&lt;li&gt;添加了 MCDRpostCoordinator 类作为协调器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333"&gt;[3.3.3]
+&lt;/h2&gt;&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-beta2"&gt;[3.3.3-beta.2]
+&lt;/h2&gt;&lt;h3 id="added-3"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-3"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;原名称&lt;/th&gt;
+&lt;th style="text-align: center"&gt;新名称&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;TranslationKeyItem.__FULL_KEY&lt;/td&gt;
+&lt;td style="text-align: center"&gt;TranslationKeyItem.__FULL_KEY_TEMPLATE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;utils.__Node&lt;/td&gt;
+&lt;td style="text-align: center"&gt;utils.__NodeType&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="333-beta1"&gt;[3.3.3-beta.1]
+&lt;/h2&gt;&lt;h3 id="changed-4"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-alpha3"&gt;[3.3.3-alpha.3]
+&lt;/h2&gt;&lt;h3 id="fixed-1"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-alpha2"&gt;[3.3.3-alpha.2]
+&lt;/h2&gt;&lt;h3 id="changed-5"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332---yanked"&gt;[3.3.2] - [YANKED]
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;[!CAUTION]
+Due to a critical bug, this version is yanked.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="332-rc2---2025-09-21"&gt;[3.3.2-rc.2] - 2025-09-21
+&lt;/h2&gt;&lt;h3 id="added-4"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增错误提示，保证用户体验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了无意义的 &lt;code&gt;__all__&lt;/code&gt; 变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-rc1---2025-09-21"&gt;[3.3.2-rc.1] - 2025-09-21
+&lt;/h2&gt;&lt;h3 id="fixed-2"&gt;Fixed
+&lt;/h3&gt;&lt;p&gt;修复了玩家无法接受物品的问题&lt;/p&gt;
+&lt;h2 id="332-beta5---2025-09-20"&gt;[3.3.2-beta5] - 2025-09-20
+&lt;/h2&gt;&lt;h3 id="changed-6"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构了 &lt;code&gt;AbstractVersionHandler&lt;/code&gt; 类
+&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;item2str&lt;/code&gt; 和 &lt;code&gt;dict2item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;新增了 (abstractmethod) &lt;code&gt;get_offhand_item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;is_builtin&lt;/code&gt; 不再是 property 而是 classmethod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重构了 &lt;code&gt;BulitinVersionHandler&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 &lt;code&gt;get_offhand_item&lt;/code&gt; 实现&lt;/li&gt;
+&lt;li&gt;新增 &lt;code&gt;replace&lt;/code&gt; 实现（仅在 &lt;code&gt;Since9Handler&lt;/code&gt; 中被覆盖）&lt;/li&gt;
+&lt;li&gt;新增 (abstractmethod) &lt;code&gt;item2str&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;新增 (abstractmethod) &lt;code&gt;dict2item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="added-5"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增了 &lt;code&gt;DefaultVersionHandler&lt;/code&gt; 类并且暴露至 api&lt;/li&gt;
+&lt;li&gt;API
+&lt;ul&gt;
+&lt;li&gt;暴露 &lt;code&gt;DefaultVersionHandler&lt;/code&gt; 类&lt;/li&gt;
+&lt;li&gt;暴露 &lt;code&gt;OFFHAND_CODE&lt;/code&gt; 常量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta4"&gt;[3.3.2-beta4]
+&lt;/h2&gt;&lt;h3 id="added-6"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实现了自定义 Handler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta3"&gt;[3.3.2-beta3]
+&lt;/h2&gt;&lt;h3 id="removed-1"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;utils.types&lt;/code&gt; 模块&lt;/li&gt;
+&lt;li&gt;删除了一些没有用的方法/函数&lt;/li&gt;
+&lt;li&gt;删除了 &lt;code&gt;reload&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; 命令及其权限配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-7"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重命名 &lt;code&gt;before17&lt;/code&gt; 为 &lt;code&gt;since9&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新增 &lt;code&gt;reload&lt;/code&gt; 子命令，用于重新加载配置文件和订单数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed-3"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复反序列化失败的问题&lt;/li&gt;
+&lt;li&gt;修复在插件加载阶段时如果订单无效翻译出错的问题&lt;/li&gt;
+&lt;li&gt;修复了插件加载时的翻译报错问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta2"&gt;[3.3.2-beta2]
+&lt;/h2&gt;&lt;h3 id="changed-8"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构 &lt;code&gt;version_handler&lt;/code&gt; 模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta1"&gt;[3.3.2-beta1]
+&lt;/h2&gt;&lt;h3 id="removed-2"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;reload&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; 命令及其权限配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed-4"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了插件加载时的翻译报错问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="331"&gt;[3.3.1]
+&lt;/h2&gt;&lt;h3 id="changed-9"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;获得了 Flyky 的授权，更新 MCDRpost 在插件仓库的信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="330"&gt;[3.3.0]
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;[!WARNING]
+此版本和旧版本不兼容，需要更新数据文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="added-7"&gt;Added
+&lt;/h3&gt;&lt;p&gt;实现对 Minecraft 1.20.5 版本及以上的支持&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;改变了原来订单中物品的储存方式，拆分得更加细致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="321"&gt;[3.2.1]
+&lt;/h2&gt;&lt;h3 id="changed-10"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 MCDR 2.15.0 的新特性，MCDRpost 不再支持低于 2.15.0 以下的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="320"&gt;[3.2.0]
+&lt;/h2&gt;&lt;h3 id="added-8"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;添加了新玩家登录时是否自动注册的配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="312"&gt;[3.1.2]
+&lt;/h2&gt;&lt;h3 id="added-9"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;添加了命令的权限配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="300"&gt;[3.0.0]
+&lt;/h2&gt;&lt;h3 id="changed-11"&gt;Changed
+&lt;/h3&gt;&lt;p&gt;重构了旧代码，具体包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模块化重构&lt;/li&gt;
+&lt;li&gt;利用面向对象实现 MCDRpost 主要功能&lt;/li&gt;
+&lt;li&gt;增加了配置文件&lt;/li&gt;
+&lt;li&gt;修改了原来的订单管理系统，并且使用 &lt;code&gt;server.load_config_simple&lt;/code&gt; 和 &lt;code&gt;server.save_config_simple&lt;/code&gt; 实现订单数据的加载和保存&lt;/li&gt;
+&lt;li&gt;拆分了冗长的 &lt;code&gt;__init__.py&lt;/code&gt;，用几个 Manager 代替&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="211"&gt;[2.1.1]
+&lt;/h2&gt;&lt;h3 id="fixed-5"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了插件不能加载的问题 (Flyky/MCDRpost#8)&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>
