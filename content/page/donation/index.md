@@ -6,6 +6,7 @@ menu:
         weight: 6
         params:
             icon: link
+comments: false
 ---
 
 Could you donate to me? any amount is appreciated.
