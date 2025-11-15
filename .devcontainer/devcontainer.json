@@ -12,7 +12,7 @@
 			// Rebuild the container if it already exists to update.
 			"VERSION": "latest",
 			// Update NODE_VERSION to pick the Node.js version: 12, 14
-			"NODE_VERSION": "14"
+			"NODE_VERSION": "24"
 		}
 	},
 
@@ -59,9 +59,9 @@
 		},
 		"ghcr.io/devcontainers/features/python:1": {
 			"version": "latest"
+		},
+		"ghcr.io/devcontainers-extra/features/fish-apt-get:1": {
+			"version": "latest"
 		}
-		// "ghcr.io/devcontainers/features/fish:1": {
-		// 	"version": "latest"
-		// }
 	}
 }

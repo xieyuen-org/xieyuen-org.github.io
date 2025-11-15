@@ -9,6 +9,7 @@ Categories:
 - MCDR-Plugin
 - Syntax
 - Theme
+- Exam
 
 Tags:
 
@@ -22,3 +23,5 @@ Tags:
 - Html
 - Markdown
 - MCDRpost
+- Score
+- Exam
