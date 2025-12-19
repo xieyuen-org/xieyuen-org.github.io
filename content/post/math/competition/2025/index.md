@@ -4,14 +4,14 @@ description: 2025年河源中学高一年级数学竞赛试题及答案
 date: 2025-12-19
 image: 
 math: true
-license: 
+license: All Right Reserved
 hidden: false
 comments: true
 draft: false
 categories:
   - Mathematics
 tags:
-    - Exam
+    - Examination
     - Competition
 ---
 

@@ -12,7 +12,7 @@ categories:
   - Education
   - Exam
 tags:
-  - Exam
+  - Examination
   - Score
 ---
 

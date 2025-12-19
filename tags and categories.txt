@@ -24,5 +24,4 @@ Tags:
 - Markdown
 - MCDRpost
 - Score
-- Exam
 - Competition
