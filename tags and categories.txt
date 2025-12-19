@@ -25,3 +25,4 @@ Tags:
 - MCDRpost
 - Score
 - Exam
+- Competition

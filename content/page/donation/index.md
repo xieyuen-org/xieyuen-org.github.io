@@ -11,4 +11,6 @@ comments: false
 
 Could you donate to me? any amount is appreciated.
 
+If you leave a message with your donation, I will add your name here ；）
+
 ![Wechat Pay](/donation.jpg)
