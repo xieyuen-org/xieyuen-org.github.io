@@ -124,30 +124,21 @@ tags:
 
 【解】: (1)
 
-$$
-8 = x^2 - 4xy + 8y^2 \ge 2 \cdot x \cdot 2 \sqrt{2}y - 4xy = 4(\sqrt{2} - 1)xy
-$$
+$ 8 = x^2 - 4xy + 8y^2 \ge 2 \cdot x \cdot 2 \sqrt{2}y - 4xy = 4(\sqrt{2} - 1)xy $
 
-$$
-\therefore xy \le 2 + \sqrt{2}
-$$
+$\therefore xy \le 2 + \sqrt{2}$
+
 当且仅当 $x = 2\sqrt{2}y$, 即
 
-$$
-x = \sqrt{8+4\sqrt{2}}, y = \sqrt{1+\frac{\sqrt{2}}{2}}
-$$
+$x = \sqrt{8+4\sqrt{2}}, y = \sqrt{1+\frac{\sqrt{2}}{2}}$
 
 时取等.
 
 (2) 配方得
 
-$$
-(x - 2y)^2 + 4y^2 = 8
-$$
+$(x - 2y)^2 + 4y^2 = 8$
 
-$$
-\therefore 8 = (x - 2y)^2 + 4y^2 \ge \frac{1}{2}x^2 \Rightarrow x^2 \le 16
-$$
+$\therefore 8 = (x - 2y)^2 + 4y^2 \ge \frac{1}{2}x^2 \Rightarrow x^2 \le 16$
 
 $\therefore x$ 的范围是 $[-4, 4]$
 
@@ -155,9 +146,7 @@ $\therefore x$ 的范围是 $[-4, 4]$
 
 把它看作关于 $x$ 的一元二次方程, 则该方程有解,
 
-$$
-\therefore \Delta = (4y)^2 - 4 \cdot 1 \cdot (8y^2 - 8)  = 16(2-y^2) \ge 0
-$$
+$\therefore \Delta = (4y)^2 - 4 \cdot 1 \cdot (8y^2 - 8)  = 16(2-y^2) \ge 0$
 
 $\therefore y$ 的范围是 $[-\sqrt{2}, \sqrt{2}]$.
 
@@ -169,18 +158,14 @@ $\therefore |x+y|=5$
 
 则
 
-$$
-\begin{matrix}
+$\begin{matrix}
 x_1^2 - 4x_1y_1 + 8y_1^2 = 8 \\
 x_2^2 - 4x_2y_2 + 8y_2^2 = 8
-\end{matrix}
-$$
+\end{matrix}$
 
 两式相减得
 
-$$
-(x_1^2 - x_2^2) - 4(x_1y_1 - x_2y_2) + 8(y_1 - y_2)(y_1 + y_2) = 0
-$$
+$(x_1^2 - x_2^2) - 4(x_1y_1 - x_2y_2) + 8(y_1 - y_2)(y_1 + y_2) = 0$
 
 $\because x_1 < x_2 < 0 \Rightarrow (x_1 - x_2)(x_1 + x_2) > 0$,
 
