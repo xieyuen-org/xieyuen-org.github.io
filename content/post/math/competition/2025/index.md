@@ -116,31 +116,64 @@ tags:
 
 ### 二、解答题
 
+<!--markdownlint-disable MD024-->
+
 #### 9
 
-暂不提供
+##### 各小题答案
+
+1. 略
+2. $BG = \frac{a^2}{r} - r$
+
+##### 解析
+
+暂不提供, 但推荐极点极线法
 
 #### 10
 
-【解】: (1)
+##### 各小题答案
 
-$ 8 = x^2 - 4xy + 8y^2 \ge 2 \cdot x \cdot 2 \sqrt{2}y - 4xy = 4(\sqrt{2} - 1)xy $
+1. $2 + 2\sqrt{2}$
+2. $x$ 的取值范围是 $[-4, 4]$, $y$ 的取值范围是 $[-\sqrt{2}, \sqrt{2}]$, 当 $|x|$ 最大时 $|x+y|=5$
+3. $f(x)$ 单调递增, 证明略
 
-$\therefore xy \le 2 + \sqrt{2}$
+##### 解析
+
+###### (1)
+
+$$ 8 = x^2 - 4xy + 8y^2 \ge 4\sqrt{2} - 4xy $$
+
+$$\therefore xy \le 2 + 2\sqrt{2}$$
 
 当且仅当 $x = 2\sqrt{2}y$, 即
 
-$x = \sqrt{8+4\sqrt{2}}, y = \sqrt{1+\frac{\sqrt{2}}{2}}$
+$$
+\left\{\begin{align*}
+x = \sqrt{8+4\sqrt{2}} \\
+y = \sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+或
+\left\{\begin{align*}
+x = -\sqrt{8+4\sqrt{2}} \\
+y = -\sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+$$
 
 时取等.
 
-(2) 配方得
+###### (2)
+
+配方得
 
 $(x - 2y)^2 + 4y^2 = 8$
 
 $\therefore 8 = (x - 2y)^2 + 4y^2 \ge \frac{1}{2}x^2 \Rightarrow x^2 \le 16$
 
-$\therefore x$ 的范围是 $[-4, 4]$
+$\therefore x$ 的范围是
+
+$$
+[-4, 4]
+$$
 
 又 $x^2-4xy+8y^2-8=0$,
 
@@ -148,20 +181,30 @@ $\therefore x$ 的范围是 $[-4, 4]$
 
 $\therefore \Delta = (4y)^2 - 4 \cdot 1 \cdot (8y^2 - 8)  = 16(2-y^2) \ge 0$
 
-$\therefore y$ 的范围是 $[-\sqrt{2}, \sqrt{2}]$.
+$\therefore y$ 的范围是
+
+$$
+[-\sqrt{2}, \sqrt{2}]
+$$
 
 当 $|x|$ 取最大值 4 时, 令 $x = 4 \Rightarrow y = 1, x = -4 \Rightarrow y = -1$,
 
-$\therefore |x+y|=5$
+$$
+\therefore |x+y|=5
+$$
 
-(3) $\forall -4 \le x_1 < x_2 < 0$ 且 $y_1 = f(x_1) > 0, y_2 = f(x_2) > 0$,
+###### (3)
+
+$\forall -4 \le x_1 < x_2 < 0$ 且 $y_1 = f(x_1) > 0, y_2 = f(x_2) > 0$,
 
 则
 
-$\begin{matrix}
+$$
+\begin{align*}
 x_1^2 - 4x_1y_1 + 8y_1^2 = 8 \\
 x_2^2 - 4x_2y_2 + 8y_2^2 = 8
-\end{matrix}$
+\end{align*}
+$$
 
 两式相减得
 
