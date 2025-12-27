@@ -12,6 +12,7 @@ categories:
     - Mathematics
 tags:
     - Competition
+    - Answer
 ---
 
 ## 原题
