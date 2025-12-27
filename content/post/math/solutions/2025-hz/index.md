@@ -4,7 +4,7 @@ description: 2025年河源中学高一年级数学竞赛试题解析
 date: 2025-12-26T12:30:31Z
 image: 
 math: true
-license: All Right Reserved
+license:
 hidden: false
 comments: true
 draft: false
