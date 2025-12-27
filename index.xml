@@ -1,0 +1,3193 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/</link><description>Recent content on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Dec 2025 12:30:31 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Announcement</title><link>https://xieyuen-org.github.io/announcement/</link><pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/announcement/</guid><description>&lt;p&gt;旧博客内的文章已经完成初步迁移，但还有图片未完成迁移，请耐心等待。&lt;/p&gt;</description></item><item><title>2025 河源中学高一年级数学竞赛试题解析--第7题</title><link>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</link><pubDate>Fri, 26 Dec 2025 12:30:31 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</guid><description>&lt;h2 id="原题"&gt;原题
+&lt;/h2&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;blockquote&gt;
+&lt;ol start="7"&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="解析"&gt;解析
+&lt;/h2&gt;&lt;p&gt;我们可以用映射的思想来求解.&lt;/p&gt;
+&lt;p&gt;下面是甲乙两人卡片的映射关系：&lt;/p&gt;
+$$
+\begin{matrix}
+甲 &amp; 乙 \\
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;具体的映射并没有用线画出, 但是我们知道甲乙得分有一定的关系:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲得0分 等价于 乙得4分&lt;/li&gt;
+&lt;li&gt;甲得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲得3分 等价于 乙得1分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;并且甲不能得4分, 因为甲有一张 1, 是必输的, 那我们试着把这张1改成9再看看:&lt;/p&gt;
+$$
+\begin{matrix}
+甲' &amp; 乙 \\
+9 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;这下甲$'$就因为这张牌就会比原来的甲多一分, 乙就少一分, 也就是说:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲$'$得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲$'$得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲$'$得3分 等价于 乙得1分&lt;/li&gt;
+&lt;li&gt;甲$'$得4分 等价于 乙得0分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而我们的比赛只是比大小, 所以结果和具体的数字无关, 我们就可以让每张牌都减1, 并且再调序, 变成:&lt;/p&gt;
+$$
+\begin{matrix}
+甲'' &amp; 乙' \\
+2 &amp; 1 \\
+4 &amp; 3 \\
+6 &amp; 5 \\
+8 &amp; 7 \\
+\end{matrix}
+$$&lt;p&gt;这个时候你发现了啥? 甲$''$不就是乙吗? 乙$'$不就是甲吗? 我们把前面的关系串起来, 就知道甲得1分就是甲$''$得2分, 就是乙得2分, 再回到原来的甲, 就是甲得2分. 我们就证明了 $P(甲得1分) = P(甲得2分)$&lt;/p&gt;
+&lt;p&gt;不难注意到, 甲得0分和甲得3分的情况都只有一种, 即 $P(甲得0分) = P(甲得3分)$&lt;/p&gt;
+&lt;p&gt;那题目要求的 $P(甲得分小于2) = P(甲得0分) + P(甲得1分) = \frac{1}{2}[P(甲得0分) + P(甲得1分) + P(甲得2分) + P(甲得3分)] = \frac{1}{2}$&lt;/p&gt;
+&lt;p&gt;所以答案为:&lt;/p&gt;
+$$\boxed{\frac{1}{2}}$$</description></item><item><title>2025年河源中学高一年级数学竞赛</title><link>https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</link><pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</guid><description>&lt;h2 id="试题部分"&gt;试题部分
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;注意事项:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全卷共 16 小题, 满分 120+30 分, 考试时长 90 分钟.&lt;/li&gt;
+&lt;li&gt;答题前, 考生务必将自己的姓名、班级等信息填写在答题卡的相应位置.&lt;/li&gt;
+&lt;li&gt;考生请在答题卡上作答, 在试卷上作答无效.&lt;/li&gt;
+&lt;li&gt;选择题请使用 2B 铅笔填涂, 非选择题使用0.5mm 黑色签字笔作答.&lt;/li&gt;
+&lt;li&gt;考试结束后, 上交答题卡.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="一填空题共8题-64分"&gt;一、填空题（共8题, 64分）
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;已知集合 $M = { u | u = 12m + 8n + 4l, m, n, l \in \mathbb{Z}}$, $N = { v | v = 20p + 16q + 12r, p, q, r \in \mathbb{Z}}$, 则 $M$ 与 $N$ 的关系是______&lt;/li&gt;
+&lt;li&gt;函数迭代, 就是一个函数与自身复合多次, 将 $f(x)$ 迭代 $n$ 次记作 $f^{(n)}(x), n \in \mathbb{N^*}$. 一般地, 有 $f^{(0)}(x) = x, f^{(1)}(x) = f(f^{(0)}(x)) = f(x),f^{(2)}(x) = f(f^{(1)}(x)) = f(f(x)), f^{(3)}(x) = f(f^{(2)}(x)), \cdots ,f^{(n)}(x) = f(f^{(n-1)}(x))$. 已知 $f(x) = \frac{1+\sqrt{3}x}{\sqrt{3}-x}$, 则 $f^{(2023)}(2023) = $ ______&lt;/li&gt;
+&lt;li&gt;已知 $f(x) = x^4 + bx^3 + cx^2 + dx + a$, 且 $f(1) = 5, f(2) = 10, f(3) = 15$, 则 $f(8) + f(-4) = $ ______&lt;/li&gt;
+&lt;li&gt;已知 $a + b +c = m, m &amp;gt; 0, m \neq 1, a, b, c &amp;gt; 0$, 则 $\frac{a}{b+2c}+\frac{2c}{a+b}+\frac{b}{a+2c}$ 的取值范围是 ______&lt;/li&gt;
+&lt;li&gt;若 $x^{x^3} = 3$, 则 $x^9 = $ ______&lt;/li&gt;
+&lt;li&gt;$x^{2026} = e^x$ 的两个绝对值不大于二的实数根为 $\alpha, \beta, |\alpha+\beta|=a \cdot 10^{-b}, b \in \mathbb{N^*}$, 且 $|\lg a - 1|$ 最小, 则 $b =$ ______&lt;/li&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;li&gt;已知 $xy = 6, x, y &amp;gt; 0$, 则 $x + y + \sqrt{(x-2)^2 + (y-3)^2}$ 的最小值为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二解答题共3题-56分"&gt;二、解答题（共3题, 56分）
+&lt;/h3&gt;&lt;h4 id="9-16分-106"&gt;9. (16分， 10+6)
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;如图 1, 圆 $O$ 的一条半径 $OB = 1$, $A, D$ 在射线 $OB$ 上, 且 $OA = \sqrt{2}-1$, $E$ 是圆上一动点, 连接 $AE$ 并延长交圆 $O$ 于点 $F$, 连接 $DF$ 并延长交圆 $O$ 于点 $C$. 求证: $OD = \sqrt{2}-1$ 是 $CE \perp AD$ 的充要条件.&lt;/li&gt;
+&lt;li&gt;如图 2, $BC$ 是圆 $O$ 的一条直径, $A$ 在线段 $OB$ 上, $OA = a, OB = r$, 过点 $A$ 作直线交圆 $O$ 于 $D, E$, 直线 $CD, BE$ 交于点 $F$, 过 $F$ 作 $FG \perp BC$ 于点 $G$. 问: $BG$ 是否为定值? 若是, 求出该定值(用 $a, r$ 表示); 若不是, 说明理由.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1.png"
+width="1449"
+height="856"
+srcset="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1_hu_b943c38779cd1705.png 480w, https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1_hu_13aa3973c7f14851.png 1024w"
+loading="lazy"
+alt="图 1"
+class="gallery-image"
+data-flex-grow="169"
+data-flex-basis="406px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2.png"
+width="1322"
+height="828"
+srcset="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2_hu_50cb146ec371ad52.png 480w, https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2_hu_32b323b3c9bd992b.png 1024w"
+loading="lazy"
+alt="图 2"
+class="gallery-image"
+data-flex-grow="159"
+data-flex-basis="383px"
+&gt;&lt;/p&gt;
+&lt;h4 id="10-20分-488"&gt;10. (20分, 4+8+8)
+&lt;/h4&gt;&lt;p&gt;已知 $x^2 - 4xy + 8y^2 = 8, x, y \in \mathbb{R}$.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求 $xy$ 的最大值.&lt;/li&gt;
+&lt;li&gt;分别求 $x, y$ 的取值范围, 并求当 $|x|$ 最大时 $|x+y|$ 的值.&lt;/li&gt;
+&lt;li&gt;当 $x &amp;lt; 0, y &amp;gt; 0$ 时, $x, y$ 之间存在函数关系 $y = f(x)$. 证明或证伪: $f(x)$ 单调.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="11-20分-479"&gt;11. (20分, 4+7+9)
+&lt;/h4&gt;&lt;p&gt;若函数 $f(x)$ 满足: 对于任意的正数$s, t$, 都有 $f(s), f(t) &amp;gt; 0$, 且 $f(s) + f(t) &amp;lt; f(s + t)$, 则称 $f(x)$ 为“L 函数”.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;试判断 $h(x) = x^3 + x$ 是不是 “L 函数”, 说明理由.&lt;/li&gt;
+&lt;li&gt;若函数 $g(x) = a(e^x - 1) + (e^x + 1)$ 是“L 函数”，求实数 $a$ 的取值范围.&lt;/li&gt;
+&lt;li&gt;若函数 $f(x)$ 是“L 函数”, 且 $f(x) = 2$. 求证: $\forall x \in (1, +\infty), f(x) &amp;gt; 2(x-1)$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="三附加单选题共-5-题-30分"&gt;三、附加单选题（共 5 题, 30分）
+&lt;/h3&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;ol start="12"&gt;
+&lt;li&gt;在平面直角坐标系中, 设 $\triangle ABC$ 的顶点分别为 $A(0, a), B(b, 0), C(c, 0)$, 点 $P(0, p)$ 在线段 $OA$ 上且异于端点, 设 $abcp \neq 0$, 直线 $BP$ 与 $AC$ 相交于 $E$, $CP$ 交 $AB$ 于 $F$, 已知直线 $OE: (\frac{1}{b}-\frac{1}{c})x+(\frac{1}{p}-\frac{1}{a})y=0$, 则 $OF$ 的表达式为 ______
+&lt;ul&gt;
+&lt;li&gt;A. $(\frac{1}{c}-\frac{1}{b})x+(\frac{1}{p}-\frac{1}{a})y=0$&lt;/li&gt;
+&lt;li&gt;B. $(\frac{1}{b}-\frac{1}{a})x+(\frac{1}{p}-\frac{1}{c})y=0$&lt;/li&gt;
+&lt;li&gt;C. $(b-c)x+(p-a)y=0$&lt;/li&gt;
+&lt;li&gt;D. 以上说法均错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;从 $1, 2, 3, \cdots, 10$ 中选出三个不同的数, 使得这三个数中任意两数之和都是合数, 则不同的选法共有 ______
+&lt;ul&gt;
+&lt;li&gt;A. 20&lt;/li&gt;
+&lt;li&gt;B. 25&lt;/li&gt;
+&lt;li&gt;C. 30&lt;/li&gt;
+&lt;li&gt;D. 35&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;设 $n \in \mathbb{N^*}$, 且 $n^2 + 19 n + 13$ 为完全平方数. 这样的 $n$ 的个数有 ______
+&lt;ul&gt;
+&lt;li&gt;A. 0&lt;/li&gt;
+&lt;li&gt;B. 1&lt;/li&gt;
+&lt;li&gt;C. 2&lt;/li&gt;
+&lt;li&gt;D. 无穷多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;把一个集合 $M$ 分成 $n$ 个非空子集: $A_1, A_2, A_3, \cdots, A_n$, 如果: (1) $A_i \cap A_j = \emptyset, 1 \le i, j \le n, i \neq j$; (2) $A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_n = M$, 那么这些子集的全体叫做集合 $M$ 的一个 $n$-分划. 现有由正整数组成的集合 $C$, 满足如下条件: 删除其中的任意一个元素后形成的集合 $C_0$ 存在一个 2-分划, 使得每个子集内的元素之和相等. 则集合 $C$ 中至少有多少个元素?
+&lt;ul&gt;
+&lt;li&gt;A. 5&lt;/li&gt;
+&lt;li&gt;B. 7&lt;/li&gt;
+&lt;li&gt;C. 8&lt;/li&gt;
+&lt;li&gt;D. 10&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;若 $a = \lg 2 \times \lg 5, b = \frac{\ln 2}{2}, c = \frac{\ln 3}{3}$, 则
+&lt;ul&gt;
+&lt;li&gt;A. $a &amp;gt; c &amp;gt; b$&lt;/li&gt;
+&lt;li&gt;B. $b &amp;gt; c &amp;gt; a$&lt;/li&gt;
+&lt;li&gt;C. $a &amp;gt; b &amp;gt; c$&lt;/li&gt;
+&lt;li&gt;D. $c &amp;gt; b &amp;gt; a$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="参考答案"&gt;参考答案
+&lt;/h2&gt;&lt;h3 id="一填空题"&gt;一、填空题
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;$M = N$&lt;/li&gt;
+&lt;li&gt;$\frac{1 + \sqrt{3} \cdot 2023}{\sqrt{3} - 2023}$&lt;/li&gt;
+&lt;li&gt;2540&lt;/li&gt;
+&lt;li&gt;$[\frac{3}{2}, +\infty)$&lt;/li&gt;
+&lt;li&gt;27&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;li&gt;$\frac{1}{2}$&lt;/li&gt;
+&lt;li&gt;$5-2\sqrt{3}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二解答题"&gt;二、解答题
+&lt;/h3&gt;&lt;!--markdownlint-disable MD024--&gt;
+&lt;h4 id="9"&gt;9
+&lt;/h4&gt;&lt;h5 id="各小题答案"&gt;各小题答案
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;略&lt;/li&gt;
+&lt;li&gt;$BG = \frac{a^2}{r} - r$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="解析"&gt;解析
+&lt;/h5&gt;&lt;p&gt;暂不提供, 但推荐极点极线法&lt;/p&gt;
+&lt;h4 id="10"&gt;10
+&lt;/h4&gt;&lt;h5 id="各小题答案-1"&gt;各小题答案
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;$2 + 2\sqrt{2}$&lt;/li&gt;
+&lt;li&gt;$x$ 的取值范围是 $[-4, 4]$, $y$ 的取值范围是 $[-\sqrt{2}, \sqrt{2}]$, 当 $|x|$ 最大时 $|x+y|=5$&lt;/li&gt;
+&lt;li&gt;$f(x)$ 单调递增, 证明略&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="解析-1"&gt;解析
+&lt;/h5&gt;&lt;h6 id="1"&gt;(1)
+&lt;/h6&gt;$$ 8 = x^2 - 4xy + 8y^2 \ge 4\sqrt{2} - 4xy $$$$\therefore xy \le 2 + 2\sqrt{2}$$&lt;p&gt;当且仅当 $x = 2\sqrt{2}y$, 即&lt;/p&gt;
+$$
+\left\{\begin{align*}
+x = \sqrt{8+4\sqrt{2}} \\
+y = \sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+或
+\left\{\begin{align*}
+x = -\sqrt{8+4\sqrt{2}} \\
+y = -\sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+$$&lt;p&gt;时取等.&lt;/p&gt;
+&lt;h6 id="2"&gt;(2)
+&lt;/h6&gt;&lt;p&gt;配方得&lt;/p&gt;
+&lt;p&gt;$(x - 2y)^2 + 4y^2 = 8$&lt;/p&gt;
+&lt;p&gt;$\therefore 8 = (x - 2y)^2 + 4y^2 \ge \frac{1}{2}x^2 \Rightarrow x^2 \le 16$&lt;/p&gt;
+&lt;p&gt;$\therefore x$ 的范围是&lt;/p&gt;
+$$
+[-4, 4]
+$$&lt;p&gt;又 $x^2-4xy+8y^2-8=0$,&lt;/p&gt;
+&lt;p&gt;把它看作关于 $x$ 的一元二次方程, 则该方程有解,&lt;/p&gt;
+&lt;p&gt;$\therefore \Delta = (4y)^2 - 4 \cdot 1 \cdot (8y^2 - 8) = 16(2-y^2) \ge 0$&lt;/p&gt;
+&lt;p&gt;$\therefore y$ 的范围是&lt;/p&gt;
+$$
+[-\sqrt{2}, \sqrt{2}]
+$$&lt;p&gt;当 $|x|$ 取最大值 4 时, 令 $x = 4 \Rightarrow y = 1, x = -4 \Rightarrow y = -1$,&lt;/p&gt;
+$$
+\therefore |x+y|=5
+$$&lt;h6 id="3"&gt;(3)
+&lt;/h6&gt;&lt;p&gt;$\forall -4 \le x_1 &amp;lt; x_2 &amp;lt; 0$ 且 $y_1 = f(x_1) &amp;gt; 0, y_2 = f(x_2) &amp;gt; 0$,&lt;/p&gt;
+&lt;p&gt;则&lt;/p&gt;
+$$
+\begin{align*}
+x_1^2 - 4x_1y_1 + 8y_1^2 = 8 \\
+x_2^2 - 4x_2y_2 + 8y_2^2 = 8
+\end{align*}
+$$&lt;p&gt;两式相减得&lt;/p&gt;
+&lt;p&gt;$(x_1^2 - x_2^2) - 4(x_1y_1 - x_2y_2) + 8(y_1 - y_2)(y_1 + y_2) = 0$&lt;/p&gt;
+&lt;p&gt;$\because x_1 &amp;lt; x_2 &amp;lt; 0 \Rightarrow (x_1 - x_2)(x_1 + x_2) &amp;gt; 0$,&lt;/p&gt;
+&lt;p&gt;$\therefore 2(y_1 - y_2)(y_1 + y_2) &amp;lt; x_1y_1 - x_2y_2 &amp;lt; x_2(y_1 - y_2)$&lt;/p&gt;
+&lt;p&gt;$\therefore (y_1 - y_2)(2y_1 + 2y_2 - x_2) &amp;lt; 0$&lt;/p&gt;
+&lt;p&gt;$\because y_1 &amp;gt; 0, y_2 &amp;gt; 0, x_2 &amp;lt; 0 \Rightarrow 2y_1 + 2y_2 - x_2 &amp;gt; 0$&lt;/p&gt;
+&lt;p&gt;$\therefore y_1 &amp;lt; y_2, f(x_1) &amp;lt; f(x_2)$&lt;/p&gt;
+&lt;p&gt;$\therefore f(x)$ 单调递增.&lt;/p&gt;
+&lt;h4 id="11"&gt;11
+&lt;/h4&gt;&lt;p&gt;暂不提供&lt;/p&gt;
+&lt;h3 id="三附加单选题"&gt;三、附加单选题
+&lt;/h3&gt;&lt;p&gt;暂不提供&lt;/p&gt;</description></item><item><title>学考成绩</title><link>https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/</link><pubDate>Sat, 15 Nov 2025 09:43:37 +0000</pubDate><guid>https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/</guid><description>&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/score.png"
+width="1799"
+height="399"
+srcset="https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/score_hu_c343fbf0c4d2fb92.png 480w, https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/score_hu_700e87e76622a77b.png 1024w"
+loading="lazy"
+alt="score"
+class="gallery-image"
+data-flex-grow="450"
+data-flex-basis="1082px"
+&gt;&lt;/p&gt;</description></item><item><title>MCDRpost v3.3.3</title><link>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</link><pubDate>Sat, 25 Oct 2025 17:59:10 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;[!IMPORTANT]
+此版本强烈建议更新！除非你没有更新3.3.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="changelog"&gt;ChangeLog
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;li&gt;（&lt;strong&gt;严重&lt;/strong&gt;）修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>MCDRpost 更新日志</title><link>https://xieyuen-org.github.io/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</link><pubDate>Sat, 25 Oct 2025 17:42:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</guid><description>&lt;!-- markdownlint-disable MD024 --&gt;
+&lt;h2 id="340-alpha3"&gt;[3.4.0-alpha.3]
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新开分支专门准备放弃 Python 3.10 的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;内置处理器的条件函数替换成元组比较&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="340-alpha2"&gt;[3.4.0-alpha.2]
+&lt;/h2&gt;&lt;h3 id="added-1"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;补充了一些类型注解&lt;/li&gt;
+&lt;li&gt;添加弃用提示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-1"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;简化协调器模块的命名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="deprecated"&gt;Deprecated
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;弃用的配置&lt;/th&gt;
+&lt;th style="text-align: center"&gt;新配置&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;command_prefixed&lt;/td&gt;
+&lt;td style="text-align: center"&gt;prefix.more_prefix&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;allow_alias&lt;/td&gt;
+&lt;td style="text-align: center"&gt;prefix.enable_addition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;command_permission&lt;/td&gt;
+&lt;td style="text-align: center"&gt;permissions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="340-alpha1"&gt;[3.4.0-alpha.1]
+&lt;/h2&gt;&lt;h3 id="added-2"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;env.server_version&lt;/code&gt; 支持元组比较
+&lt;ul&gt;
+&lt;li&gt;e.g. &lt;code&gt;env.server_version &amp;gt;= (1, 20, 5)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;补充了 TranslationKeyItem 的 docstring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-2"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构了 CommandManager, 分离 UI 和命令解析
+&lt;ul&gt;
+&lt;li&gt;新增 CommandPreHandler 处理解析的类型与功能类的交互&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重构了 PostManager, 保持邮寄核心功能的单一职责
+&lt;ul&gt;
+&lt;li&gt;添加了 MCDRpostCoordinator 类作为协调器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333"&gt;[3.3.3]
+&lt;/h2&gt;&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-beta2"&gt;[3.3.3-beta.2]
+&lt;/h2&gt;&lt;h3 id="added-3"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-3"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;原名称&lt;/th&gt;
+&lt;th style="text-align: center"&gt;新名称&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;TranslationKeyItem.__FULL_KEY&lt;/td&gt;
+&lt;td style="text-align: center"&gt;TranslationKeyItem.__FULL_KEY_TEMPLATE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;utils.__Node&lt;/td&gt;
+&lt;td style="text-align: center"&gt;utils.__NodeType&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="333-beta1"&gt;[3.3.3-beta.1]
+&lt;/h2&gt;&lt;h3 id="changed-4"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-alpha3"&gt;[3.3.3-alpha.3]
+&lt;/h2&gt;&lt;h3 id="fixed-1"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-alpha2"&gt;[3.3.3-alpha.2]
+&lt;/h2&gt;&lt;h3 id="changed-5"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332---yanked"&gt;[3.3.2] - [YANKED]
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;[!CAUTION]
+Due to a critical bug, this version is yanked.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="332-rc2---2025-09-21"&gt;[3.3.2-rc.2] - 2025-09-21
+&lt;/h2&gt;&lt;h3 id="added-4"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增错误提示，保证用户体验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了无意义的 &lt;code&gt;__all__&lt;/code&gt; 变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-rc1---2025-09-21"&gt;[3.3.2-rc.1] - 2025-09-21
+&lt;/h2&gt;&lt;h3 id="fixed-2"&gt;Fixed
+&lt;/h3&gt;&lt;p&gt;修复了玩家无法接受物品的问题&lt;/p&gt;
+&lt;h2 id="332-beta5---2025-09-20"&gt;[3.3.2-beta5] - 2025-09-20
+&lt;/h2&gt;&lt;h3 id="changed-6"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构了 &lt;code&gt;AbstractVersionHandler&lt;/code&gt; 类
+&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;item2str&lt;/code&gt; 和 &lt;code&gt;dict2item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;新增了 (abstractmethod) &lt;code&gt;get_offhand_item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;is_builtin&lt;/code&gt; 不再是 property 而是 classmethod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重构了 &lt;code&gt;BulitinVersionHandler&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 &lt;code&gt;get_offhand_item&lt;/code&gt; 实现&lt;/li&gt;
+&lt;li&gt;新增 &lt;code&gt;replace&lt;/code&gt; 实现（仅在 &lt;code&gt;Since9Handler&lt;/code&gt; 中被覆盖）&lt;/li&gt;
+&lt;li&gt;新增 (abstractmethod) &lt;code&gt;item2str&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;新增 (abstractmethod) &lt;code&gt;dict2item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="added-5"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增了 &lt;code&gt;DefaultVersionHandler&lt;/code&gt; 类并且暴露至 api&lt;/li&gt;
+&lt;li&gt;API
+&lt;ul&gt;
+&lt;li&gt;暴露 &lt;code&gt;DefaultVersionHandler&lt;/code&gt; 类&lt;/li&gt;
+&lt;li&gt;暴露 &lt;code&gt;OFFHAND_CODE&lt;/code&gt; 常量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta4"&gt;[3.3.2-beta4]
+&lt;/h2&gt;&lt;h3 id="added-6"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实现了自定义 Handler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta3"&gt;[3.3.2-beta3]
+&lt;/h2&gt;&lt;h3 id="removed-1"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;utils.types&lt;/code&gt; 模块&lt;/li&gt;
+&lt;li&gt;删除了一些没有用的方法/函数&lt;/li&gt;
+&lt;li&gt;删除了 &lt;code&gt;reload&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; 命令及其权限配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-7"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重命名 &lt;code&gt;before17&lt;/code&gt; 为 &lt;code&gt;since9&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新增 &lt;code&gt;reload&lt;/code&gt; 子命令，用于重新加载配置文件和订单数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed-3"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复反序列化失败的问题&lt;/li&gt;
+&lt;li&gt;修复在插件加载阶段时如果订单无效翻译出错的问题&lt;/li&gt;
+&lt;li&gt;修复了插件加载时的翻译报错问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta2"&gt;[3.3.2-beta2]
+&lt;/h2&gt;&lt;h3 id="changed-8"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构 &lt;code&gt;version_handler&lt;/code&gt; 模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta1"&gt;[3.3.2-beta1]
+&lt;/h2&gt;&lt;h3 id="removed-2"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;reload&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; 命令及其权限配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed-4"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了插件加载时的翻译报错问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="331"&gt;[3.3.1]
+&lt;/h2&gt;&lt;h3 id="changed-9"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;获得了 Flyky 的授权，更新 MCDRpost 在插件仓库的信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="330"&gt;[3.3.0]
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;[!WARNING]
+此版本和旧版本不兼容，需要更新数据文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="added-7"&gt;Added
+&lt;/h3&gt;&lt;p&gt;实现对 Minecraft 1.20.5 版本及以上的支持&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;改变了原来订单中物品的储存方式，拆分得更加细致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="321"&gt;[3.2.1]
+&lt;/h2&gt;&lt;h3 id="changed-10"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 MCDR 2.15.0 的新特性，MCDRpost 不再支持低于 2.15.0 以下的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="320"&gt;[3.2.0]
+&lt;/h2&gt;&lt;h3 id="added-8"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;添加了新玩家登录时是否自动注册的配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="312"&gt;[3.1.2]
+&lt;/h2&gt;&lt;h3 id="added-9"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;添加了命令的权限配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="300"&gt;[3.0.0]
+&lt;/h2&gt;&lt;h3 id="changed-11"&gt;Changed
+&lt;/h3&gt;&lt;p&gt;重构了旧代码，具体包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模块化重构&lt;/li&gt;
+&lt;li&gt;利用面向对象实现 MCDRpost 主要功能&lt;/li&gt;
+&lt;li&gt;增加了配置文件&lt;/li&gt;
+&lt;li&gt;修改了原来的订单管理系统，并且使用 &lt;code&gt;server.load_config_simple&lt;/code&gt; 和 &lt;code&gt;server.save_config_simple&lt;/code&gt; 实现订单数据的加载和保存&lt;/li&gt;
+&lt;li&gt;拆分了冗长的 &lt;code&gt;__init__.py&lt;/code&gt;，用几个 Manager 代替&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="211"&gt;[2.1.1]
+&lt;/h2&gt;&lt;h3 id="fixed-5"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了插件不能加载的问题 (Flyky/MCDRpost#8)&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>基于线性回归模型的城市水资源预测模型</title><link>https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/</link><pubDate>Tue, 07 Oct 2025 05:54:32 +0000</pubDate><guid>https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;参赛选手：陈君逸、黄孜勇、罗梓宁、谢瑜恩、叶彬&lt;/br&gt;
+指导老师：蔡维、江滢滢、李艾&lt;/br&gt;
+排名不分先后&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="摘要"&gt;摘要
+&lt;/h2&gt;&lt;p&gt;水，是生命之源.水资源是维系地球生态系统和人类文明存续的基础性资源.虽然我国面积广阔，从水资源总量来看，是一个比较丰富的国家，但是在世界平均水平中人均占有量确仅有
+1/4，被联合国评为“水资源紧缺型”
+的国家.而且水资源分配情况呈现出极度不平衡状态.本文针对水资源的影响因素，基于数学分析方法，分别采用多元线性回归模型进行建模分析.水资源主要影响因素分为自然因素与人文因素.但由于人文因素影响复杂且常年稳定，故本建模以对自然因素的研究为主.&lt;/p&gt;
+&lt;p&gt;首先，我们利用河源市2006~
+2023年的历史数据，使用python绘制散点图，以及计算样本相关系数，判断自变量与因变量的相关性.接着基于多元线性回归模型，利用最小二乘法，我们选取了部分变量作为解释变量.对被解释变量即水资源总量进行初步建模，求解回归系数.在考虑变量的合理性（如是否遗漏关键因素）后剔除相关性不大的变量，进一步建模，通过公式计算模型的决定系数
+，调整 ,检验模型精确度.结果显示，年降水量、年日照时长与水资源总量基本呈线性关系.&lt;/p&gt;
+&lt;p&gt;随后我们尝试对模型进行推广，以运用于其他城市.由于不同城市的自然条件、社会经济状况存在显著差异，适用于河源市的模型直接套用，出现了很大的误差，于是尝试添加更多的解释变量如城市面积、城市大型水库蓄水量、城市用水量进行修正，进一步优化后，得到的模型有一定的预测能力，能在一定条件下实现预测功能.&lt;/p&gt;
+&lt;p&gt;最后，本文对提出的模型进行了全面综合的评价：
+该模型在水资源影响因素的研究有一定意义，其反映了自然因素在水资源配置中几乎发挥了决定性的作用；增加修筑城市内部水利工程，加大力度宣扬节约用水，推广节水设施可以在一定程度上优化城市内水资源配置.但在该基础上，仍可以考虑其他非线性模型优化，提高模型精度与适用性.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词:&lt;/strong&gt; 水资源；R方检测法；线性回归模型；最小二乘法;python&lt;/p&gt;
+&lt;h2 id="一自拟题目描述"&gt;一、自拟题目描述
+&lt;/h2&gt;&lt;p&gt;水，是生命之源.水资源是维系地球生态系统和人类文明存续的基础性资源.然而随着人口增长、经济发展和气候变化影响，水资源短缺与污染问题日益凸显，虽然我国面积广阔，从水资源总量来看，是一个比较丰
+富的国家，但是在世界平均水平中人均占有量确仅有1/4，被联合国评为“水资源紧缺型” 的国家[^1]
+.而且水资源分配情况呈现出极度不平衡状态，主要表现有：时空分布极不均衡、
+供需矛盾日益尖锐、水污染问题突出、利用效率偏低等等.为了优化水资源配置，增强水资源调控能力，请你完成以下数学建模探究：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;以河源市为例，运用数学知识，对水资源总量影响因素进行探究并且建立简单的的数学模型，并你所建立的模型进行优化；&lt;/li&gt;
+&lt;li&gt;(1) 中的模型是否能用于其他城市，如不能，应如何改进？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="二问题分析"&gt;二、问题分析
+&lt;/h2&gt;&lt;p&gt;水资源是关乎区域生态安全与社会经济发展的核心资源，我国水资源总量丰富但人均不足、分布失衡的现状，凸显了精准分析水资源影响因素、构建科学调控模型的重要性.整体而言，问题的核心在于从复杂的水资源系统中提炼关键影响因素，建立可量化的关系模型，并通过对模型适应性的分析，形成具有一定推广意义的研究思路.&lt;/p&gt;
+&lt;h3 id="21-问题-1-的分析"&gt;2.1 问题 1 的分析
+&lt;/h3&gt;&lt;p&gt;针对问题（1）的研究&lt;/p&gt;
+&lt;p&gt;对于城市水资源总量一般情况下往往会有多个因变量对其产生影响，其中包括了自然因素和人文因素.由于人文因素常年波动幅度较小且对水资源总量影响不大，这里我们忽略人文因素，只考虑自然因素，我们选取了年平均气温年降水量，年日照时长年相对湿度作为解释变量.根据所给数据，我们采用图像法以及样本相关系数法[^2]
+观察各自变量与因变量的相关性，得到粗略关系，再进一步建立多元线性回归模型[^3]，检验模型预测准度.&lt;/p&gt;
+&lt;h3 id="22-问题-2-的分析"&gt;2.2 问题 2 的分析
+&lt;/h3&gt;&lt;p&gt;针对问题（2）的研究&lt;/p&gt;
+&lt;p&gt;此问题是在检验模型的适用性，尝试将模型推广到更普适的高度.我们这样先采用已有的模型，输入其他城市的相关数据，并进行检验.此过程中可能会遇到，模型偏差较大的情况.为了简化问题探究过程，我们忽略了城市间在地形，城市布局等各方面的影响因素，尝试添加城市面积、城市主要河流径流、主要水库蓄水面积.作为新的解释变量，进一步优化模型.以期提升其在不同地域的适用性，实现从“个案模型”到“可迁移模型”的转化.&lt;/p&gt;
+&lt;h2 id="三模型假设"&gt;三、模型假设
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;假设题目所给的数据真实可靠；&lt;/li&gt;
+&lt;li&gt;假设城市间在地形，城市空间布局等除解释变量的因素都可忽略.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="四定义与符号说明"&gt;四、定义与符号说明
+&lt;/h2&gt;&lt;p&gt;网站暂不给出&lt;/p&gt;
+&lt;h2 id="五模型的建立与求解"&gt;五、模型的建立与求解
+&lt;/h2&gt;&lt;p&gt;数据的预处理：&lt;/p&gt;
+&lt;p&gt;本研究收集到了河源市、北京市、深圳市、上海市、杭州市 2001 至 2022 年相关数据.主创团队首先对收集到的原始数据进行全面梳理，通过
+python matplotlib 可视化方法识别异常值.&lt;/p&gt;
+&lt;p&gt;河源市 2007 年以前的数据缺失，上海市 2009 年以前的数据缺失，杭州市 2006 年以前的数据缺失，我们选择直接舍弃.&lt;/p&gt;
+&lt;p&gt;在收集到的数据中，发现河源市某年年降雨量极端异常.于是我们选择删去，并通过其他渠道补充数据.&lt;/p&gt;
+&lt;h3 id="51问题1的模型建立与求解"&gt;5.1问题1的模型建立与求解
+&lt;/h3&gt;&lt;h4 id="511-对多元线性回归模型的建立"&gt;5.1.1 对多元线性回归模型的建立
+&lt;/h4&gt;&lt;p&gt;首先我们先进行数据的相关性检验，确定 2006~2022
+年河源市年相对湿度年均气温年降水量年日照的时长与水资源总量较相关的有几项.初步分析时，我们同时采用图像与样本相关系数来比较关联程度.以下是各自变量与因变量的样本相关系数.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;自变量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;样本相关系数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年降雨量&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.9589002143077459&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年均温&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.4907012441700653&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年日照时长&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.8500764086782552&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年平均相对湿度&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.5083870754427816&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/rain.png"
+width="576"
+height="432"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/rain_hu_fd3d9831b970dd68.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/rain_hu_96879e41bdee2464.png 1024w"
+loading="lazy"
+alt="年降雨量与水资源总量"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;
+！&lt;a class="link" href="temp.png" &gt;年均温与水资源总量&lt;/a&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/time.png"
+width="576"
+height="432"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/time_hu_2c0096ad5fee2357.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/time_hu_863916eccd9bcee3.png 1024w"
+loading="lazy"
+alt="年日照时长与水资源总量"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/hum.png"
+width="576"
+height="432"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/hum_hu_f6d13d984154561f.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/hum_hu_107e345f31892553.png 1024w"
+loading="lazy"
+alt="年平均相对湿度与水资源总量"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;&lt;/p&gt;
+&lt;p&gt;根据样本相关系数及观察图像，我们注意到年日照时长与年均温呈现一定的负相关关系，而降雨量和年均相对湿度呈现正相关关系，于是我们考虑使用多元线性回归模型拟合数据.&lt;/p&gt;
+&lt;p&gt;借助python中的scikit-learn模块我们可以得到如下拟合结果（数值计算的代码见附件，论文内展示数据保留三位小数）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;统计量&lt;/th&gt;
+&lt;th&gt;年降雨量&lt;/th&gt;
+&lt;th&gt;年日照时长&lt;/th&gt;
+&lt;th&gt;年均温&lt;/th&gt;
+&lt;th&gt;年均相对湿度&lt;/th&gt;
+&lt;th&gt;截距&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;回归系数&lt;/td&gt;
+&lt;td&gt;0.071&lt;/td&gt;
+&lt;td&gt;-0.078&lt;/td&gt;
+&lt;td&gt;1.372&lt;/td&gt;
+&lt;td&gt;-0.808&lt;/td&gt;
+&lt;td&gt;192.517&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;P值&lt;/td&gt;
+&lt;td&gt;2.487e-06&lt;/td&gt;
+&lt;td&gt;0.014&lt;/td&gt;
+&lt;td&gt;0.819&lt;/td&gt;
+&lt;td&gt;0.403&lt;/td&gt;
+&lt;td&gt;0.114&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;决定系数 \(R^2\)&lt;/td&gt;
+&lt;td&gt;0.960&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;调整 \(R^2\)&lt;/td&gt;
+&lt;td&gt;0.946&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;得到经验回归方程&lt;/p&gt;
+\[
+\hat{y} = 0.071 x_1 -0.078 x_2 + 1.372 x_3 -0.808 x_4 + 192.517
+\]&lt;h4 id="512多元线性回归模型的优化"&gt;5.1.2多元线性回归模型的优化
+&lt;/h4&gt;&lt;p&gt;基于对1中模型的结果，我们尝试对其进行优化，优化方向如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;考虑到问题1我们所建立的模型中，自变量年相对湿度和年平均气温的样本相关系数绝对值较小，相关性较弱，于是我们尝试删去这两个自变量，只保留年降雨量和日照时长.&lt;/li&gt;
+&lt;li&gt;问题（1）中我们没有对数据进行标准化处理，这次我们尝试标准化.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;标准化是数据预处理的常用方法，目的是将不同量级不同单位的数据转换在同一个尺度上,消除量纲差异，使数据更具有可比性.我们使用Z-score
+Normalization的方法进行标准化[^3]，转化公式如下&lt;/p&gt;
+\[
+\hat{x} = \frac{x - \mu}{\sigma}
+\]&lt;p&gt;再删除两个相关性较弱的变量，用python拟合得到结果（数值计算的代码见附件，论文内展示数据保留三位小数）
+以下是经过计算得出的模型数据，&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;统计量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年降雨量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年日照时长&lt;/th&gt;
+&lt;th style="text-align: center"&gt;截距&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;回归系数&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.737&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.295&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4.215e-16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;P值&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4.769e-07&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3.511e-3&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;决定系数 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.957&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;调整 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.951&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/2.png"
+width="1134"
+height="664"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/2_hu_50deda8484d98bfb.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/2_hu_e3baf19a46f70bfa.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp.png"
+width="1134"
+height="664"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_hu_3ab5a529ee8c1cbb.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_hu_2c662ec5bec2d105.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_pred.png"
+width="1134"
+height="664"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_pred_hu_3858412606b2c246.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_pred_hu_e978ff4f92446f08.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+&gt;&lt;/p&gt;
+&lt;h4 id="513-结果"&gt;5.1.3 结果
+&lt;/h4&gt;&lt;p&gt;先运用样本相关系数评估了各自变量对因变量的相关性,得出年降雨量和年均气温是城市水资源总量的主要影响因素.&lt;/p&gt;
+&lt;p&gt;接着采用多元线性回归模型，建立水资源总量与各自变量间的关系.建构模型时使用了2007~2023年的数据，观察到决定系数 和调整
+都接近1，可以认为模型较好地反映了自变量与因变量的数量关系.&lt;/p&gt;
+&lt;p&gt;鉴于城市水资源总量与年降雨量、日照时长关联较大，政府可加强雨水收集与利用，以此提高水资源总量.&lt;/p&gt;
+&lt;h3 id="52-问题-2-的模型建立与求解"&gt;5.2 问题 2 的模型建立与求解
+&lt;/h3&gt;&lt;h4 id="521-多元线性回归模型的建立"&gt;5.2.1 多元线性回归模型的建立
+&lt;/h4&gt;&lt;p&gt;我们现在需要尝试推广这个模型，将其应用到更多城市中，使其具有普适性.首先我们，将北京市的数据代入原有模型中，发现模型输出值和真实值差异较大.&lt;/p&gt;
+&lt;p&gt;考虑到不同城市的自然条件、社会经济状况存在显著差异，于是我们尝试进一步考察各城市间的城市的面积，城市大型河流年径流量，城市大型水库蓄水量对水资源总量的影响，添加自变量.自变量
+为城市面积， 为城市用水量， 为城市大型水库蓄水量.&lt;/p&gt;
+&lt;p&gt;借助python中的scikit-learn模块，代入河源市、北京市、杭州市、深圳市、上海市的数据，我们可以得到如下拟合结果（数值计算的代码见附件，论文内展示数据保留三位小数）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;统计量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年降雨量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年日照时长&lt;/th&gt;
+&lt;th style="text-align: center"&gt;城市面积&lt;/th&gt;
+&lt;th style="text-align: center"&gt;城市大型水库蓄水量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;城市用水量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;截距&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;回归系数&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.612&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.303&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.054&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.088&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.0388&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-9.021e-17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;P值&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.957e-06&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4.582e-3&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.295&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.493&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.728&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;决定系数 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.968&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;调整 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.963&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="522-结果"&gt;5.2.2 结果
+&lt;/h4&gt;&lt;p&gt;找到城市面积城市大型蓄水量和城市用水量，三个数据作为新增的自变量，以适应不同城市水资源配置上的差异.接着进行数据标准化，带入线性回归方程求解，得到的模型，观察数据拟合结果发现本次模型的决定系数
+和调整 也较接近1，说明本次数据拟合效果较好.对于新添加的变量城市面积\城市大型水库蓄水量和城市用水量的p值较大,说明他们与城市总用水量之间可能并非简单的线性关系，由此造成模型误差增加.&lt;/p&gt;
+&lt;p&gt;由以上模型我们可以得到城市面积城市大型水库蓄水量与水资源总量成正相关关系，而城市用水量与水资源总量呈负相关关系.观察模型各自变量的回归系数，我们发现城市面积，城市大型水库蓄水量和城市用水量的回归系数都较小，说明他们在对水资源总量的影响上没有前两者明显.但我们并不可否认此三者对水资源总量的影响.三者中城市大型水库蓄水量的回归系数绝对值最大，反映了相关水利工程在水资源保护中的重要意义.而城市面积一定程度上反映了一个城市在自然条件下富集水资源的能力.城市用水量虽然在三者中回归系数绝对值最小，但仍然不容忽视.它在一定程度上与浪费水资源的现象有关，为城市内部合理调配水资源提供数据参考.&lt;/p&gt;
+&lt;p&gt;综上所述，我们可以得出结论，自然因素在水资源配置中几乎发挥了决定性的作用，这也是造成我国南北水资源差异的主要因素.增加修筑城市内部水利工程，可以有效缓解上述问题.同时政府应该加大力度宣扬节约用水，保护水资源，如设置价梯水价，推广节水设施，鼓励企业采用循环水资源的生产流程，改建农业灌溉技术等等.&lt;/p&gt;
+&lt;h2 id="六模型的评价及优化"&gt;六、模型的评价及优化
+&lt;/h2&gt;&lt;h3 id="61-误差分析"&gt;6.1 误差分析
+&lt;/h3&gt;&lt;h4 id="611-针对问题1的误差分析"&gt;6.1.1 针对问题1的误差分析
+&lt;/h4&gt;&lt;p&gt;模型1在使用python拟合模型的时候并未进行标准化除去量纲带来的影响，并且我们发现年均温与年均相对湿度的样本相关系数的绝对值偏小，P值偏大，我们考虑删除这两个自变量以优化该模型.
+删除两个自变量之后，模型的精度得到了显著的提高.两个自变量的p值极小，最后的决定系数r方和调整r方较接近1.但仍有误差，我们猜测这些误差可能来自于没有将人文因素考虑进去.&lt;/p&gt;
+&lt;h4 id="612-针对问题2的误差分析"&gt;6.1.2 针对问题2的误差分析
+&lt;/h4&gt;&lt;p&gt;本次建模的误差主要来自于各城市间自然条件，社会经济状况差异较大，同时我们只选取了5个城市，得到的模型不能完全反映所有城市的共同特点.同时数据中出现的缺失，主创团队选择了直接舍弃，也是可能存在的误差原因.或许可以采用一些数学方法估计缺失值，从而保留了该年份的其他有效数值.&lt;/p&gt;
+&lt;p&gt;其次，我们使用了软件帮助我们计算，精度误差不可避免地就会产生.&lt;/p&gt;
+&lt;p&gt;再者，误差也极有可能是多元线性回归模型本身的局限性造成的，相关人文因素可能与因变量间并非呈简单的线性关系,可以考虑后续添加交互项来进一步拟合.&lt;/p&gt;
+&lt;h3 id="62-模型的优点建模方法创新求解特色等"&gt;6.2 模型的优点（建模方法创新、求解特色等）
+&lt;/h3&gt;&lt;p&gt;灵活运用了高中所学的多元线性回归模型，适当的建立假设简化模型的分析和计算，同时在数据分析中迅速找到关键因素，建构出来的模型预测精度较高.后续能考虑到模型的普适性，并通过增加自变量对其进行进一步的推广，一定程度上扩大了模型的适用范围，使模型本身对于水资源调配更具有现实意义.&lt;/p&gt;
+&lt;h3 id="63-模型的缺点"&gt;6.3 模型的缺点
+&lt;/h3&gt;&lt;p&gt;本模型到优化后期就受到了数据量的制约影响，限制了模型的精度.模型的预测结果也受一些不可控的因素的影响，存在不确定性.同时多元线性回归模型本身由于忽略自变量问的纠缠，或自变量与因变量非线性关系，也不能完美地反映各自变量与因变量之间的数量关系.&lt;/p&gt;
+&lt;h3 id="64-模型的推广"&gt;6.4 模型的推广
+&lt;/h3&gt;&lt;p&gt;本模型运用到了高中所学的知识，能够有效地预测结果.若要对其推广和优化，我们可以考虑的方向有：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;增加数据的输入量，使预测模型精度更高更可信；&lt;/li&gt;
+&lt;li&gt;引入更多影响因素如城市地形条件、城市植被覆盖率、城市水文条件等等，以更详细地量化自变量与因变量数量关系.&lt;/li&gt;
+&lt;li&gt;对部分数据进行滞后处理，如使用上一年用水量，避免双向因果干扰.&lt;/li&gt;
+&lt;li&gt;考虑更加先进更加复杂的模型（如系统动力学）进行建模.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="参考文献"&gt;参考文献
+&lt;/h2&gt;&lt;p&gt;[^1] &lt;a class="link" href="http://baike.so.com/doc/4958951-5180921.html" target="_blank" rel="noopener"
+&gt;360 百科&lt;/a&gt;.
+[^2] 高中数学选择性必修三
+[^3] 刘来福、徐晓阳、陈雄.高中数学建模[M].北京西城区新街口外大街12-3号.北京师范大学出版社.&lt;/p&gt;</description></item><item><title>My First Post</title><link>https://xieyuen-org.github.io/p/my-first-post/</link><pubDate>Tue, 07 Oct 2025 05:42:14 +0000</pubDate><guid>https://xieyuen-org.github.io/p/my-first-post/</guid><description>&lt;p&gt;My first post!&lt;/p&gt;
+&lt;p&gt;This site will hold all my articles&lt;/p&gt;</description></item><item><title>2024 新年快乐！</title><link>https://xieyuen-org.github.io/old/happynewyear/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/happynewyear/</guid><description>&lt;p&gt;&lt;strong&gt;新的一年到来，祝我 $2024$ 中考大捷！&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>【转载】广东2024中考改革</title><link>https://xieyuen-org.github.io/old/2024zk-info/</link><pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/2024zk-info/</guid><description>&lt;p&gt;这里有两篇相关文章&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="广东9月起启动新一轮中考改革"&gt;广东9月起启动新一轮中考改革
+&lt;/h2&gt;&lt;p&gt;&lt;span style="display:block;text-align:right;"&gt;——转载自广东省人民政府&lt;a class="link" href="https://www.gd.gov.cn/gdywdt/bmdt/content/post_4245393.html" target="_blank" rel="noopener"
+&gt;《广东9月起启动新一轮中考改革》&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;　　为贯彻落实国家关于“双减”政策、教育评价和教育教学改革的新要求，在总结前一轮中考改革的基础上，近日，&lt;a class="link" href="#%e5%b9%bf%e4%b8%9c%e7%9c%81%e6%95%99%e8%82%b2%e5%8e%85%e5%85%b3%e4%ba%8e%e6%b7%b1%e5%8c%96%e9%ab%98%e4%b8%ad%e9%98%b6%e6%ae%b5%e5%ad%a6%e6%a0%a1%e8%80%83%e8%af%95%e6%8b%9b%e7%94%9f%e5%88%b6%e5%ba%a6%e6%94%b9%e9%9d%a9%e7%9a%84%e5%ae%9e%e6%96%bd%e6%84%8f%e8%a7%81" title="点此跳转"
+&gt;广东省教育厅印发《深化高中阶段学校考试招生制度改革实施意见》（下称《意见》）&lt;/a&gt;，自2023年9月1日起实施，有效期5年。&lt;/p&gt;
+&lt;p&gt;　　《意见》明确，&lt;code&gt;道德与法治&lt;/code&gt;、&lt;code&gt;语文&lt;/code&gt;、&lt;code&gt;历史&lt;/code&gt;、&lt;code&gt;数学&lt;/code&gt;、&lt;code&gt;外语&lt;/code&gt;、&lt;code&gt;地理&lt;/code&gt;、&lt;code&gt;物理&lt;/code&gt;、&lt;code&gt;化学&lt;/code&gt;、&lt;code&gt;生物学&lt;/code&gt; 9 门科目笔试采取省级统一命题，广州和深圳 2 个副省级城市试行 9 门科目自主命题。&lt;/p&gt;
+&lt;h3 id="每学年进行一次体测并纳入中考录取计分"&gt;每学年进行一次体测并纳入中考录取计分
+&lt;/h3&gt;&lt;p&gt;　　《意见》提出，学考主要衡量学生达到国家规定学习要求的程度，考试成绩是学生毕业和升学的基本依据，是初中教育教学质量监测的基本依据。&lt;/p&gt;
+&lt;p&gt;　　其中，考试科目涵盖国家《义务教育课程方案和课程标准》（2022年版 7—9 年级，下称《课程方案和标准》）规定的全部科目。&lt;/p&gt;
+&lt;p&gt;　　9 门文化科目包括&lt;code&gt;道德与法治&lt;/code&gt;、&lt;code&gt;语文&lt;/code&gt;、&lt;code&gt;历史&lt;/code&gt;、&lt;code&gt;数学&lt;/code&gt;、&lt;code&gt;外语(含听力或听说，下同)&lt;/code&gt;、&lt;code&gt;地理&lt;/code&gt;、&lt;code&gt;物理（含实验操作，下同）&lt;/code&gt;、&lt;code&gt;化学（含实验操作，下同）&lt;/code&gt;、&lt;code&gt;生物学（含实验操作，下同）&lt;/code&gt;；3门其他科目包括&lt;code&gt;信息科技&lt;/code&gt;、&lt;code&gt;体育与健康&lt;/code&gt;和&lt;code&gt;艺术&lt;/code&gt;等科目。&lt;/p&gt;
+&lt;p&gt;　　考试内容方面，严格依据《课程方案和标准》命题。其中 &lt;strong&gt;9 门文化科目的笔试采取省级统一命题，广州和深圳 2 个副省级城市试行 9 门科目自主命题&lt;/strong&gt;。信息科技、体育与健康、艺术和小语种科目及外语听说，物理、化学和生物学实验操作等，暂由各市自行组织命题。&lt;/p&gt;
+&lt;p&gt;　　在考试方式方面，外语科目实行笔试+听力（或听说）考试的方式；物理、化学和生物学科目采用笔试和实验操作的方式。文化科目可以采用各科分卷或相近科目合卷的方式。&lt;/p&gt;
+&lt;p&gt;　　信息科技、体育与健康和艺术科目考试，以实践测试为主，纸笔测试为辅，采用过程性与终结性考查相结合的方式。体育与健康科目考试在初中每学年要进行一次《国家学生体质健康标准》测试，并将测试成绩按一定比例纳入中考录取计分。&lt;/p&gt;
+&lt;p&gt;　　在考试时间方面，9 门文化科目笔试时间全省统一，其中地理、生物学安排在八年级第二学期末，其他科目安排在九年级第二学期末。&lt;/p&gt;
+&lt;p&gt;　　信息科技科目一般安排在八年级第二学期末，体育与健康和艺术科目及外语听说、理化实验操作一般安排在九年级第二学期5月底前，具体时间由各市自行确定。&lt;/p&gt;
+&lt;p&gt;　　各科卷面原始分数为：&lt;strong&gt;语文、数学和外语科目各 120 分（其中外语科目含外语听力或听说 30 分），其他科目各 100 分&lt;/strong&gt;。其中理化生实验操作考试分数不低于每门科目考试总分的 10%。&lt;/p&gt;
+&lt;h3 id="鼓励采用分数等级或仅用等级的招生录取办法"&gt;鼓励采用“分数+等级”或仅用等级的招生录取办法
+&lt;/h3&gt;&lt;p&gt;　　《意见》明确，建立健全基于学考成绩、结合学生综合素质评价的招生录取模式，完善统一招生、名额分配和自主招生相结合的多元录取机制。克服唯分数论，促进学生全面发展。&lt;/p&gt;
+&lt;p&gt;　　哪些科目纳入中考录取科目？计分比例如何确定？《意见》指出，要以《课程方案和标准》规定的每门课程的课时、课程容量等为主要依据，将纳入招生录取科目的各科目卷面原始分满分值按一定比例折算，设定纳入招生录取计分科目的分值。要避免个别科目分值过低，科目之间分值差距过大。&lt;/p&gt;
+&lt;p&gt;　　除语文、数学、外语和体育与健康4门科目外，至少将道德与法治、历史、物理和化学纳入中考招生录取计分科目，鼓励将地理和生物学纳入录取计分科目，探索将艺术科目纳入录取计分科目。体育与健康考试计分权重不低于录取总分的8%。&lt;/p&gt;
+&lt;p&gt;　　鼓励采用“分数+等级”或仅用等级的招生录取办法。有条件的市，可以探索在学考各门科目成绩合格的前提下，给予学生一定的自主选择录取科目的机会。&lt;/p&gt;
+&lt;p&gt;　　《意见》指出，要把学生综合素质评价作为招生录取依据或参考。各市各招生学校制订具体的学生综合素质评价结果使用办法，报经主管教育部门批准后，至少提前2年向社会公布。&lt;/p&gt;
+&lt;h3 id="优质高中招生名额不低于50分配到区域内初中"&gt;优质高中招生名额不低于50%分配到区域内初中
+&lt;/h3&gt;&lt;p&gt;　　《意见》明确，每所公办优质普通高中学校（含外语、体育和艺术类学校）要安排不低于50%的招生名额，按中考报名学生总数（除不符合条件的随迁子女数），直接分配到区域内各初中学校（含民办），并向薄弱初中、农村初中倾斜。&lt;/p&gt;
+&lt;p&gt;　　名额分配招生采用单独批次、单独录取的招生办法，确保名额分配实际录取比例不低于总招生数的50%。&lt;/p&gt;
+&lt;p&gt;　　从2023年秋季入学的初一新生开始，除因户籍转移或其他原因按规定办理外市转入本市就读的学生外，报考“名额分配”的考生，应是符合本市中考报考条件且具有该初中学校连续3年学籍并实际就读的应届初中毕业生。&lt;/p&gt;
+&lt;p&gt;　　在自主招生方面，《意见》明确，有条件的学校可以自主招收区域内初中学校在籍在读具有创新潜质和学科特长的应届毕业学生，公办学校自主招生比例控制在学校年度招生计划的10%。&lt;/p&gt;
+&lt;p&gt;　　体育、艺术和科技等特长班均纳入自主招生范围，可将体育、艺术和信息科技科目等纳入中考自主招生录取计分科目。&lt;/p&gt;
+&lt;p&gt;　　自主招生应安排在学考成绩公布以后根据学生的学考成绩和综合素质评价结果等进行。严禁将义务教育阶段学科竞赛成绩作为自主招生资格前置条件和录取依据，严禁以自主招生名义变相“掐尖”、提前招生等。&lt;/p&gt;
+&lt;p&gt;　　在招生录取批次设置上，中职学校（含三二分段及五年一贯制高职和中等职业学校，下同）和普通高中同批次并行招生，原则上分为自主招生、名额分配招生、统一招生3个类别。&lt;/p&gt;
+&lt;p&gt;　　优质中职学校可实行综合评价、择优录取，进一步扩大面向初中毕业生中高职贯通（含五年一贯制、三二分段）试点院校的招生规模。&lt;/p&gt;
+&lt;h3 id="严禁提前组织招生争抢生源"&gt;严禁提前组织招生争抢生源
+&lt;/h3&gt;&lt;p&gt;　　《意见》要求，全面规范学校考试招生行为。各市各初中学校要确保所有初中毕业生参加中考，任何单位和个人不得以任何理由动员初中毕业生提前离校或不参加中考。中职学校不得招收未接受完义务教育的未成年人。&lt;/p&gt;
+&lt;p&gt;　　普通高中全面实行公民同招和属地招生。《意见》强调了9个“严禁”——&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;严禁普通高中以任何形式提前组织招生、免试招生、无计划超计划招生、违规跨区域招生；&lt;/li&gt;
+&lt;li&gt;严禁利用中介机构非法招生；&lt;/li&gt;
+&lt;li&gt;严禁招生后违规办理转学；&lt;/li&gt;
+&lt;li&gt;严禁公办普通高中以任何名义参与民办普通高中招生；&lt;/li&gt;
+&lt;li&gt;严禁普通高中与社会培训机构联合组织以选拔生源为目的的各类考试，或采用社会培训机构组织的考试结果作为招生依据；&lt;/li&gt;
+&lt;li&gt;严禁以高额物质奖励、免收学费、虚假宣传等方式误导学生，争抢生源；&lt;/li&gt;
+&lt;li&gt;严禁挖抢县中优质生源；&lt;/li&gt;
+&lt;li&gt;严禁普通高中招收已被中等职业学校录取的学生；&lt;/li&gt;
+&lt;li&gt;严禁招收借（挂）读生，严禁“人籍分离”“空挂学籍”行为；&lt;/li&gt;
+&lt;li&gt;严禁招生乱收费和有偿招生，维护正常的招生秩序。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;　　《意见》指出，对违反规定招收的学校予以通报、取消荣誉称号，对有关责任人按有关规定予以处理；对违规的民办学校除给予以上处理外，视违规情节严重程度开展联合督查，并依法作出行政处罚。&lt;/p&gt;
+&lt;h3 id="严禁炒作中考状元和升学率"&gt;严禁炒作中考“状元”和升学率
+&lt;/h3&gt;&lt;p&gt;　　《意见》明确，全面清理加分项目，取消国家规定以外的所有加分项目，严格控制加分分值。规范执行国家规定的特殊群体等加分或优待政策，严禁以任何方式扩大范围。&lt;/p&gt;
+&lt;p&gt;　　《意见》要求深入实施招生“阳光工程”，及时向社会公布招生政策、招生计划、招生范围、录取条件、考生资格、加分或优待项目、录取办法和程序、自主招生及加分或优待学生名单、重大违规事件及处理结果等招生信息。&lt;/p&gt;
+&lt;p&gt;　　严格规范成绩发布，严禁公布、宣传、炒作中考“状元”和升学率，严禁以中考成绩或升学率排名排队、表彰奖励。&lt;/p&gt;
+&lt;p&gt;　　同时，深化教育教学和命题改革，严禁压缩道德与法治、信息科技、体育与健康、艺术、劳动和综合实践活动等课程及理化生实验操作等的课时。&lt;/p&gt;
+&lt;p&gt;　　《意见》还明确，进城务工人员随迁子女及港澳台居民或其随迁子女参加中考的办法，由各市根据国家和省的有关规定、结合本地实际自行制定。残疾考生参加体育与健康、艺术和信息技术科目及理化生实验操作的考试办法，由各市根据国家和省的有关规定制定。残疾考生参加笔试考试，由各市根据国家和省的有关规定提供必要的合理便利。&lt;/p&gt;
+&lt;p&gt;&lt;span style="display:block;text-align:right;"&gt;转载自 广东省人民政府&lt;a class="link" href="https://www.gd.gov.cn/gdywdt/bmdt/content/post_4245393.html" target="_blank" rel="noopener"
+&gt;《广东9月起启动新一轮中考改革》&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="广东省教育厅关于深化高中阶段学校考试招生制度改革的实施意见"&gt;广东省教育厅关于深化高中阶段学校考试招生制度改革的实施意见
+&lt;/h2&gt;&lt;p&gt;&lt;span style="display:block;text-align:right;"&gt;——转载自广东省教育厅&lt;a class="link" href="http://edu.gd.gov.cn/zwgknew/jyzcfg/gfxwj/content/post_4244085.html" target="_blank" rel="noopener"
+&gt;《广东省教育厅关于深化高中阶段学校考试招生制度改革的实施意见》&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;　　为深入学习贯彻党的二十大精神，贯彻落实党中央、国务院关于“双减”工作的重要决策部署，全面落实立德树人根本任务，全面贯彻党的教育方针，深化教育评价改革，办好人民满意的教育，培养德智体美劳全面发展的社会主义建设者和接班人，根据《深化新时代教育评价改革总体方案》（中发〔2020〕19号）、《关于深化教育教学改革全面提高义务教育质量的意见》（中发〔2019〕26号）、《国务院关于印发国家职业教育改革实施方案的通知》（国发〔2019〕4号），中共中央办公厅、国务院办公厅《关于进一步减轻义务教育阶段学生作业负担和校外培训负担的意见》（中办发〔2021〕40号）以及国家和省有关考试招生制度改革等文件精神，结合我省实际，现就深化我省高中阶段学校考试招生制度改革，提出如下实施意见。&lt;/p&gt;
+&lt;h3 id="一总体要求"&gt;一、总体要求
+&lt;/h3&gt;&lt;p&gt;　　坚持育人为本、全面考核，坚持科学规范、遵循规律，坚持统筹协调、普职并重，坚持公平公正、强化监督，健全初中学业水平考试（下称学考）和学生综合素质评价制度，省级负责统筹管理、地级以上市（以下简称“市”）负责具体实施，注重改革创新，积极探索实践。在前期改革的基础上，全省继续全面实施高中阶段学校考试招生制度改革工作，到2026年左右建立完善的基于学考成绩、结合学生综合素质评价的高中阶段学校考试招生（下称中考）录取模式和公平科学、规范有序、监督有力的管理机制，推进义务教育优质均衡发展和高中阶段教育高水平高质量普及、多样化有特色发展，切实减轻学生过重课业负担，促进学生德智体美劳全面健康而有个性地发展，维护教育公平。&lt;/p&gt;
+&lt;h3 id="二主要任务和措施"&gt;二、主要任务和措施
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;建立健全初中学业水平考试制度&lt;/strong&gt;。学考主要衡量学生达到国家规定学习要求的程度，考试成绩是学生毕业和升学的基本依据，是初中教育教学质量监测的基本依据。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;考试科目&lt;/strong&gt;。涵盖国家&lt;a class="link" href="http://www.sheqi.gov.cn/jjwz/sqxjytyj/ywjy/content_101388#:~:text=%E3%80%8A%E4%B9%89%E5%8A%A1%E6%95%99%E8%82%B2%E8%AF%BE%E7%A8%8B%E6%96%B9%E6%A1%88%E5%92%8C%E8%AF%BE%E7%A8%8B%E6%A0%87%E5%87%86%EF%BC%882022%E5%B9%B4%E7%89%88%EF%BC%89%E3%80%8B%E5%85%A8%E6%96%87%20%E6%9D%A5%E6%BA%90%3A%E5%BE%AE%E8%A8%80%E6%95%99%E8%82%B2,%E8%BF%91%E6%97%A5%EF%BC%8C%E6%95%99%E8%82%B2%E9%83%A8%E5%8D%B0%E5%8F%91%E4%B9%89%E5%8A%A1%E6%95%99%E8%82%B2%E8%AF%BE%E7%A8%8B%E6%96%B9%E6%A1%88%E5%92%8C%E8%AF%AD%E6%96%87%E7%AD%8916%E4%B8%AA%E8%AF%BE%E7%A8%8B%E6%A0%87%E5%87%86%EF%BC%882022%E5%B9%B4%E7%89%88%EF%BC%89%E3%80%82%20%E6%96%B0%E4%BF%AE%E8%AE%A2%E7%9A%84%E4%B9%89%E5%8A%A1%E6%95%99%E8%82%B2%E8%AF%BE%E7%A8%8B%E4%BB%A5%E4%B9%A0%E8%BF%91%E5%B9%B3%E6%96%B0%E6%97%B6%E4%BB%A3%E4%B8%AD%E5%9B%BD%E7%89%B9%E8%89%B2%E7%A4%BE%E4%BC%9A%E4%B8%BB%E4%B9%89%E6%80%9D%E6%83%B3%E4%B8%BA%E6%8C%87%E5%AF%BC%EF%BC%8C%E8%90%BD%E5%AE%9E%E7%AB%8B%E5%BE%B7%E6%A0%91%E4%BA%BA%E6%A0%B9%E6%9C%AC%E4%BB%BB%E5%8A%A1%EF%BC%8C%E5%BC%BA%E8%B0%83%E8%82%B2%E4%BA%BA%E4%B8%BA%E6%9C%AC%EF%BC%8C%E4%BE%9D%E6%8D%AE%E2%80%9C%E6%9C%89%E7%90%86%E6%83%B3%E3%80%81%E6%9C%89%E6%9C%AC%E9%A2%86%E3%80%81%E6%9C%89%E6%8B%85%E5%BD%93%E2%80%9D%E6%97%B6%E4%BB%A3%E6%96%B0%E4%BA%BA%E5%9F%B9%E5%85%BB%E8%A6%81%E6%B1%82%EF%BC%8C%E6%98%8E%E7%A1%AE%E4%BA%86%E4%B9%89%E5%8A%A1%E6%95%99%E8%82%B2%E9%98%B6%E6%AE%B5%E5%9F%B9%E5%85%BB%E7%9B%AE%E6%A0%87%E3%80%82" title="点击跳转"
+target="_blank" rel="noopener"
+&gt;《义务教育课程方案和课程标准》（2022年版7～9年级，下称《课程方案和标准》）&lt;/a&gt;规定的全部科目，包括9门文化科目：&lt;code&gt;道德与法治&lt;/code&gt;、&lt;code&gt;语文&lt;/code&gt;、&lt;code&gt;历史&lt;/code&gt;、&lt;code&gt;数学&lt;/code&gt;、&lt;code&gt;外语(含听力或听说，下同)&lt;/code&gt;、&lt;code&gt;地理&lt;/code&gt;、&lt;code&gt;物理（含实验操作，下同）&lt;/code&gt;、&lt;code&gt;化学（含实验操作，下同）&lt;/code&gt;、&lt;code&gt;生物学（含实验操作，下同）&lt;/code&gt;和3门其它科目：&lt;code&gt;信息科技&lt;/code&gt;、&lt;code&gt;体育与健康&lt;/code&gt;和&lt;code&gt;艺术&lt;/code&gt;等科目，引导学生认真学习每门课程，达到合格要求，确保初中教育的基本质量，促进学生全面发展和健康成长。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考试内容&lt;/strong&gt;。严格依据《课程方案和标准》命题。科学确定各学科考试命题内容，优化试题结构，提高命题质量。全面推进基于核心素养的考试，试题要落实立德树人根本任务，全面贯彻党的教育方针，抓住义务教育阶段“培养学生正确价值观、必备品格和关键能力”的实质与核心，以必备知识、关键能力、学科素养、核心价值观为考试内容，合理确定基础性、综合性、应用性、探究性、创新性和实践性试题比例。注重加强对学生理想信念、爱国主义、品德修养、知识见识、奋斗精神、综合素质等方面的考查，注重对学生思维过程、创新意识和在真实情境中分析解决问题能力的考查。试题试卷整体难度适当、题量适中，减少单纯记忆、机械训练性质的试题，杜绝偏题、怪题。&lt;strong&gt;实行道德与法治、语文、历史、数学、外语、地理、物理、化学、生物学9个科目（下称9个科目）笔试省级统一命题。其中，广州和深圳2个副省级城市试行9个科目自主命题，其他市由全省统一命题&lt;/strong&gt;，各市具体组织实施。&lt;strong&gt;信息科技、体育与健康、艺术和小语种科目及外语听说，物理、化学和生物学实验操作等，暂由各市自行组织命题&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考试方式&lt;/strong&gt;。结合各学科特点采用多样化考试方式。注重&lt;strong&gt;客观性题目与主观性题目相结合&lt;/strong&gt;、&lt;strong&gt;过程性评价与终结性考试相结合&lt;/strong&gt;、&lt;strong&gt;闭卷考试与开卷考试相结合&lt;/strong&gt;、&lt;strong&gt;单项测试与整体考核相结合&lt;/strong&gt;，&lt;strong&gt;笔试测试与行为表达或实践/验测试相结合&lt;/strong&gt;，&lt;strong&gt;个人项目与团体项目相结合&lt;/strong&gt;，全面考察学生的学业成就表现。积极探索应用计算机进行考试。外语科目实行笔试+听力（或听说）考试的方式；物理、化学和生物学科目采用笔试和实验操作的方式。文化科目可以采用各科分卷或相近科目合卷的方式。信息科技、体育与健康和艺术科目考试，以实践测试为主，纸笔测试为辅，采用过程性与终结性考查相结合的方式。体育与健康科目考试在初中每学年要进行一次《国家学生体质健康标准》测试，并将测试成绩按一定比例纳入中考录取计分。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考试时间&lt;/strong&gt;。道德与法治、语文、历史、数学、外语、物理、化学、地理、生物学科目笔试时间全省统一，其中地理、生物学安排在八年级第二学期末，其他科目安排在九年级第二学期末。信息科技科目一般安排在八年级第二学期末，体育与健康和艺术科目及外语听说、理化实验操作一般安排在九年级第二学期5月底前，具体时间由各市自行确定。学生按《课程方案和标准》修完某科目后，方可取得该科目的考试资格。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;考试分数与时长&lt;/strong&gt;。&lt;code&gt;各科卷面原始分数为&lt;/code&gt;：&lt;strong&gt;语文、数学和外语科目各120分（其中外语科目含外语听力或听说30分），其他科目各100分。其中理化生实验操作考试分数不低于每门科目考试总分的10%&lt;/strong&gt;。&lt;code&gt;各科考试时长为&lt;/code&gt;：**语文、数学科目各120分钟、外语科目90分钟（其中外语科目含外语听力20分钟左右，不含外语听说），物理（不含实验操作）和历史科目各为80分钟，道德与法治、地理、化学（不含实验操作）和生物学（不含实验操作）科目各为60分钟。**体育与健康、艺术和信息科技科目及外语听说、理化生实验操作（理化生各科目可分别考试，也可合在一起考试）各科（项）满分值、考试时长由各市自定。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;成绩呈现、成绩认定及有效期&lt;/strong&gt;。语文、数学、外语和体育与健康以分数形式呈现；其他科目可以分数、等级形式或“合格/不合格”呈现。等级划分及细化具体办法由各市确定。用于初中毕业与学历认定的初中学考成绩，长期有效。用于招生录取计入总分的学考成绩，应届生当届有效，非应届生当年有效。在非本市取得的由市级以上教育行政部门统一组织的学考成绩，由转出地市级以上教育行政部门出具成绩证明，可办理成绩转入。转入成绩可以作为学生初中毕业的依据。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;健全初中学生综合素质评价制度。综合素质评价是对学生全面发展状况的观察、记录和分析，是培育学生良好品行、发展个性特长的重要手段。要根据广东省教育厅关于实施初中学生综合素质评价的文件要求，科学确定评价内容，完善评价程序和办法，切实做好评价工作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;完善招生录取模式。建立健全基于学考成绩、结合学生综合素质评价的招生录取模式。根据学校办学定位和办学特色制订学校招生章程，完善统一招生、名额分配和自主招生相结合的多元录取机制。克服唯分数论，促进学生全面发展。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;改革招生录取办法&lt;/strong&gt;。各市要根据夯实基础、文理兼顾、学科课程与活动课程平衡、负担适度、稳妥推进的原则，确定纳入中考录取科目及其计分比例。&lt;em&gt;&lt;strong&gt;要以《课程方案和标准》规定的每门课程的课时、课程容量等为主要依据，将纳入招生录取科目的各科目卷面原始分满分值按一定比例折算，设定纳入招生录取计分科目的分值&lt;/strong&gt;&lt;/em&gt;。要避免个别科目分值过低，科目之间分值差距过大。除语文、数学、外语和体育与健康4门科目外，至少将道德与法治、历史、物理和化学纳入中考招生录取计分科目，鼓励将地理和生物学纳入录取计分科目，探索将艺术科目纳入录取计分科目。&lt;strong&gt;体育与健康考试计分权重不低于录取总分的8%&lt;/strong&gt;。鼓励采用分数+等级或仅用等级的招生录取办法。有条件的市，可以探索在学考各门科目成绩合格的前提下，给予学生一定的自主选择录取科目的机会，发挥学科优势，促进学生发展兴趣爱好。要把学生综合素质评价作为招生录取依据或参考。初中学校要将用于招生使用的活动记录和事实材料进行公示、审核，提供给招生学校使用。各市各招生学校要根据自身办学特色制订具体的学生综合素质评价结果使用办法，报经主管教育部门批准后，至少提前2年向社会公布。各市各校在综合素质思想品德、学业水平、身心健康、艺术素养和社会实践5个方面评价的基础上，可以突出学生某方面的发展情况作为招生录取依据，使综合素质评价在高中阶段学校招生录取中真正发挥作用。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;健全招生录取机制&lt;/strong&gt;。进一步健全全省中考录取工作平台，严格规范招生办法和程序。招生学校录取均须由各市教育行政部门统筹，通过招生录取平台，按照考生网上自主填报的志愿，在规定的时间内在网上统一录取。高中阶段学校依据学校办学目标、定位和特色，制订本校具体的依据学考成绩和学生综合素质评价的招生标准和办法。相关标准和办法经学校主管部门批准并提前向社会公布后方可实施。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;规范招生录取批次设置&lt;/strong&gt;。优化录取批次设置，采取中职学校（含三二分段及五年一贯制高职和中等职业学校，下同）和普通高中同批次并行招生等措施，稳定中职学校招生规模。原则上分为自主招生、名额分配招生、统一招生3个类别。各市结合本地实际确定各类学校各批次的志愿数和录取资格分数线，并制定具体实施方案，结合考生学考成绩、综合素质评价结果及志愿填报实际进行录取。各市和招生学校要进一步加强和规范中考志愿填报咨询服务工作，正确指导学生进行志愿填报。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;加强中等职业技术学校（下称中职学校）招生录取工作&lt;/strong&gt;。完善中职学校招生入学机制，优质中职学校可实行综合评价、择优录取。加大职业教育方针政策、办学情况、教育成果等方面的宣传力度，让社会更全面了解职业教育，引导学生发现职业乐趣，感受职业教育特色与魅力。合理引导初中毕业生有序分流，鼓励和引导动手能力强、职业倾向明显的学生接受职业教育，确保普职招生协调。进一步扩大面向初中毕业生中高职贯通（含五年一贯制、三二分段）试点院校的招生规模，不断优化专业结构，增强招生吸引力。积极拓宽生源渠道，广泛招收应往届初高中毕业未升学学生、进城务工人员及其随迁子女、港澳居民或其随迁子女、退役军人、退役运动员、下岗职工、返乡农民工等城乡劳动者就读中职学校。中职学校招收有实践经历人员，可实行注册入学的办法，由招生学校自主组织生源，招生部门通过统一招生平台备案。要根据学校专业设置和区域产业结构，统筹安排珠三角中职学校跨市招收粤东西北地区学生，加大优质中等职业学校招收粤东西北地区学生的比例。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;完善优质高中招生名额按比例合理分配到区域内初中学校的办法&lt;/strong&gt;。每所公办优质普通高中学校（含外语、体育和艺术类学校）要安排不低于50%的招生名额，按中考报名学生总数（除不符合条件的随迁子女数），直接分配到区域内各初中学校（含民办），并向薄弱初中、农村初中倾斜，促进义务教育均衡发展和初中教育质量全面提高。名额分配招生采用单独批次、单独录取的招生办法。要积极采取有效措施，确保名额分配实际录取比例不低于总招生数的50%。从2023年秋季入学的初一新生开始，除因户籍转移或其他原因按规定办理外市转入本市就读的学生外，报考“名额分配”的考生，应是符合本市中考报考条件且具有该初中学校连续3年学籍并实际就读的应届初中毕业生。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;进一步完善和规范自主招生&lt;/strong&gt;。有条件的学校可以自主招收区域内初中学校在籍在读具有创新潜质和学科特长的应届毕业学生，进一步扩大招生学校自主权，增加学校和学生的双向选择机会，促进高中阶段学校多样化、特色化发展，满足不同潜质学生的发展需要。公办学校自主招生比例控制在学校年度招生计划的10%。体育、艺术和科技等特长班均纳入自主招生范围，可将体育、艺术和信息科技科目等纳入中考自主招生录取计分科目。自主招生方案要根据自身办学目标、定位和特色制订，包括学校招生范围、计划、标准、办法和程序等内容，报主管部门备案后，提前主动公开。自主招生应安排在学考成绩公布以后根据学生的学考成绩和综合素质评价结果等进行。学校要主动及时向社会公开招生录取的各环节和录取结果。严禁将义务教育阶段学科竞赛成绩作为自主招生资格前置条件和录取依据，严禁以自主招生名义变相“掐尖”、提前招生等。各市要严格审核学校自主招生章程，规范自主招生的办法与程序。加强对自主招生各环节的监督，做到规范有序、公开透明。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;做好随迁子女升学考试工作&lt;/strong&gt;。进一步做好进城务工人员随迁子女在我省参加中考的工作。各市要统筹考虑随迁子女升学考试需求和教育资源承载能力，积极创造条件，探索从2023年秋季入学的初一新生开始实施符合条件的随迁子女在当地参加考试招生享受与当地户籍学生同等待遇的办法，保障随迁子女公平享受教育权利和升学机会。持有香港、澳门和台湾居民居住证的港澳台居民或其随迁子女来我省参加升学考试，平等享受当地随迁子女等升学相关政策。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;做好残疾人中考工作&lt;/strong&gt;。招生学校要积极创造条件招收符合录取标准的残疾考生随班就读，不得因其残疾而拒绝招收。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;加强考试招生管理&lt;/strong&gt;。健全学校考试招生管理制度，保障考试招生工作规范有序，确保考试安全和考试诚信。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;做好招生计划的编制和实施工作&lt;/strong&gt;。完善招生计划编制办法，根据普职协调发展以及区域学校布局、适宜的学校规模和班额等原则科学核定招生计划并严格执行。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;全面规范学校考试招生行为&lt;/strong&gt;。各市各初中学校要确保所有初中毕业生参加中考，任何单位和个人不得以任何理由动员初中毕业生提前离校或不参加中考。省将依据全国中小学生学籍管理信息系统的学生数对初中学校参加中考学生人数进行核查。规范中职学校招生行为，不得招收未接受完义务教育的未成年人。普通高中全面实行公民同招和属地招生。公民办普通高中学校要严格按照审批机关批准的招生计划、范围、标准和方式同步招生。严禁普通高中以任何形式提前组织招生、免试招生、无计划超计划招生、违规跨区域招生；严禁利用中介机构非法招生；严禁招生后违规办理转学；严禁公办普通高中以任何名义参与民办普通高中招生；严禁普通高中与社会培训机构联合组织以选拔生源为目的的各类考试，或采用社会培训机构组织的考试结果作为招生依据；严禁以高额物质奖励、免收学费、虚假宣传等方式误导学生，争抢生源；严禁挖抢县中优质生源；严禁普通高中招收已被中等职业学校录取的学生；严禁招收借（挂）读生；严禁“人籍分离”“空挂学籍”行为；严禁招生乱收费和有偿招生，维护正常的招生秩序。要通过全国中小学生学籍信息管理系统和全国中等职业学校学籍信息管理系统加强对高中阶段学校招生的监控和管理，对违反规定招收的学校予以通报、取消荣誉称号，对有关责任人按有关规定予以处理；对违规的民办学校除给予以上处理外，视违规情节严重程度开展联合督查，并依法作出行政处罚。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;严格控制加分项目及分值&lt;/strong&gt;。全面清理加分项目，取消国家规定以外的所有加分项目，严格控制加分分值。规范执行国家规定的特殊群体等加分或优待政策，严禁以任何方式扩大范围。加强考生加分或优待资格审核，严格资格认定程序。根据国家有关规定享受加分或优待的考生，由相关部门严格审核。实行加分或优待项目、分值、资格和名单公示制度，强化监督管理，确保公平公正。每年招生前，各市应将本地加分项目、分值、范围等送省教育厅备案，并向社会公开。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;加强招生信息监管&lt;/strong&gt;。建立健全考试招生信息公开制度，深入实施招生“阳光工程”。及时向社会公布招生政策、招生计划、招生范围、录取条件、考生资格、加分或优待项目、录取办法和程序、自主招生及加分或优待学生名单、重大违规事件及处理结果等招生信息。既要保障学生合法权益与个人隐私信息，也要确保招生过程公开透明，结果公平公正。严格规范成绩发布，严禁公布、宣传、炒作中考“状元”和升学率，严禁以中考成绩或升学率排名排队、表彰奖励。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;健全管理监督机制&lt;/strong&gt;。建立健全管理监督、考核评估、诚信责任追究制度。加强考生诚信教育和诚信档案建设，加大学校诚信机制建设。构建科学、规范和严密的考试安全体系，提高考试招生法治化水平。加强监督检查，建立完善违纪举报和申诉受理机制，畅通咨询、申诉和举报渠道，公布监督举报电话和邮箱，主动接受社会监督。按国家规定严肃查处各种徇私舞弊、弄虚作假、违规违纪行为。健全学生权利救济机制，切实保障学生合法权益。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="三组织保障"&gt;三、组织保障
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;加强组织领导&lt;/strong&gt;。中考制度改革由省级统筹规划，各市组织实施。各市要高度重视，建立有效工作机制，因地制宜制订本地实施办法，报省教育厅备案，并及时向社会公布，确保改革积极稳妥推进。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;深化教育教学和命题改革&lt;/strong&gt;。落实《课程方案和标准》，严格执行校历，合理安排教学进度，开齐开足国家规定的各门课程，严禁压缩道德与法治、信息科技、体育与健康、艺术、劳动和综合实践活动等课程及理化生实验操作等的课时。加强学生学业生涯规划的指导，培养学生自主发展能力。加强初中学校校长和教师队伍、命题队伍的培养和培训，转变人才培养观念，创新人才培养模式和教学方法，提升教育教学质量，切实实施素质教育，减轻学生过重的课业负担和学习压力，确保考试招生和综合素质评价工作客观公正、科学有效。建立和完善命题组织保障和审查制度，建立并完善命题专家人才库，明确“入库”标准，实行动态管理。优化评卷和数据统计工作，加强试卷质量评估监测和分析，提高考试命题的科学化和专业化水平。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;提升保障能力&lt;/strong&gt;。加强初中学校师资、实验室、计算机教室、体育和艺术器材等设施设备方面的条件保障。开展标准化考点建设，改善考试条件。加强考试机构及其考务组织、招生录取等工作的基本能力建设，提高考试工作规范化水平。确保学考所需经费，招生考试部门和学校要把考试工作经费列入年度预算，保证工作正常开展。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;加强督导&lt;/strong&gt;。定期对高中阶段学校考试招生工作进行督导评估，将推进中考改革和考试招生管理情况作为评估各地和学校工作的重要内容。积极发挥学考和学生综合素质评价对初中教育教学质量监测和诊断的功能，把参加中考的人数（除不符合条件的随迁子女数）占该年级3年前在校生总数（除不符合条件的随迁子女数）比率、初中学生各科考试及增值情况等进行认真、全面、客观分析和研究，形成诊断和指导各科教学的报告，作为进行初中课程管理、教育教学质量监测和教学指导的重要手段之一，但不得以中考成绩或升学率片面评价学校和教师。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;做好宣传引导工作&lt;/strong&gt;。坚持正确的舆论导向，认真做好考试招生改革政策的宣传解读工作，引导学生家长和社会树立正确的教育观和成才观，更加关注学生的全面健康成长。加强家庭经济困难学生资助和中职学校免学费等惠民政策的宣传。积极争取社会各界的理解与支持，及时回应学生、家长和社会关切，合理引导社会预期，营造良好的舆论氛围和社会环境。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;　　进城务工人员随迁子女及港澳台居民或其随迁子女参加中考的办法，由各市根据国家和省的有关规定、结合本地实际自行制定。残疾考生参加体育与健康、艺术和信息技术科目及理化生实验操作的考试办法，由各市根据国家和省的有关规定制定。残疾考生参加笔试考试，由各市根据国家和省的有关规定提供必要的合理便利。&lt;/p&gt;
+&lt;p&gt;　　本意见自2023年9月1日起实施，有效期5年。&lt;/p&gt;
+&lt;hr&gt;</description></item><item><title>One Day</title><link>https://xieyuen-org.github.io/old/oneday/</link><pubDate>Fri, 22 Sep 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/oneday/</guid><description>&lt;p&gt;One day there will be no wars&lt;/p&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1cA411E7M9"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;歌词:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;span class="lnt"&gt;43
+&lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;span class="lnt"&gt;45
+&lt;/span&gt;&lt;span class="lnt"&gt;46
+&lt;/span&gt;&lt;span class="lnt"&gt;47
+&lt;/span&gt;&lt;span class="lnt"&gt;48
+&lt;/span&gt;&lt;span class="lnt"&gt;49
+&lt;/span&gt;&lt;span class="lnt"&gt;50
+&lt;/span&gt;&lt;span class="lnt"&gt;51
+&lt;/span&gt;&lt;span class="lnt"&gt;52
+&lt;/span&gt;&lt;span class="lnt"&gt;53
+&lt;/span&gt;&lt;span class="lnt"&gt;54
+&lt;/span&gt;&lt;span class="lnt"&gt;55
+&lt;/span&gt;&lt;span class="lnt"&gt;56
+&lt;/span&gt;&lt;span class="lnt"&gt;57
+&lt;/span&gt;&lt;span class="lnt"&gt;58
+&lt;/span&gt;&lt;span class="lnt"&gt;59
+&lt;/span&gt;&lt;span class="lnt"&gt;60
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Sometimes I lay
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Under the moon
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;And I thank God I&amp;#39;m breathing
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Then I pray
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Don&amp;#39;t take me soon
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&amp;#39;Cause I an here for a reason
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Sometimes in my tears I drown
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;But I never let it get me down
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;So when negativtiy surrounds
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I know someday it&amp;#39;ll all turn around because
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;All my life I&amp;#39;ve been waiting for
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I&amp;#39;ve been praying for, for the people to say
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;That we don&amp;#39;t wanna fight no more
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;There&amp;#39;ll be no more wars
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;And our children will play
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;one day * 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;one day * 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;It&amp;#39;s not about win or lose
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;We all lose
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;When they feed on the souls of the inncent
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Blood drenched pavement
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Keep on moving though the water stay raging
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;In this maze you can lose your way (your way)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;It might drive you crazy but don&amp;#39;t let it faze you no way (no way)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Sometimes in my tears I drown
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;But I never let it get me down
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;So when negativtiy surrounds
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I know someday it&amp;#39;ll all turn around because
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;All my life I&amp;#39;ve been waiting for
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I&amp;#39;ve been praying for, for the people to say
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;That we don&amp;#39;t wanna fight no more
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;There&amp;#39;ll be no more wars
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;And our children will play
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day * 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day * 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day this all will change
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Treat people the same
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Stop with the violence
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;down with the hate
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day we&amp;#39;ll all be free
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;And proud to be
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Under the same sun
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Singing songs of freedom like
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Stop
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day * 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day * 2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;All my life I&amp;#39;ve been waiting for
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I&amp;#39;ve been praying for
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;For the people to say
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;That we don&amp;#39;t wanna fight no more
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;There&amp;#39;ll be no more wars
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;And our children will play
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day * 3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;One day * 3
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Markdown Syntax Guide</title><link>https://xieyuen-org.github.io/p/markdown-syntax-guide/</link><pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/markdown-syntax-guide/</guid><description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+&lt;h2 id="headings"&gt;Headings
+&lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
+&lt;h1 id="h1"&gt;H1
+&lt;/h1&gt;&lt;h2 id="h2"&gt;H2
+&lt;/h2&gt;&lt;h3 id="h3"&gt;H3
+&lt;/h3&gt;&lt;h4 id="h4"&gt;H4
+&lt;/h4&gt;&lt;h5 id="h5"&gt;H5
+&lt;/h5&gt;&lt;h6 id="h6"&gt;H6
+&lt;/h6&gt;&lt;h2 id="paragraph"&gt;Paragraph
+&lt;/h2&gt;&lt;p&gt;Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p&gt;
+&lt;p&gt;Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p&gt;
+&lt;h2 id="blockquotes"&gt;Blockquotes
+&lt;/h2&gt;&lt;p&gt;The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code&gt;footer&lt;/code&gt; or &lt;code&gt;cite&lt;/code&gt; element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p&gt;
+&lt;h3 id="blockquote-without-attribution"&gt;Blockquote without attribution
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong&gt;Note&lt;/strong&gt; that you can use &lt;em&gt;Markdown syntax&lt;/em&gt; within a blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="blockquote-with-attribution"&gt;Blockquote with attribution
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Don't communicate by sharing memory, share memory by communicating.&lt;br&gt;
+— &lt;cite&gt;Rob Pike&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="tables"&gt;Tables
+&lt;/h2&gt;&lt;p&gt;Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Age&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bob&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alice&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="inline-markdown-within-tables"&gt;Inline Markdown within tables
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Italics&lt;/th&gt;
+&lt;th&gt;Bold&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;italics&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;C&lt;/th&gt;
+&lt;th&gt;D&lt;/th&gt;
+&lt;th&gt;E&lt;/th&gt;
+&lt;th&gt;F&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td&gt;
+&lt;td&gt;Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td&gt;
+&lt;td&gt;Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td&gt;
+&lt;td&gt;Proin sit amet velit nec enim imperdiet vehicula.&lt;/td&gt;
+&lt;td&gt;Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td&gt;
+&lt;td&gt;Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="code-blocks"&gt;Code Blocks
+&lt;/h2&gt;&lt;h3 id="code-block-with-backticks"&gt;Code block with backticks
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Example HTML5 Document&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Test&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="code-block-indented-with-four-spaces"&gt;Code block indented with four spaces
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="diff-code-block"&gt;Diff code block
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-diff" data-lang="diff"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[dependencies.bevy]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gd"&gt;- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gi"&gt;+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="one-line-code-block"&gt;One line code block
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;A paragraph&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="list-types"&gt;List Types
+&lt;/h2&gt;&lt;h3 id="ordered-list"&gt;Ordered List
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;First item&lt;/li&gt;
+&lt;li&gt;Second item&lt;/li&gt;
+&lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="unordered-list"&gt;Unordered List
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;List item&lt;/li&gt;
+&lt;li&gt;Another item&lt;/li&gt;
+&lt;li&gt;And another item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="nested-list"&gt;Nested list
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Fruit
+&lt;ul&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Orange&lt;/li&gt;
+&lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dairy
+&lt;ul&gt;
+&lt;li&gt;Milk&lt;/li&gt;
+&lt;li&gt;Cheese&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="other-elements--abbr-sub-sup-kbd-mark"&gt;Other Elements — abbr, sub, sup, kbd, mark
+&lt;/h2&gt;&lt;p&gt;&lt;abbr title="Graphics Interchange Format"&gt;GIF&lt;/abbr&gt; is a bitmap image format.&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Press &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;ALT&lt;/kbd&gt; + &lt;kbd&gt;Delete&lt;/kbd&gt; to end the session.&lt;/p&gt;
+&lt;p&gt;Most &lt;mark&gt;salamanders&lt;/mark&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The above quote is excerpted from Rob Pike's &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
+&gt;talk&lt;/a&gt; during Gopherfest, November 18, 2015.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>Image gallery</title><link>https://xieyuen-org.github.io/p/image-gallery/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/image-gallery/</guid><description>&lt;img src="https://xieyuen-org.github.io/p/image-gallery/2.jpg" alt="Featured image of post Image gallery" /&gt;&lt;p&gt;Hugo theme Stack supports the creation of interactive image galleries using Markdown. It's powered by &lt;a class="link" href="https://photoswipe.com/" target="_blank" rel="noopener"
+&gt;PhotoSwipe&lt;/a&gt; and its syntax was inspired by &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
+&gt;Typlog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo's page bundle feature to read the dimensions of the image. &lt;strong&gt;External images are not supported.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="syntax"&gt;Syntax
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;Image 1&lt;/span&gt;](&lt;span class="na"&gt;1.jpg&lt;/span&gt;) ![&lt;span class="nt"&gt;Image 2&lt;/span&gt;](&lt;span class="na"&gt;2.jpg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="result"&gt;Result
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/image-gallery/1.jpg"
+width="2000"
+height="1400"
+srcset="https://xieyuen-org.github.io/p/image-gallery/1_hu_32a169d2afcbcc04.jpg 480w, https://xieyuen-org.github.io/p/image-gallery/1_hu_3a73c825de3f86b8.jpg 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="342px"
+&gt; &lt;img src="https://xieyuen-org.github.io/p/image-gallery/2.jpg"
+width="1500"
+height="2250"
+srcset="https://xieyuen-org.github.io/p/image-gallery/2_hu_2a56812cdca2c35e.jpg 480w, https://xieyuen-org.github.io/p/image-gallery/2_hu_70fe5bdaa5eb1f20.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@mymind" target="_blank" rel="noopener"
+&gt;mymind&lt;/a&gt; and &lt;a class="link" href="https://unsplash.com/@lukechesser" target="_blank" rel="noopener"
+&gt;Luke Chesser&lt;/a&gt; on &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Shortcodes</title><link>https://xieyuen-org.github.io/p/shortcodes/</link><pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/shortcodes/</guid><description>&lt;img src="https://xieyuen-org.github.io/p/shortcodes/cover.jpg" alt="Featured image of post Shortcodes" /&gt;&lt;p&gt;For more details, check out the &lt;a class="link" href="https://stack.jimmycai.com/writing/shortcodes" target="_blank" rel="noopener"
+&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="bilibili-video"&gt;Bilibili video
+&lt;/h2&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1d4411N7zD"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="tencent-video"&gt;Tencent video
+&lt;/h2&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://v.qq.com/txp/iframe/player.html?vid=g0014r3khdw&amp;auto=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="youtube-video"&gt;YouTube video
+&lt;/h2&gt;&lt;div class="video-wrapper"&gt;
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/0qwALOOvUik"
+allowfullscreen
+title="YouTube Video"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="generic-video-file"&gt;Generic video file
+&lt;/h2&gt;&lt;div class="video-wrapper"&gt;
+&lt;video
+controls
+src="https://www.w3schools.com/tags/movie.mp4"
+&gt;
+&lt;p&gt;
+Your browser doesn't support HTML5 video. Here is a
+&lt;a href="https://www.w3schools.com/tags/movie.mp4"&gt;link to the video&lt;/a&gt; instead.
+&lt;/p&gt;
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;h2 id="gist"&gt;Gist
+&lt;/h2&gt;&lt;script src="https://gist.github.com/CaiJimmy/e2751a943de10b2a5b3a8a6c2120cb86.js"&gt;&lt;/script&gt;
+&lt;h2 id="gitlab"&gt;GitLab
+&lt;/h2&gt;&lt;script
+type="application/javascript"
+src="https://gitlab.com/-/snippets/2589724.js"
+&gt;&lt;/script&gt;
+&lt;h2 id="quote"&gt;Quote
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;span class="cite"&gt;&lt;span&gt;― &lt;/span&gt;&lt;span&gt;A famous person, &lt;/span&gt;&lt;a href="https://en.wikipedia.org/wiki/Book"&gt;&lt;cite&gt;The book they wrote&lt;/cite&gt;&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@codioful" target="_blank" rel="noopener"
+&gt;Codioful&lt;/a&gt; on &lt;a class="link" href="https://unsplash.com/photos/WDSN62Qdxuk" target="_blank" rel="noopener"
+&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Math Typesetting</title><link>https://xieyuen-org.github.io/p/math-typesetting/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/math-typesetting/</guid><description>&lt;p&gt;Stack has built-in support for math typesetting using &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+&gt;KaTeX&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It's not enabled by default side-wide,&lt;/strong&gt; but you can enable it for individual posts by adding &lt;code&gt;math: true&lt;/code&gt; to the front matter. Or you can enable it side-wide by adding &lt;code&gt;math = true&lt;/code&gt; to the &lt;code&gt;params.article&lt;/code&gt; section in &lt;code&gt;config.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="inline-math"&gt;Inline math
+&lt;/h2&gt;&lt;p&gt;This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="block-math"&gt;Block math
+&lt;/h2&gt;$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+$$&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>欢迎顾钰琳来看我的小网站</title><link>https://xieyuen-org.github.io/old/hello-gu/</link><pubDate>Sat, 19 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/hello-gu/</guid><description>&lt;p&gt;awa&lt;/p&gt;
+&lt;p&gt;&lt;a herf="https://blog.xieyuen.link/images/avater2.jpg" download="awa.png"&gt;download&lt;/a&gt;&lt;/p&gt;</description></item><item><title>我自己的第一个 MCDR 插件</title><link>https://xieyuen-org.github.io/old/1st-python-file/</link><pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/1st-python-file/</guid><description>&lt;p&gt;对 MC 服务器卡死无法关闭的情况做了优化&lt;/p&gt;
+&lt;p&gt;我的服务器就不知为什么总是在关闭服务器时卡死，自然状态下需要 &lt;code&gt;WatchDog&lt;/code&gt; 帮忙还不一定有用&lt;/p&gt;
+&lt;p&gt;所以最核心的代码就是这个：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-py" data-lang="py"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务器关闭&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# wait 20 secs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_server_running&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务器似乎卡死了&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;3s 后将会杀死服务端&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;kill&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务端已停止&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;当服务器关闭命令发送 &lt;code&gt;20s&lt;/code&gt; 后仍在运行状态就执行 &lt;code&gt;server.kill()&lt;/code&gt; 方法杀死服务端进程&lt;/p&gt;
+&lt;p&gt;还有一个改写过的 &lt;code&gt;exit()&lt;/code&gt; 方法&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-py" data-lang="py"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_server_running&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;这个方法会在关闭 MC 服务端后直接退出 MCDR，小小的改动（&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;不知道 &lt;a class="link" href="https://github.com/Fallen-Breath/MCDReforged" title="全称 MCDReforged"
+target="_blank" rel="noopener"
+&gt;MCDR&lt;/a&gt; 是什么？看&lt;a class="link" href="https://github.com/Fallen-Breath/MCDReforged" target="_blank" rel="noopener"
+&gt;仓库&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;源代码：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;span class="lnt"&gt;43
+&lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;span class="lnt"&gt;45
+&lt;/span&gt;&lt;span class="lnt"&gt;46
+&lt;/span&gt;&lt;span class="lnt"&gt;47
+&lt;/span&gt;&lt;span class="lnt"&gt;48
+&lt;/span&gt;&lt;span class="lnt"&gt;49
+&lt;/span&gt;&lt;span class="lnt"&gt;50
+&lt;/span&gt;&lt;span class="lnt"&gt;51
+&lt;/span&gt;&lt;span class="lnt"&gt;52
+&lt;/span&gt;&lt;span class="lnt"&gt;53
+&lt;/span&gt;&lt;span class="lnt"&gt;54
+&lt;/span&gt;&lt;span class="lnt"&gt;55
+&lt;/span&gt;&lt;span class="lnt"&gt;56
+&lt;/span&gt;&lt;span class="lnt"&gt;57
+&lt;/span&gt;&lt;span class="lnt"&gt;58
+&lt;/span&gt;&lt;span class="lnt"&gt;59
+&lt;/span&gt;&lt;span class="lnt"&gt;60
+&lt;/span&gt;&lt;span class="lnt"&gt;61
+&lt;/span&gt;&lt;span class="lnt"&gt;62
+&lt;/span&gt;&lt;span class="lnt"&gt;63
+&lt;/span&gt;&lt;span class="lnt"&gt;64
+&lt;/span&gt;&lt;span class="lnt"&gt;65
+&lt;/span&gt;&lt;span class="lnt"&gt;66
+&lt;/span&gt;&lt;span class="lnt"&gt;67
+&lt;/span&gt;&lt;span class="lnt"&gt;68
+&lt;/span&gt;&lt;span class="lnt"&gt;69
+&lt;/span&gt;&lt;span class="lnt"&gt;70
+&lt;/span&gt;&lt;span class="lnt"&gt;71
+&lt;/span&gt;&lt;span class="lnt"&gt;72
+&lt;/span&gt;&lt;span class="lnt"&gt;73
+&lt;/span&gt;&lt;span class="lnt"&gt;74
+&lt;/span&gt;&lt;span class="lnt"&gt;75
+&lt;/span&gt;&lt;span class="lnt"&gt;76
+&lt;/span&gt;&lt;span class="lnt"&gt;77
+&lt;/span&gt;&lt;span class="lnt"&gt;78
+&lt;/span&gt;&lt;span class="lnt"&gt;79
+&lt;/span&gt;&lt;span class="lnt"&gt;80
+&lt;/span&gt;&lt;span class="lnt"&gt;81
+&lt;/span&gt;&lt;span class="lnt"&gt;82
+&lt;/span&gt;&lt;span class="lnt"&gt;83
+&lt;/span&gt;&lt;span class="lnt"&gt;84
+&lt;/span&gt;&lt;span class="lnt"&gt;85
+&lt;/span&gt;&lt;span class="lnt"&gt;86
+&lt;/span&gt;&lt;span class="lnt"&gt;87
+&lt;/span&gt;&lt;span class="lnt"&gt;88
+&lt;/span&gt;&lt;span class="lnt"&gt;89
+&lt;/span&gt;&lt;span class="lnt"&gt;90
+&lt;/span&gt;&lt;span class="lnt"&gt;91
+&lt;/span&gt;&lt;span class="lnt"&gt;92
+&lt;/span&gt;&lt;span class="lnt"&gt;93
+&lt;/span&gt;&lt;span class="lnt"&gt;94
+&lt;/span&gt;&lt;span class="lnt"&gt;95
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-py" data-lang="py"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;time&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;platform&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;system&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;mcdreforged.api.all&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;PLUGIN_METADATA&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;tool_plugin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;version&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;1.0.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;name&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tool Plugin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;description&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;en_us&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;A tool plugin&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;zh_cn&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;服务器工具(单文件)&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;author&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;xieyuen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;dependencies&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;mcdreforged&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;gt;=2.0.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;},&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Commands&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ServerControl&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;ServerControl&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; &lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;start&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务器已开启&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务器关闭&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# wait 20 secs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_server_running&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务器似乎卡死了&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;3s 后将会杀死服务端&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;time&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;kill&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;服务端已停止&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;is_server_running&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;exec&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;cmds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Commands&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;on_load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;PluginServerInterface&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;prev_module&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;插件已加载&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;此插件为单文件插件！&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;此插件为单文件插件！&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;warning&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;此插件为单文件插件！&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Powered by xieyuen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register_help_message&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;!!tools&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="s1"&gt;&amp;#39;一个小工具&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register_command&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;!!tools&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_permission&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rtr&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;tool_plugin.help&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;server&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_permission&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;start&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmds&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_permission&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;stop&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmds&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;stop&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_permission&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;exit&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmds&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_permission&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;then&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;Literal&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;restart&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;runs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmds&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;server&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;restart&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;requires&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;src&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;has_permission&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# reg command&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>黄诗雯的问题</title><link>https://xieyuen-org.github.io/old/huang-ques/</link><pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/huang-ques/</guid><description>&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/pictures/2023-7-math-ques/20230726_091701.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【问】：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;已知 $\angle 1 = \angle 2 = \angle 3 = 90^{\circ}$ , $C$ 为 $AE$ 中点，求证：$\triangle ABC \sim \triangle CDE \sim \triangle ACE$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【解】：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/pictures/2023-7-math-ques/20230726_091832.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;p&gt;如图，过点 $C$ 作 $CF \parallel AB$ 交 $AE$ 于点 $F$ , &lt;/br&gt;
+易证 $F$ 为 $AE$ 中点，$AF = EF = CF$&lt;/br&gt;
+即 $\angle FAC = \angle FCA$ , $\angle FEC = \angle FCE$&lt;/br&gt;
+$\because CF \parallel AB \Rightarrow \angle BAC = \angle ACF = \angle FAC$&lt;/br&gt;
+同理得 $\angle FEC = \angle CED$&lt;/p&gt;
+&lt;!--markdownlint-disable--&gt;
+&lt;h6 id="后面的我不写了"&gt;后面的我不写了（
+&lt;/h6&gt;</description></item><item><title>emmmm... 一道小题目</title><link>https://xieyuen-org.github.io/old/math-question/</link><pubDate>Tue, 25 Jul 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/math-question/</guid><description>&lt;p&gt;这道小题目有亿丢丢复杂，看下面（&lt;/p&gt;
+$$
+\cfrac { \cfrac { \int _ { 0 } ^ { + \infty } e ^ { - s } s ^ { 5 } \mathrm { d } x } { 2 } + \cfrac { \int _ { - \infty } ^ { + \infty } e ^ { - \frac { t ^ { 2 } } { 2 } } \mathrm { d } x } { \int _ { 0 } ^ { + \infty } \sin t ^ { 2 } \mathrm { d } x } \left ( \cfrac { \sum _ { n = 0 } ^ { \infty } \dfrac { \left ( -1 \right ) ^ { n } } { 2 n + 1 } } { \int _ { 0 } ^ { + \infty } \dfrac { \sin x } { x } \mathrm { d } x } + \cfrac { \sum _ { n = 1 } ^ { \infty } \arctan \dfrac { 2 } { n ^ { 2 } } } { \lim _ { t \to 0 ^ { + } } \int _ { -2020 } ^ { 2020 } \dfrac { t \cos x } { x ^ { 2 } + t ^ { 2 } } \mathrm { d } x } \right ) } { \lim _ { n \to \infty } \left \{ \left [ \left ( \int_{0}^{1} \dfrac { x ^ { n - 1 } } { 1 + x } \mathrm { d } x \right ) n - \dfrac { 1 } { 2 } \right ] \dfrac { n } { 2 } \right \} }
+$$&lt;p&gt;下面是题目的分解&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;${ \int _ { 0 } ^ { + \infty } e ^ { - s } s ^ { 5 } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \int _ { - \infty } ^ { + \infty } e ^ { - \frac { t ^ { 2 } } { 2 } } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \int _ { 0 } ^ { + \infty } \sin t ^ { 2 } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \sum _ { n = 0 } ^ { \infty } \frac { \left ( -1 \right ) ^ { n } } { 2 n + 1 } }$&lt;/li&gt;
+&lt;li&gt;${ \int _ { 0 } ^ { + \infty } \frac { \sin x } { x } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \sum _ { n = 1 } ^ { \infty } \arctan \frac { 2 } { n ^ { 2 } } }$&lt;/li&gt;
+&lt;li&gt;${ \lim _ { t \to 0 ^ { + } } \int _ { -2020 } ^ { 2020 } \frac { t \cos x } { x ^ { 2 } + t ^ { 2 } } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \lim _ { n \to \infty } \frac { n } { 2 } \left ( n \int_{0}^{1} \frac { x ^ { n - 1 } } { 1 + x } \mathrm { d } x - \frac { 1 } { 2 } \right ) }$&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>一些红色诗歌</title><link>https://xieyuen-org.github.io/old/langsong/</link><pubDate>Wed, 05 Jul 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/langsong/</guid><description>&lt;h2 id="可爱的中国"&gt;《可爱的中国》
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;方志敏&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;我的祖国，
+可爱的中国，
+你创造了辉煌的历史，
+你养育了伟大的民族。
+我自豪你的悠久，
+数千年的狂风吹不折你挺拔的脊背
+我自豪你的坚强，
+抵住内忧外患闯过岁月蹉跎。
+我自豪你的光明，
+中华民族把自己的命运牢牢掌握，
+我自豪你的精神，
+改革勇往直前开放气势磅礴。
+可爱的祖国啊，
+无论我走到那里，
+我都挽住你力量的臂膊，
+无论我身居何方，
+你都温暖着我的心窝。
+可爱的祖国啊，
+你把住新世纪的航舵，
+你用速度，你用实力，
+创造震惊世界的奇迹。
+你用勤劳，你用智慧，
+进行了又一次更加辉煌的开拓！
+祖国啊，祖国，
+你永远充满希望，
+祖国啊，祖国，你永远朝气蓬勃！
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="党旗颂"&gt;《党旗颂》
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;你有晨曦一样的颜色
+映红了东方的天宇
+你有沸点一样的温度
+让神州变为热土
+你是阵痛中分娩的彩红
+嫁接起中华民族腾飞的桥梁
+你用卓越的成就谱写歌词
+将春天的故事传唱
+那把磨得锃亮的镰刀披荆斩棘
+割去旧中国腐朽的毒瘤
+那把高高擎起的铁锤力重千钧
+已砸烂旧社会沉重的枷锁
+你是一面真理的旗帜
+穿越88个春秋永不褪色
+你是一面飘扬的战旗
+无数优秀儿女为你前赴后继
+你是一面永恒的党旗
+旗下回响着庄严神圣的誓词
+你是漫漫长夜指路的北斗星
+你是大海上指引航行的灯塔
+你将金黄的党徽融进殷红的血液
+积淀出永远不变的信仰
+你用太阳般的光芒编织未来
+建设起富饶美丽的家园
+因为你，七月跳动着熠熠的火焰
+因为你，七一有着火红的主题
+你是一张宏伟的蓝图
+由三代领导人精心设计
+你是一幅多彩的画卷
+由十三亿人民共同描绘
+你如春风吹拂
+将荒漠变成绿洲
+你如号角长鸣
+给了我们奋进的力量
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="赞美党的诗歌"&gt;《赞美党的诗歌》
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;把幸福的曙光捧到了人民心中。
+是你刚强的性格，
+冲杀在硝烟弥漫的战场，
+为我们书写神奇的篇章。
+当洪水肆虐的时候，
+当地震到来的时候，
+是你站在人民的前面，
+伸出双手拯救生命。
+是你站在决堤的江中，
+用你的身体铸就堤坝；
+是你卧在倒塌的废墟下，
+撑起一片安全的天；
+在泥石流的奔跑中，
+以巨人的脚步蹦向被掩埋的人们，
+那一刻我的心触动了。
+我为你骄傲，
+我为你自豪，
+你永远是国旗上的一颗星
+时刻闪烁着光芒。
+你是那喷血的朝阳，
+用生命书写乐章。
+你永远没有轻薄地表白，
+却用博大诉说着耀眼的辉煌。
+是你钢铁的意志，
+有力的臂膀举起祖国的彩虹，
+把幸福的曙光捧到了人民心中。
+是你刚强的性格，
+冲杀在硝烟弥漫的战场，
+为我们书写神奇的篇章。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="七一献诗"&gt;《七一献诗》
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;走进七月流火的季节
+漫步在现代化都市的街道上
+看着林立的高楼
+穿梭的车辆
+衣着光鲜的行人
+享受着与世界同步的信息文明
+目睹着奥运赛场上五星红旗在
+嘹亮的国歌声中冉冉升起
+便有一股馨香在我的心中绽放
+便有一股激流在我的心中奔涌
+七月伴着时代的脉搏
+在我们的心中唱响的是
+中国史册上最激动人心的
+“没有国产党就没有新中国”
+七一不仅仅是党的生日
+他是一个盛典
+是我们华夏儿女国共同的节日
+共产党，我为你骄傲我为你自豪
+在满怀毫情迎来你84岁生日之际
+我们会时刻铭记
+南湖上航行的那条小船
+井冈山上的松柏和翠柳
+天安门城楼上的开国大典
+中华民族几千年的荣辱与沧桑
+长征路上进军的号角
+战争场上的硝烟弥漫
+那在枪林弹火中应声倒下的一个个鲜活的生命
+穿越岁月的时空
+镰刀或斧子把七月尽情渲染
+在血泪铸就的鲜红的党旗上写下了
+辉煌璀璨的一页
+七月我们不会忘记
+祖国960万平方公里大地上
+12亿炎黄子孙都不会忘记
+我们是党的孩子
+我们的根已扎进了七月的深处
+踏在新世纪的征途上
+我们信心百倍我们豪情万丈
+点燃七月的圣火
+我们高歌《红旗飘飘》
+&lt;/code&gt;&lt;/pre&gt;
+&lt;!--
+## 《面对鲜红的党旗》
+&gt; ——纪念中国共产党建党九十周年
+您是一面旗帜，又是一个整体，
+是您把镰刀铁锤高高举起，
+因为您代表中国工农。
+三十八年前的“七一”，
+我举起右手面对您宣誓，
+为共产主义奋斗终身！
+从此我就是您的儿女。
+年年“七一”我总把历程回忆。
+难忘那：
+旧中国的“三座大山”，
+神州大地满目疮痍，民不聊生。
+苏联“十月革命”的炮声，
+送来了马列主义
+中华民族的复兴之路，
+从南昌城头的枪声到井冈山的烽火
+从遵义会议到毛泽东力挽狂澜；
+从“五次反围剿”到抗战八年赶走侵略者；
+从“三大战役”到打败国民党蒋家王朝。
+二十八年的浴血奋战：
+二十八年的前仆后继，
+千百万党的好儿女用鲜血和生命，
+换来了一九四九年十月一日的这一天，
+中华人民共和国成立了！
+中国人民从此站起来了！
+您开创了中国历史的新纪元。
+--&gt;
+&lt;h2 id="光的赞歌节选"&gt;《光的赞歌（节选）》
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;艾青&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;每个人的一生
+不论聪明还是愚蠢
+不论幸福还是不幸
+只要他一离开母体
+就睁着眼睛追求光明
+世界要是没有光
+也就没有扬花飞絮的春天
+也就没有百花争艳的夏天
+也就没有金果满园的秋天
+也就没有大雪纷飞的冬天
+世界要是没有光
+看不见奔腾不息的江河
+看不见连绵千里的森林
+看不见容易激动的大海
+看不见像老人似的雪山
+要是我们什么也看不见
+我们对世界还有什么留恋
+只是因为有了光
+我们的大千世界
+才显得绚丽多彩
+人间也显得可爱
+光给我们以智慧
+光给我们以想象
+光给我们以热情
+光帮助我们创造出不朽的形象
+山野的篝火是美的
+港湾的灯塔是美的
+夏夜的繁星是美的
+庆祝胜利的焰火是美的
+一切的美都和光在一起
+光从不可估量的高空
+俯视着人类历史的长河
+我们从周口店到天安门
+像滚滚的波涛在翻腾
+不知穿过了多少的险滩和暗礁
+我们乘坐的是永不沉没的船
+从天际投下的光始终照引着我们……
+我们从千万次的蒙蔽中觉醒
+我们从千万种的愚弄中学得了聪明
+统一中有矛盾、前进中有逆转
+运动中有阻力、革命中有背叛
+然而我们的信念
+像光一样坚强……
+经过了多少浩劫之后
+人类的前途无限光明、永远光明
+现在我们正在开始新的长征
+这个长征不只是二万五千里的路程
+我们要逾越的也不只是十万大山
+我们要攀登的也不只是千里岷山
+我们要夺取的也不只是
+金沙江、大渡河
+我们要抢渡的是更多更险的渡口
+我们在攀登中将要遇到更大的风雪、
+更多的冰川……
+但是光在召唤我们前进
+在鼓舞我们、激励我们
+光给我们送来了新时代的黎明
+我们的人民从四面八方高歌猛进
+让信心和勇敢伴随着我们
+武装我们的是最美好的理想
+我们生活在最美好的社会里
+我们前进的道路铺满阳光
+让我们的每个日子
+都像飞轮似的旋转起来
+让我们的生命发出最大的能量
+让我们像从地核里释放出来的能
+极大地撑开光的翅膀
+在无限广阔的宇宙中飞翔
+让我们以最高的速度飞翔吧
+让我们以大无畏的精神飞翔吧
+让我们从今天出发飞向明天
+让我们把每个日子都当做新的起点
+让我们从地球出发
+飞向太阳……
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="歌颂党的二十大"&gt;歌颂党的二十大
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;2022年10月19日
+作者：吴雪&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;回望历史之硝烟弥漫
+纵览山河之锦绣蓬勃
+百年前的风雨如晦
+到如今的海晏河清
+岁月厚重石碑上印刻着
+灿若星辰的光芒
+是中华民族血脉中
+亘古不灭的理想之光
+今站于高山之巅
+回首过去 仰望未来
+你的1921
+我的2022
+何其有幸 生于华夏
+见证百年 欣逢盛世
+当不负盛世
+新时代的青年沐浴在
+新时代的春风里
+我们要向着红旗指引的方向
+以实干笃定前行
+以奋斗开启未来
+此刻
+我们正站在历史与新时代的交汇点上
+展望2049
+现在让我们用理想
+一同敲响新时代的钟声
+迎接2049
+我们只愿山河无恙
+祖国繁荣昌盛！
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="致我的年轻朋友"&gt;《致我的年轻朋友》
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;作者：于安全&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code&gt;我无法向你描摹过去
+过去的时光
+我也没有经历
+我无法向你描摹未来
+因为未来
+将在你们的手上树起
+但是
+我可以和你一起翻开历史
+试着去找寻祖辈的足迹
+我们从1840起步吧
+2000多英军就可横行中国大地
+从那时起
+庞大的中国躯体
+竟然成为西方列强面前的一条鱼
+太阳虽然还每天升起
+却照不亮中国的一寸土地
+多灾多难的中国人
+日夜胆战心惊
+甚至不敢大口呼吸
+我们的先辈哟
+只能偷偷打开门
+接触外面风来，间或一丝新鲜空气
+他们抗争
+他们摸索
+他们叹息
+他们想不透
+满口喊着平等的‘文明国家’
+怎能如此无耻
+把5000年文明史的国家
+反复蹂躏捏来捏去
+终于
+一个政党诞生了
+从成立时就确定了民族解放和独立
+从成立时就确定了人民利益第一位
+从成立时就确定了为了实现共产主义
+所有艰难困苦牺牲，我们愿意
+50多人的队伍出发了
+征程万里
+几千、几万、几十万的人汇入了
+走向胜利
+当他们走向天安门广场
+每杆红旗都有烈士的血迹
+旗帜下站着三百万党员充满朝气
+旗帜上有三百万英雄的形象值得铭记
+几乎是一比一啊
+哪个政党为了一个新的国家
+经受如此大的磨砺
+有许许多多的烈士倒在
+倒在共和国成立的鸣炮里
+他们没有怨言
+只有希冀
+方志敏希冀可爱的中国
+江竹筠希冀遍地是红旗
+李白希冀每个家庭都有温暖的怀抱
+瞿秋白希冀中国人都能自由呼吸
+太多的希冀
+他们来不及享受
+他们把所有祝愿留给后人
+留给了今天
+我们啊，如何给他们一个完美的答题
+今天的中国强大
+今天的中国富裕
+今天的中国幸福
+今天的中国美丽
+可是，这不是你以为应该有的样子
+中国的每一步
+都曾有无数人为之努力
+你要以他们而自豪
+寻找一切机会
+去体会他们曾经跋涉的步履
+多想想他们的二九年华
+想想还有哪些差距
+去努力吧
+去奋斗吧
+去进取吧
+不要辜负青春的年纪
+从今天开始
+选定方向
+坚定不移
+我相信
+中国的未来
+将百倍于今天的美丽
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>2023高考数学真题</title><link>https://xieyuen-org.github.io/old/math-exam/</link><pubDate>Wed, 07 Jun 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/math-exam/</guid><description>&lt;h2 id="一单项选择题"&gt;一、单项选择题
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;已知集合 $ M = \{ -2, -1, 0, 1, 2 \} $ ， $ N = \{ x | x^2 - x - 6 \ge 0 \} $ ，则 $ M \cap N = ( \qquad ) $&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $\{ -2, -1, 0, 1 \}$&lt;/li&gt;
+&lt;li&gt;B. $\{ 0, 1, 2 \}$&lt;/li&gt;
+&lt;li&gt;C. $\{ -2 \}$&lt;/li&gt;
+&lt;li&gt;D. $\{ 2 \}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;已知 $ z =\cfrac { 1 - i } { 2 + 2 i } $ ，则 $ z - \overline{z} = ( \qquad ) $&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $ -i $&lt;/li&gt;
+&lt;li&gt;B. $ i $&lt;/li&gt;
+&lt;li&gt;C. $ 0 $&lt;/li&gt;
+&lt;li&gt;D. $ 1 $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;已知向量 $ \vec{a} = ( 1, 1 ) $ ， $ \vec{b} = ( -1, 1 ) $ ，若 $ ( \vec{a} + \lambda \vec{b} ) \bot ( \vec{a} + \mu \vec{b} ) $ ，则 $(\qquad)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $ \lambda + \mu = 1 $&lt;/li&gt;
+&lt;li&gt;B. $ \lambda + \mu = -1 $&lt;/li&gt;
+&lt;li&gt;C. $ \lambda \mu = 1 $&lt;/li&gt;
+&lt;li&gt;D. $ \lambda \mu = -1 $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设函数 $ f ( x ) = 2 ^ { x ( x - a ) } $ 在区间 $( 0, 1 )$ 单调递减，则 $a$ 的取值范围是 $(\qquad)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $ ( - \infty , -2 ] $&lt;/li&gt;
+&lt;li&gt;B. $ [ -2, 0 ) $&lt;/li&gt;
+&lt;li&gt;C. $ ( 0, 2 ] $&lt;/li&gt;
+&lt;li&gt;D. $ [ 2, + \infty ) $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;设椭圆 $ C_{1}: \cfrac { x ^ 2 } { a ^ 2 } + y ^ { 2 } = 1 \ ( a &amp;gt; 1 ) $ ， $ C_{2}: \cfrac { x ^ 2 } { 4 } + y ^ {2} = 1 $ 的离心率分别为 $e_{1}$ ， $e_{2}$ ，若 $ e_{2} = \sqrt{3} e_{1} $ ，则 $ a = (\qquad) $&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $ \frac { 2 \sqrt { 3 } } { 3 } $&lt;/li&gt;
+&lt;li&gt;B. $ \sqrt{2} $&lt;/li&gt;
+&lt;li&gt;C. $ \sqrt{3} $&lt;/li&gt;
+&lt;li&gt;D. $ \sqrt{6} $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;过点 $( 0, -2 )$ 与圆 $ x^{2} + y^{2} - 4x - 1 = 0 $ 相切的两条直线的夹角为 $\alpha$ ，则 $ \sin \alpha = (\qquad) $&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $ 1 $&lt;/li&gt;
+&lt;li&gt;B. $ \frac{\sqrt{15}}{4} $&lt;/li&gt;
+&lt;li&gt;C. $ \frac{\sqrt{10}}{4} $&lt;/li&gt;
+&lt;li&gt;D. $ \frac{\sqrt{6}}{4} $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;记 $S_{n}$ 为数列 $ \left \{ a_{n} \right \} $ 的前项和，设甲： $ \left \{ a_{n} \right \} $ 为等差数列；乙： $ \left \{ \frac { S_{n} } { n } \right \} $ 为等差数列，则 $(\qquad)$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. 甲是乙的充分条件但不是必要条件&lt;/li&gt;
+&lt;li&gt;B. 甲是乙的必要条件但不是充分条件&lt;/li&gt;
+&lt;li&gt;C. 甲是乙的充要条件&lt;/li&gt;
+&lt;li&gt;D. 甲既不是乙的充分条件也不是乙的必要条件&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;已知 $ \sin ( \alpha - \beta ) = \frac{1}{3} $ ， $ \cos \alpha \sin \beta = \frac{1}{6} $ ，则 $ \cos ( 2 \alpha + 2 \beta ) = (\qquad) $&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A. $ \frac{7}{9} $&lt;/li&gt;
+&lt;li&gt;B. $ \frac{1}{9} $&lt;/li&gt;
+&lt;li&gt;C. $ - \frac{1}{9} $&lt;/li&gt;
+&lt;li&gt;D. $ - \frac{7}{9} $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="二多项选择题"&gt;二、多项选择题
+&lt;/h2&gt;&lt;ol start="9"&gt;
+&lt;li&gt;有一组样本数据 $ x_1, x_2, \cdots, x_6 $ ，其中 $x_1$ 是最小值， $x_6$ 是最大值，则 $(\qquad)$
+&lt;ul&gt;
+&lt;li&gt;A. $ x_2, x_3, x_4, x_5 $ 的平均数等于 $ x_1, x_2, \cdots, x_6 $ 的平均数&lt;/li&gt;
+&lt;li&gt;B. $ x_2, x_3, x_4, x_5 $ 的中位数等于 $ x_1, x_2, \cdots, x_6 $ 的中位数&lt;/li&gt;
+&lt;li&gt;C. $ x_2, x_3, x_4, x_5 $ 的标准差不小于 $ x_1, x_2, \cdots, x_6 $ 的标准差&lt;/li&gt;
+&lt;li&gt;D. $ x_2, x_3, x_4, x_5 $ 的极差不大于 $ x_1, x_2, \cdots, x_6 $ 的极差&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;噪声污染问题越来越受到重视，用声压级来度量声音的强弱，定义声压级 $ L_p = 20 \times \lg \cfrac{p}{p_0} $ ，其中常数 $ p_0 ( p_0 &amp;gt; 0) $ 是听觉下限阈值， $p$ 是实际声压. 下表为不同声压的声压级，已知距离燃油汽车、混合动力汽车、电动汽车 $ 10 \mathrm{m} $ 处测得实际声压分别为 $p_1$ ， $p_2$ ， $p_3$ ，则 $(\qquad)$
+&lt;ul&gt;
+&lt;li&gt;A. $ p_1 \ge p_2 $&lt;/li&gt;
+&lt;li&gt;B. $ p_2 &amp;gt; 10 p_3 $&lt;/li&gt;
+&lt;li&gt;C. $ p_3 = 100 p_0 $&lt;/li&gt;
+&lt;li&gt;D. $ p_1 \le 100 p_2 $&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!--markdownlint-disable MD060--&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;声源&lt;/th&gt;
+&lt;th style="text-align: center"&gt;与声源的距离 / $\mathrm{m}$&lt;/th&gt;
+&lt;th style="text-align: center"&gt;声压级 / $\mathrm{dB}$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;燃油汽车&lt;/td&gt;
+&lt;td style="text-align: center"&gt;$10$&lt;/td&gt;
+&lt;td style="text-align: center"&gt;$60$ ~ $90$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;混合动力汽车&lt;/td&gt;
+&lt;td style="text-align: center"&gt;$10$&lt;/td&gt;
+&lt;td style="text-align: center"&gt;$50$ ~ $60$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;电动汽车&lt;/td&gt;
+&lt;td style="text-align: center"&gt;$10$&lt;/td&gt;
+&lt;td style="text-align: center"&gt;$40$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start="11"&gt;
+&lt;li&gt;已知函数 $f(x)$ 的定义域为 $\mathbb{R}$ ， $f(xy) = y^2 f(x) + x^2 f(y) $ ，则 $(\qquad)$
+&lt;ul&gt;
+&lt;li&gt;A. $ f(0) = 0 $&lt;/li&gt;
+&lt;li&gt;B. $ f(1) = 0 $&lt;/li&gt;
+&lt;li&gt;C. $ f(x) $ 是偶函数&lt;/li&gt;
+&lt;li&gt;D. $ x = 0 $ 为 $f(x)$ 的极小值点&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;12.下列物体中，能够被整体放入棱长为 $ 1 \mathrm{m} $ 的正方体容器(容器壁厚度忽略不计)内的有 $(\qquad)$
+- A. 直径为 $0.99 \mathrm{m}$ 的球体
+- B. 所有棱长均为 $1.4 \mathrm{m}$ 的四面体
+- C. 底面直径为 $0.01 \mathrm{m}$ ，高为 $1.8 \mathrm{m}$ 的圆柱体
+- D. 底面直径为 $1.2 \mathrm{m}$ ，高为 $0.01 \mathrm{m}$ 的圆柱体&lt;/p&gt;
+&lt;h2 id="三填空题"&gt;三、填空题
+&lt;/h2&gt;&lt;ol start="13"&gt;
+&lt;li&gt;某学校开设了 $4$ 门体育类选修课和 $4$ 门艺术类选修课，学生需从这 $8$ 门课中选修 $2$ 门或 $3$ 门课，并且每类选修课至少选修 $1$ 门，则不同的选课方案共有______种(用数字作答).&lt;/li&gt;
+&lt;li&gt;在正四棱台 $ A B C D - A_1 B_1 C_1 D_1 $ 中， $ A B = 2 $ ， $ A_1 B_1 = 1 $ ， $ A A_1 = \sqrt{2} $ ，则该棱台的体积为______.&lt;/li&gt;
+&lt;li&gt;已知函数 $f(x) = \cos \omega x - 1 ( \omega &amp;gt; 0 ) $ 在区间 $[ 0, 2 \pi ]$ 有且仅有三个零点，则 $\omega$ 的取值范围是______.&lt;/li&gt;
+&lt;li&gt;已知双曲线 $ C: \cfrac{x^2}{a^2} - \cfrac{y^2}{b^2} = 1 ( a &amp;gt; 0 , b &amp;gt; 0 ) $ 的左右焦点分别为 $F_1$ ， $F_2$ . 点 $A$ 在 $C$ 上，点 $B$ 在 $y$ 轴上， $ \overrightarrow{F_1 A} \bot \overrightarrow{F_1 B} $ ， $ \overrightarrow{F_2 A} = - \frac{2}{3} \overrightarrow{F_2 B} $ ，则 $C$ 的离心率为______.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="四解答题"&gt;四、解答题
+&lt;/h2&gt;&lt;h3 id="17-10-分"&gt;17. (10 分)
+&lt;/h3&gt;&lt;p&gt;已知在 $ \triangle A B C $ 中，$ A + B = 3 C $ ， $ 2 \sin \left( A - C \right) = \sin B $.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求 $ \sin A $ ；&lt;/li&gt;
+&lt;li&gt;若 $ A B = 5 $ ， 求 $ A B $ 边上的高.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="18-12-分"&gt;18. (12 分)
+&lt;/h3&gt;&lt;p&gt;如图，在正四棱柱 $ A B C D - A _ { 1 } B _ { 1 } C _ { 1 } D _ { 1 } $ 中，点 $ A _ { 2 } $ ， $ B _ { 2 } $ ， $ C _ { 2 } $ ， $ D _ { 2 } $ 分别在棱 $ A A _ { 1 } $ ， $ B B _ { 1 } $ ， $ C C _ { 1 } $ ， $ D D _ { 1 } $ 上， $ A A _ { 2 } = 1 $ ， $ B B _ { 2 } = D D _ { 2 } = 2 $ ， $ C C _ { 2 } = 3 $ .&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;证明： $ B _ { 2 } C _ { 2 } // A _ { 2 } D _ { 2 } $ ；&lt;/li&gt;
+&lt;li&gt;点 $ P $ 在棱 $ B B _ { 1 } $ 上，当二面角 $ P - A _ { 2 } C _ { 2 } - D _ { 2 } $ 为 $ 150 ^ { \circ } $ 时，求 $ B _ { 2 } P $ .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/pictures/2023-gk-math/20230616_060238.png"
+loading="lazy"
+alt="题 18 图"
+&gt;&lt;/p&gt;
+&lt;h3 id="19-12-分"&gt;19. (12 分)
+&lt;/h3&gt;&lt;p&gt;已知函数 $ f ( x ) = a ( e ^ { x } + a ) - x $&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;讨论 $ f ( x ) $ 的单调性；&lt;/li&gt;
+&lt;li&gt;证明：当 $ a &amp;gt; 0 $ 时， $ f ( x ) &amp;gt; 2 \ln a + \frac { 3 } { 2 } $ .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="20-12-分"&gt;20. (12 分)
+&lt;/h3&gt;&lt;p&gt;设等差数列 $ \left \{ a _ { n } \right \} $ 的公差为 $ d $ ，且 $ d &amp;gt; 1 $ ，令 $ b _ { n } = \frac { n ^ { 2 } + n } { a _ { n } } $ ，记 $ S _ { n } $ ， $ T _ { n } $ 分别为数列 $ \left \{ a _ { n } \right \} $ ， $ \left \{ b _ { n } \right \} $ 的前 $ n $ 项和.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;若 $ 3 a _ { 2 } = 3 a _ { 1 } + a _ { 3 } $ ， $ S _ { 3 } + T _ { 3 } = 21 $ ，求 $ \left \{ a _ { n } \right \} $ 的通项公式；&lt;/li&gt;
+&lt;li&gt;若 $ \left \{ b _ { n } \right \} $ 为等差数列，且 $ S _ { 99 } - T _ { 99 } = 99 $ ，求 $ d $ .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="21-12-分"&gt;21. (12 分)
+&lt;/h3&gt;&lt;p&gt;甲乙两人投篮，每次由其中一人投篮，规则如下：若命中则此人继续投篮，若未命中则换为对方投篮，无论之前投篮情况如何，甲每次投篮的命中率均为 $0.6$ ，乙每次投篮的命中率均为 $0.8$ ，由抽签确定第 $1$ 次投篮的人选，第一次投篮的人是甲、乙的概率各为 $0.5$ .&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求第 $2$ 次投篮的人是乙的概率：&lt;/li&gt;
+&lt;li&gt;求第 $i$ 次投篮的人是甲的概率.&lt;/li&gt;
+&lt;li&gt;已知：若随机变量 $X_i$ 服从两点分布，且 $ P \left( X_i = 1 \right) = 1 - P \left( X_i = 0 \right) = q_i, i = 1, 2, \cdots, n $ ，则 $ E \left( \sum_{i=1}^{n} X_i \right) = \sum_{i=1}^{n} q_i $ ，记前 $n$ 次(即从第 $1$ 次到第 $n$ 次)中甲投篮的次数为 $Y$ ，求 $E \left( Y \right)$ .&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="22-12-分"&gt;22. (12 分)
+&lt;/h3&gt;&lt;p&gt;在直角坐标系 $ x O y $ 中，点 $ P $ 到 $ x $ 轴的距离等于点 $ P $ 到点 $ \left ( 0 , \frac {1} {2} \right ) $ 的距离，记动点 $ P $ 的轨迹为 $ W $ .&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求 $ W $ 的方程；&lt;/li&gt;
+&lt;li&gt;已知矩形 $ A B C D $ 有三个顶点在 $ W $ 上，证明：矩形 $ A B C D $ 的周长大于 $ 3 \sqrt { 3 } $ .&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>4-27 因式分解专题练习答案</title><link>https://xieyuen-org.github.io/old/factorization-answer/</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/factorization-answer/</guid><description>&lt;p&gt;题目📜：&lt;a class="link" href="https://xieyuen-org.github.io/posts/2023/4/28/factorization" &gt;🔗&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;答案📝：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;原式 $ = 3 a b ^ { 2 } c ( a ^{ 2 } - 4 a c + 3 c ^ { 2 } ) \ = 3 a b ^ { 2 } c ( a - 3 c ) ( a - c ) $&lt;/li&gt;
+&lt;li&gt;$ ( 4 x - 9 ) ( 4 x + 9 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = x ( y - 2 ) - 3 ( y - 2 ) \ = ( x - 3 ) ( y - 2 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x ^ { 2 } + y ^ { 2 } ) ( x - y ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x - a ) ( x + b ) $&lt;/li&gt;
+&lt;li&gt;$ a ^ { 2 } ( a + 3 b ) ( a - 3 b ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = x ^ { 3 } + 2 x ^ { 2 } + x ^ { 2 } - 4 \ = x ^ { 2 } ( x + 2 ) + ( x + 2 ) ( x - 2 ) \ = ( x + 2 ) ( x ^ { 2 } + x - 2 ) \ = ( x + 2 ) ^ { 2 } ( x - 1 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = a b x ^ { 2 } + ( a ^ { 2 } - b ^ { 2 } ) x y - a b y ^ { 2 } \ = ( a x - b y ) ( b x + a y ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = ( x + y ) ( a - b - c ) - ( x - y ) ( a - b - c ) \ = ( a - b - c ) ( x + y - x + y ) \ = 2 y ( a - b - c ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = a ^ { 2 } - b ^ { 2 } - ( a + b ) \ = ( a - b ) ( a + b ) - ( a + b ) \ = ( a + b ) ( a - b - 1 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = [ ( 3 a - b ) + 2 ( a + 3 b ) ] ^ { 2 } \ = ( 5 a -5 b ) ^ { 2 } \ = 25 ( a - b ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( a + 3 ) ( a - 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x + 1 ) ( x + 2 ) ( x + 1 - x - 2 ) \ = - ( x + 1 ) ( x + 2 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x - 5 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( x - 10 ) ( x + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ x ( x + 1 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 4 ) ( x - a ) $&lt;/li&gt;
+&lt;li&gt;$ ( 5 x + 7 ) ( 5 x - 7 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 6 x - 5 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x + 3 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( x - 3 ) ( x - 6 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2x - 3 ) ( x - 1 ) $&lt;/li&gt;
+&lt;li&gt;$ 2 ( x - 4 ) ( 6 x - 1 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 x ( x - 2 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 7 x - 5 ) ( 7 x + 5 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x - 1 ) ( 3 x - 5 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 1 ) ( x + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x + 8 ) ( 4 x - 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 6 ) ( x + 5 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = ( x + 2 ) [ 3 ( x - 5 ) - x + 3 ] \ = ( x + 2 ) ( 2 x -12 ) \ = 2 ( x + 2 ) ( x - 6 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x + 7 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } ( x - 7 ) ( x + 5 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 x ^ { 2 } ( x ^ { 2 } + 1 ) ( x + 1 ) ( x - 1 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x + 5 ) ( x - 5) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 10 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( x + 1 ) ( x + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x - 1 ) ( 2 x - 5 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 a x ( x - 2 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = ( x + 2 ) ( x - 3 + x + 4 ) \ = ( x + 2 ) ( x + 1 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = 2 a x ^ { 2 } + ( 2 a - 3 ) x -3 \ = ( 2 a x - 3 ) ( x + 1 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x - 11 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ 2 ( 2 - x ) ( 2 + x ) $&lt;/li&gt;
+&lt;li&gt;$ $&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>因式分解专题练习</title><link>https://xieyuen-org.github.io/old/factorization/</link><pubDate>Fri, 28 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/factorization/</guid><description>&lt;p&gt;共 $76$ 道题&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$ 3 a ^ { 3 } b ^ { 2 } c - 12 a ^ { 2 } b ^ { 2 } c ^ { 2 } + 9 a b ^ { 2 } c ^ { 3 } $&lt;/li&gt;
+&lt;li&gt;$ 16 x ^ { 2 } - 81 $&lt;/li&gt;
+&lt;li&gt;$ x y + 6 - 2 x - 3 y $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } ( x - y ) + y ^ { 2 } ( x - y ) $&lt;/li&gt;
+&lt;li&gt;$ 2 x ^ { 2 } - ( a - 2 b ) x - a b $&lt;/li&gt;
+&lt;li&gt;$ a ^ { 4 } - 9 a ^ { 2 } b ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 3 } + 3 x ^ { 2 } - 4 $&lt;/li&gt;
+&lt;li&gt;$ a b ( x ^ { 2 } - y ^ { 2 } ) + x y ( a ^ { 2 } - b ^ { 2 } ) $&lt;/li&gt;
+&lt;li&gt;$ ( x + y ) ( a - b - c ) + ( x - y ) ( b + c - a ) $&lt;/li&gt;
+&lt;li&gt;$ a ^ { 2 } - a - b ^ { 2 } - b $&lt;/li&gt;
+&lt;li&gt;$ ( 3 a - b ) ^ { 2 } - 4 ( 3 a - b ) ( a + 3 b ) + 4 ( a + 3 b ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( a + 3 ) ^ { 2 } - 6 ( a + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x + 1 ) ^ { 2 } ( x + 2 ) - ( x + 1 ) ( x + 2 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 2 } - 30 x + 25 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } - 7 x - 30 $&lt;/li&gt;
+&lt;li&gt;$ x ( x + 2 ) - x $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } - 4 x - a x + 4 a $&lt;/li&gt;
+&lt;li&gt;$ 25 x ^ { 2 } - 49 $&lt;/li&gt;
+&lt;li&gt;$ 36 x ^ { 2 } - 60 x + 25 $&lt;/li&gt;
+&lt;li&gt;$ 4 x ^ { 2 } + 12 x + 9 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } - 9 x + 18 $&lt;/li&gt;
+&lt;li&gt;$ 2 x ^ { 2 } - 5 x - 3 $&lt;/li&gt;
+&lt;li&gt;$ 12 x ^ { 2 } - 50 x + 8 $&lt;/li&gt;
+&lt;li&gt;$ 3 x ^ { 2 } - 6 x $&lt;/li&gt;
+&lt;li&gt;$ 49 x ^ { 2 } - 25 $&lt;/li&gt;
+&lt;li&gt;$ 6 x ^ { 2 } - 13 x + 5 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } + 2 - 3 x $&lt;/li&gt;
+&lt;li&gt;$ 12 x ^ { 2 } - 23 x - 24 $&lt;/li&gt;
+&lt;li&gt;$ ( x + 6 ) ( x - 6 ) - ( x - 6 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 ( x + 2 ) ( x - 5 ) - ( x + 2 ) ( x - 3 ) $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 2 } + 42 x + 49 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 4 } - 2 x ^ { 3 } - 35 x ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ 3 x ^ { 6 } - 3 x ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } - 25 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } - 20 x + 100 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } + 4 x + 3 $&lt;/li&gt;
+&lt;li&gt;$ 4 x ^ { 2 } - 12 x + 5 $&lt;/li&gt;
+&lt;li&gt;$ 3 a x ^ { 2 } - 6 a x $&lt;/li&gt;
+&lt;li&gt;$ ( x + 2 ) ( x - 3 ) + ( x + 2 ) ( x + 4 ) $&lt;/li&gt;
+&lt;li&gt;$ 2 a x ^ { 2 } - 3 x + 2 a x - 3 $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 2 } - 66 x + 121 $&lt;/li&gt;
+&lt;li&gt;$ 8 - 2 x ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } - x + 14 $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 2 } - 30 x + 25 $&lt;/li&gt;
+&lt;li&gt;$ - 20 x ^ { 2 } + 9 x + 20 $&lt;/li&gt;
+&lt;li&gt;$ 12 x ^ { 2 } - 29 x + 15 $&lt;/li&gt;
+&lt;li&gt;$ 36 x ^ { 2 } + 39 x + 9 $&lt;/li&gt;
+&lt;li&gt;$ 21 x ^ { 2 } - 31 x - 22 $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 4 } - 35 x ^ { 2 } - 4 $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x + 1 ) ( x + 1 ) + ( 2 x + 1 ) ( x - 3 ) $&lt;/li&gt;
+&lt;li&gt;$ 2 a x ^ { 2 } - 3 x + 2 a x - 3 $&lt;/li&gt;
+&lt;li&gt;$ x ( y + 2 ) - x - y - 1 $&lt;/li&gt;
+&lt;li&gt;$ ( x ^ { 2 } - 3 x ) + ( x - 3 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 2 } - 66 x + 121 $&lt;/li&gt;
+&lt;li&gt;$ 8 - 2 x ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 4 } - 1 $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } + 4 x - x y - 2 y + 4 $&lt;/li&gt;
+&lt;li&gt;$ 4 x ^ { 2 } - 12 x + 5 $&lt;/li&gt;
+&lt;li&gt;$ 21 x ^ { 2 } - 31 x - 22 $&lt;/li&gt;
+&lt;li&gt;$ 4 x ^ { 2 } + 4 x y + y ^ { 2 } - 4 x - 2 y - 3 $&lt;/li&gt;
+&lt;li&gt;$ 9 x ^ { 5 } - 35 x ^ { 3 } - 4 x $&lt;/li&gt;
+&lt;li&gt;若 $ ( 2 x ) ^ { n } - 81 = ( 4 x ^ { 2 } + 9 ) ( 2 x + 3 ) ( 2 x - 3 ) $ ，那么 $n$ 的值为 ______&lt;/li&gt;
+&lt;li&gt;若 $ 9 x ^ { 2 } - 12 x y + m $ 可以写成完全平方和的形式，则 $ m = $ ______&lt;/li&gt;
+&lt;li&gt;因式分解 $ a ^ { 4 } - 2 a ^ { 2 } b ^ { 2 } + b ^ { 4 } $ 的结果是 ______&lt;/li&gt;
+&lt;li&gt;将 $ ( a + b ) ^ { 2 } - 4 ( a ^ { 2 } - b ^ { 2 } ) + 4 ( a - b ) ^ { 2 } $ 分解因式为 ______&lt;/li&gt;
+&lt;li&gt;计算: $ \left ( - \frac { 1 } { 2 } \right ) ^ { 2022 } + \left ( \frac { 1 } { 2 } \right ) ^ { 2023 } $ .&lt;/li&gt;
+&lt;li&gt;已知 $ x , y \in \mathbb { Q } $ , 记 $ M = x ^ { 2 } + y ^ { 2 } $ , $ N = 2 x y $ , 求 $M$ 和 $N$ 的大小关系.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;【选择题】&lt;/strong&gt;$ \forall m \in \mathbb { Z } $ , 多项式 $ ( 4 m + 5 ) ^ { 2 } - 9 $ ______
+&lt;ol&gt;
+&lt;li&gt;被 $8$ 整除&lt;/li&gt;
+&lt;li&gt;被 $m$ 整除&lt;/li&gt;
+&lt;li&gt;被 $ ( m - 1 ) $ 整除&lt;/li&gt;
+&lt;li&gt;被 $ ( 2 m - 1 ) $ 整除&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;分解因式：$ - 3 x ^ { 2 n } - 6 x ^ { n } $&lt;/li&gt;
+&lt;li&gt;多项式 $ ( x + y - z ) ( x - y + z ) - ( y + z - x ) ( z - x - y ) $ 的公因式为 ______&lt;/li&gt;
+&lt;li&gt;若 $ x ^ { 2 } + 2 ( m - 3 ) x + 16 $ 是完全平方式，则 $ m = $ ______&lt;/li&gt;
+&lt;li&gt;若 $ 1 + x + x ^ { 2 } + \cdots + x ^ { 2021 } + x ^ { 2022 } = 0 $，则 $ x ^ { 2023 } = $ ______&lt;/li&gt;
+&lt;li&gt;填空：$ x ^ { 2 } + ($ ______ $)x + 2 = ( x + 2 ) ( x + $ ______ $) $&lt;/li&gt;
+&lt;li&gt;若 $a$，$b$，$c$ 三个数中有两个数相等，则 $ a ^ { 2 } ( b - c ) + b ^ { 2 } ( c - a ) + c ^ { 2 } ( a - b ) = $ ______&lt;/li&gt;
+&lt;li&gt;若 $ a + b = 5 $，$ a b = - 14 $，则 $ a ^ { 3 } + a ^ { 2 } b + a b ^ { 2 } + b ^ { 3 } = $ ______&lt;/li&gt;
+&lt;li&gt;若 $ a = 99 $，$ b = 98 $，则 $ a ^ { 2 } - 2 a b + b ^ { 2 } - 5 a + 5 b = $ ______&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>部编版古诗文全册混淆字</title><link>https://xieyuen-org.github.io/old/yuwen-yicuozi/</link><pubDate>Sat, 22 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/yuwen-yicuozi/</guid><description>&lt;h2 id="1洲与州"&gt;&lt;strong&gt;1【洲与州】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;洲（水中陆地）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;晴川历历汉阳树，芳草萋萋鹦鹉洲。《黄鹤楼》&lt;br&gt;
+关关雎鸠，在河之洲。《关雎》&lt;br&gt;
+拣尽寒枝不肯栖，寂寞沙洲冷。《卜算子黄州》&lt;br&gt;
+一上高城万里愁，蒹葭杨柳似汀洲。《咸阳城东楼》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;州（古代行政区划分）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;夜发清溪向三峡，思君不见下渝州。《峨眉山月歌》&lt;br&gt;
+中原乱，簪缨散，几时收？试倩悲风吹泪过扬州。《相见欢（金陵城上西楼）》&lt;br&gt;
+一封朝奏九重天，夕贬潮州路八千。《左迁蓝关示侄孙湘》&lt;br&gt;
+何处望神州？满眼风光北固楼。《南乡子·登京口北固亭有怀》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="2燕与雁"&gt;&lt;strong&gt;2【燕与雁】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;燕(yān)：边塞、北边；(yàn)：鸟类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不闻爷娘唤女声，但闻燕山胡骑鸣啾啾。《木兰诗》（泛指北方）&lt;br&gt;
+萧关逢候骑，都护在燕然。《使至塞上》（燕然山，蒙古国境内，边塞）&lt;br&gt;
+角声满天秋色里，塞上燕脂凝夜紫。《雁门太守行》（同“胭”）&lt;br&gt;
+浊酒一杯家万里，燕然未勒归无计。《渔家傲·秋思》（燕然山）&lt;br&gt;
+几处早莺争暖树，谁家新燕啄春泥。《钱塘湖春行》&lt;br&gt;
+无可奈何花落去，似曾相识燕归来。《浣溪沙》（一曲新词酒一杯）&lt;br&gt;
+正莺儿啼，燕儿舞，蝶儿忙。《浣溪沙》（一曲新词酒一杯）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;雁：候鸟，“归雁”来寄托乡情，书信代名词。古人常托鸿雁抒发离愁别绪、相思情爱、伤时感怀等情感，表达作者思乡念归、忧国爱民的思想。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;乡书何处达？归雁洛阳边。《次北固山下》&lt;br&gt;
+征蓬出汉塞，归雁入胡天。《使至塞上》&lt;br&gt;
+戍鼓断人行，边秋一雁声。《月夜忆舍弟》&lt;br&gt;
+因思杜陵梦，凫雁满回塘。《商山早行》&lt;br&gt;
+塞下秋来风景异，衡阳雁去无留意。《渔家傲·秋思》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="3洛与落"&gt;&lt;strong&gt;3【洛与落】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;乡书何处达？归雁洛阳边。《次北固山下》&lt;br&gt;
+谁家玉笛暗飞声，散入春风满洛城。《春夜洛城闻笛》&lt;br&gt;
+杨花落尽子规啼，闻道龙标过五溪。《闻王昌龄左迁龙标遥有此寄》&lt;br&gt;
+正是江南好风景，落花时节又逢君。《江南逢李龟年》&lt;br&gt;
+落红不是无情物，化作春泥更护花。《己亥杂诗（其五）》&lt;br&gt;
+树树皆秋色，山山唯落晖。《野望》&lt;br&gt;
+零落成泥碾作尘，只有香如故。《卜算子·咏梅》&lt;br&gt;
+辛苦遭逢起一经，干戈寥落四周星。《过零丁洋》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="4唯与惟"&gt;&lt;strong&gt;4【唯与惟】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;不闻机杼声，唯闻女叹息。《木兰诗》&lt;br&gt;
+树树皆秋色，山山唯落晖。《野望》&lt;br&gt;
+杨花榆荚无才思，惟解漫天作雪飞。《晚春》&lt;br&gt;
+室中更无人，惟有乳下孙。《石壕吏》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="5藤蓬"&gt;&lt;strong&gt;5【藤、蓬】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;枯藤老树昏鸦，小桥流水人家，古道西风瘦马。《天净沙》&lt;br&gt;
+征蓬出汉塞，归雁入胡天。《使至》&lt;br&gt;
+风休住，蓬舟吹取三山去！《渔家傲》&lt;br&gt;
+蓬山此去无多路，青鸟殷勤为探看。《无题》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="6茂戍"&gt;&lt;strong&gt;6【茂、戍】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;树木丛生，百草丰茂。《观沧海》&lt;br&gt;
+听妇前致词：三男邺城戍。《石壕吏》&lt;br&gt;
+戍鼓断人行，边秋一雁声。《月夜忆舍弟》&lt;br&gt;
+一抹晚烟荒戍垒，半竿斜日旧关城。《浣溪沙》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="7朗郎"&gt;&lt;strong&gt;7【朗、郎】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;复行数十步，豁然开朗。《桃花源记》&lt;br&gt;
+为报倾城随太守，亲射虎，看孙郎。《江城子》&lt;br&gt;
+我寄愁心与明月，随风直到夜郎西。《闻王昌龄左迁龙标遥有此寄》&lt;br&gt;
+东风不与周郎便，铜雀春深锁二乔。《赤壁》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="8苍沧怆"&gt;&lt;strong&gt;8【苍、沧、怆】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;苍： 青色；灰白；天空&lt;/li&gt;
+&lt;li&gt;沧：暗绿色（指水）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可怜夜半虚前席，不问苍生问鬼神。《贾生》&lt;br&gt;
+蒹葭苍苍，白露为霜。《蒹葭》&lt;br&gt;
+满面尘灰烟火色，两鬓苍苍十指黑。《卖炭翁》&lt;br&gt;
+苍颜白发，颓然乎其间者，太守醉也。《醉翁亭记》&lt;br&gt;
+老夫聊发少年狂，左牵黄，右擎苍，锦帽貂裘，千骑卷平冈。《江城子》&lt;br&gt;
+东临碣石，以观沧海。《观沧海》&lt;br&gt;
+长风破浪会有时，直挂云帆济沧海。《行》&lt;br&gt;
+念天地之悠悠，独怆然而涕下。《登幽州台歌》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="9寥liao"&gt;&lt;strong&gt;9【寥】liao&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;自古逢秋悲寂寥，我言秋日胜春朝。《秋》&lt;br&gt;
+辛苦遭逢起一经，干戈寥落四周星。《过》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="10哉"&gt;&lt;strong&gt;10【哉】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;幸甚至哉，歌以咏志。《观沧海》&lt;br&gt;
+剧哉边海民，寄身于草野。《梁》&lt;br&gt;
+悠哉悠哉，辗转反侧。《关雎》&lt;br&gt;
+何哉？不以物喜，不以己悲《岳》(文言文末尾语气词)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="11辨辩"&gt;&lt;strong&gt;11【辨、辩】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;双兔傍地走，安能辨我是雄雌？《木兰诗》&lt;br&gt;
+此中有真意，欲辨已忘言。《饮》&lt;br&gt;
+哪里去辨甚么真共假？《朝天》&lt;br&gt;
+万钟则不辩礼义而受之，万钟于我何加焉！《鱼》（只有文言文有）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="12生身声"&gt;&lt;strong&gt;12【生、身、声】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;树木丛生，百草丰茂。《观》&lt;br&gt;
+海日生残夜，江春入旧年《次》&lt;br&gt;
+贾生才调更无伦。可怜夜半虚前席，不问苍生问鬼神。《贾生》&lt;br&gt;
+荡胸生曾云，决眦入归鸟。《望》&lt;br&gt;
+月下飞天镜，云生结海楼。《渡荆门》&lt;br&gt;
+谁怕？一蓑烟雨任平生。《定》&lt;br&gt;
+不畏浮云遮望眼，只缘身在最高层。《登飞》&lt;br&gt;
+剧哉边海民，寄身于草野。《梁》&lt;br&gt;
+巴山楚水凄凉地，二十三年弃置身。《酬乐天》&lt;br&gt;
+二十余年如一梦，此身虽在堪惊。《临江仙》&lt;br&gt;
+了却君王天下事，赢得生前身后名。《破阵子》&lt;br&gt;
+身向云山那畔行，北风吹断马嘶声。《浣溪沙》&lt;br&gt;
+山河破碎风飘絮，身世浮沉雨打萍。《过零丁洋》&lt;br&gt;
+半卷红旗临易水，霜重鼓寒声不起。《雁门太守行》&lt;br&gt;
+八百里分麾下炙，五十弦翻塞外声。《破阵子》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="13澜阑"&gt;&lt;strong&gt;13【澜、阑】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;澜：大波浪；&lt;/li&gt;
+&lt;li&gt;阑，同“栏杆”；纵横交错，参差错落；残，尽，晚&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;夜阑卧听风吹雨，铁马冰河入梦来。《十一月》&lt;br&gt;
+瀚海阑干百丈冰，愁云惨淡万里凝。《白雪》&lt;br&gt;
+至若春和景明，波澜不惊，上下天光，一碧万顷《岳阳》(只有文言文有)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="14拄箸"&gt;&lt;strong&gt;14【拄、箸】&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;全册&lt;strong&gt;没有&lt;/strong&gt;“驻”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;停杯投箸不能食，拔剑四顾心茫然。&lt;br&gt;
+从今若许闲乘月，拄杖无时夜叩门。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="15吟怜"&gt;&lt;strong&gt;15【吟、怜】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;浩荡离愁白日斜，吟鞭东指即天涯。《己亥杂诗》&lt;br&gt;
+怀旧空吟闻笛赋，到乡翻似烂柯人。《酬乐》&lt;br&gt;
+晓镜但愁云鬓改，夜吟应觉月光寒。《无题》&lt;br&gt;
+莫听穿林打叶声，何妨吟啸且徐行。《定风》&lt;br&gt;
+遥怜故园菊，应傍战场开。《行军九日思长安故园》&lt;br&gt;
+可怜夜半虚前席，不问苍生问鬼神。《贾生》&lt;br&gt;
+可怜身上衣正单，心忧炭贱愿天寒。《卖炭翁》&lt;br&gt;
+寂寂江山摇落处，怜君何事到天涯！《长沙》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="16浅贱拣"&gt;&lt;strong&gt;16【浅、贱、拣】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;乱花渐欲迷人眼，浅草才能没马蹄。《钱塘湖》&lt;br&gt;
+可怜身上衣正单，心忧炭贱愿天寒。《卖炭翁》&lt;br&gt;
+拣尽寒枝不肯栖，寂寞沙洲冷。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="17近尽镜"&gt;&lt;strong&gt;17【近、尽、镜】&lt;/strong&gt;
+&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;古诗&lt;/strong&gt;没有“进”&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;箫鼓追随春社近，衣冠简朴古风存。《游山》&lt;br&gt;
+烟笼寒水月笼沙，夜泊秦淮近酒家。《泊秦淮》&lt;br&gt;
+已知泉路近，欲别故乡难。《别云间》&lt;br&gt;
+杨花落尽子规啼，闻道龙标过五溪。《闻王》&lt;br&gt;
+不知何处吹芦管，一夜征人尽望乡。《夜上》&lt;br&gt;
+山随平野尽，江入大荒流。《渡津门》&lt;br&gt;
+兴尽晚回舟，误入藕花深处。《如梦令》&lt;br&gt;
+拣尽寒枝不肯栖，寂寞沙洲冷。《卜算子》&lt;br&gt;
+春蚕到死丝方尽，蜡炬成灰泪始干。《无题》&lt;br&gt;
+月下飞天镜，云生结海楼。《渡津门》&lt;br&gt;
+晓镜但愁云鬓改，夜吟应觉月光寒。《无题》&lt;br&gt;
+一轮秋影转金波，飞镜又重磨。《太常引》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="18霄晓销萧"&gt;&lt;strong&gt;18【霄、晓、销、萧】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;天接云涛连晓雾，星河欲转千帆舞。《渔家傲》&lt;br&gt;
+晓镜但愁云鬓改，夜吟应觉月光寒。《无题》&lt;br&gt;
+折戟沉沙铁未销，自将磨洗认前朝。《赤壁》&lt;br&gt;
+萧关逢候骑，都护在燕然。《使至》&lt;br&gt;
+柴门何萧条，狐兔翔我宇。《梁父行》&lt;br&gt;
+挥手自兹去，萧萧班马鸣。《送友人》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="19炬"&gt;&lt;strong&gt;19【炬】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;春蚕到死丝方尽，蜡炬成灰泪始干。《无题》&lt;br&gt;
+骊山四顾，阿房一炬。《山坡羊》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="20晖辉"&gt;&lt;strong&gt;20【晖、辉】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;晖: 阳光，亦泛指光辉;&lt;/li&gt;
+&lt;li&gt;辉：闪射的光彩&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;树树皆秋色，山山唯落晖。《野望》&lt;br&gt;
+朝晖夕阴，气象万千，此则岳阳楼之大观也，前人之述备矣。《岳阳》&lt;br&gt;
+两岸石壁，五色交辉。《答谢中书书》(古诗中没有)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="21沉乘"&gt;&lt;strong&gt;21【沉、乘】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;折戟沉沙铁未销，自将磨洗认前朝。《赤壁》&lt;br&gt;
+常记溪亭日暮，沉醉不知归路。《如梦令》&lt;br&gt;
+沉舟侧畔千帆过，病树前头万木春。《酬乐天》&lt;br&gt;
+溪云初起日沉阁，山雨欲来风满楼。《咸阳楼》&lt;br&gt;
+从今若许闲乘月，拄杖无时夜叩门。《游山西村》&lt;br&gt;
+昔人已乘黄鹤去，此地空余黄鹤楼。《黄鹤楼》&lt;br&gt;
+腾蛇乘雾，终为土灰。《龟虽寿》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="22荒溪"&gt;&lt;strong&gt;22【荒、溪】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;山随平野尽，江入大荒流。《渡荆门送别》&lt;br&gt;
+一抹晚烟荒戍垒，半竿斜日旧关城。《浣溪沙》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="23倾顷"&gt;&lt;strong&gt;23【倾、顷】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;顷(qǐng)：中国市制田地面积单位；短时间&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;俄顷风定云墨色，秋天漠漠向昏黑。《十一月》&lt;br&gt;
+至若春和景明，波澜不惊，上下天光，一碧万顷《岳阳》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;倾：斜，歪：倾斜&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;商旅不行，樯倾楫摧，薄暮冥冥，虎啸猿啼。《岳阳》&lt;br&gt;
+为报倾城随太守，亲射虎，看孙郎。《江城子》满城&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="24峭梢"&gt;&lt;strong&gt;24【峭、梢】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;料峭春风吹酒醒，微冷，山头斜照却相迎。《定风波》&lt;br&gt;
+高者挂罥长林梢，下者飘转沉塘坳。《十一月》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="25啄冢"&gt;&lt;strong&gt;25【啄、冢】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;几处早莺争暖树，谁家新燕啄春泥。《钱塘》&lt;br&gt;
+遥看是君家，松柏冢累累。《十五》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="26残戟"&gt;&lt;strong&gt;26【残、戟】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;海日生残夜，江春入旧年《次》&lt;br&gt;
+折戟沉沙铁未销，自将磨洗认前朝。《赤壁》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="27何河"&gt;&lt;strong&gt;27【何、河】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;疑问代词
+&lt;ol&gt;
+&lt;li&gt;什么，如“何人？”&lt;/li&gt;
+&lt;li&gt;为什么，如“何必如此？”&lt;/li&gt;
+&lt;li&gt;哪样，怎样，如“何不？”“何如？”&lt;/li&gt;
+&lt;li&gt;哪里，如“何往？”&lt;/li&gt;
+&lt;li&gt;发表反问，如“何乐而不为？”）。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;副词，多么&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;国破山河在，城春草木深。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="28藤腾"&gt;&lt;strong&gt;28【藤、腾】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;枯藤老树昏鸦，小桥流水人家，古道西风瘦马。《天净沙》&lt;br&gt;
+腾蛇乘雾，终为土灰。《龟虽寿》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="29艹竹"&gt;&lt;strong&gt;29【艹、竹】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;鸡声茅店月，人迹板桥霜。《商山》&lt;br&gt;
+独坐幽篁里，弹琴复长啸。《竹里馆》&lt;br&gt;
+芳草长堤，隐隐笙歌处处随。《采桑子》&lt;br&gt;
+白头搔更短，浑欲不胜簪。《春望》&lt;br&gt;
+采菊东篱下，悠然见南山。《饮酒》&lt;br&gt;
+万籁此都寂，但余钟磬音。《题破山》&lt;br&gt;
+终古高云簇此城，秋风吹散马蹄声。《潼关》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="30岐歧绮"&gt;&lt;strong&gt;30【岐、歧、绮】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;岐王宅里寻常见，崔九堂前几度闻。&lt;br&gt;
+无为在歧路，儿女共沾巾。《送杜少府》&lt;br&gt;
+多歧路，今安在？《行路难》&lt;br&gt;
+转朱阁，低绮户，照无眠。《水调》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="31礻衿衾裘襟袖"&gt;&lt;strong&gt;31礻【衿、衾、裘、襟、袖】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;青青子衿，悠悠我心。《子衿》&lt;br&gt;
+布衾多年冷似铁，娇儿恶卧踏里裂。《十一月》&lt;br&gt;
+散入珠帘湿罗幕，狐裘不暖锦衾薄。《白雪》&lt;br&gt;
+锦帽貂裘，千骑卷平冈。《江城子》&lt;br&gt;
+俗子胸襟谁识我？《满江红》&lt;br&gt;
+馨香盈怀袖，路远莫致之。《庭中》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="32山嶂"&gt;&lt;strong&gt;32山【嶂】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;重岩叠嶂，隐天蔽日。《三峡》&lt;br&gt;
+千嶂里，长烟落日孤城闭。《渔家傲》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="33庐芦"&gt;&lt;strong&gt;33【庐、芦】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;结庐在人境，而无车马喧。《饮酒》&lt;br&gt;
+不知何处吹芦管，一夜征人尽望乡。《夜上》&lt;br&gt;
+左牵黄，右擎苍。《江城子》&lt;br&gt;
+纷纷暮雪下辕门，风掣红旗冻不翻。《定风波》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="34翻帆"&gt;&lt;strong&gt;34【翻、帆】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;怀旧空吟闻笛赋，到乡翻似烂柯人。《酬》&lt;br&gt;
+八百里分麾下炙，五十弦翻塞外声。《破阵子》&lt;br&gt;
+纷纷暮雪下辕门，风掣红旗冻不翻。《白雪》&lt;br&gt;
+潮平两岸阔，风正一帆悬。《次北》&lt;br&gt;
+天接云涛连晓雾，星河欲转千帆舞。《渔家傲》&lt;br&gt;
+长风破浪会有时，直挂云帆济沧海。《行路》&lt;br&gt;
+沉舟侧畔千帆过，病树前头万木春。《酬》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="35戈赋"&gt;&lt;strong&gt;35【戈、赋】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;辛苦遭逢起一经，干戈寥落四周星。《过零丁洋》&lt;br&gt;
+怀旧空吟闻笛赋，到乡翻似烂柯人。《酬》&lt;br&gt;
+爱上层楼，为赋新词强说愁。《丑奴儿》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="36漫谩"&gt;&lt;strong&gt;36【漫、谩】&lt;/strong&gt;
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;故园东望路漫漫，双袖龙钟泪不干。《逢入》&lt;br&gt;
+我报路长嗟日暮，学诗谩有惊人句。《渔家傲》&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="37渡度"&gt;&lt;strong&gt;37【渡、度】&lt;/strong&gt;
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;渡：横过水面；&lt;/li&gt;
+&lt;li&gt;度：量词，次，过，由此到彼：～日。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;渡远荆门外，来从楚国游。《渡津门送别》&lt;br&gt;
+争渡，争渡，惊起一滩鸥鹭。《如梦令》&lt;br&gt;
+茅飞渡江洒江郊《茅屋》&lt;br&gt;
+欲渡黄河冰塞川，将登太行雪满山。《行路》&lt;br&gt;
+岐王宅里寻常见，崔九堂前几度闻。《江南逢李龟年》&lt;br&gt;
+万里赴戎机，关山度若飞。《木兰辞》&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Lucky Charms</title><link>https://xieyuen-org.github.io/old/lucky-charms/</link><pubDate>Sun, 16 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/lucky-charms/</guid><description>&lt;p&gt;Don't remember the bad things. If you forget that, you will be happy&lt;/p&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1Cj411u7QV"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;</description></item><item><title>《黄河大合唱》</title><link>https://xieyuen-org.github.io/old/yellow-river-cantata/</link><pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/yellow-river-cantata/</guid><description>&lt;p&gt;但是，中华民族的儿女啊，我们要抱着必死的决心，保卫黄河，保卫华北，保卫全中国！&lt;/p&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV14f4y1E7Dk"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=1&amp;id=34751237&amp;auto=1&amp;height=430"&gt;&lt;/iframe&gt;
+&lt;p&gt;曲子分八个乐章，共有：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;第一乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646043" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《黄河船夫曲》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646043&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第二乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646044" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《黄河颂》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646044&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第三乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646045" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《黄河之水天上来》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646045&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第四乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646046" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《黄水谣》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646046&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第五乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646047" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《河边对口曲》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646047&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第六乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646048" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《黄河怨》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646048&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第七乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646049" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《保卫黄河》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646049&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;p&gt;第八乐章：&lt;a class="link" href="https://music.163.com/#/song?id=419646050" target="_blank" rel="noopener"
+&gt;&lt;strong&gt;&lt;code&gt;《怒吼吧，黄河》&lt;/code&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646050&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;其他：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://music.163.com/#/song?id=419646051" target="_blank" rel="noopener"
+&gt;《长城谣》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646051&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://music.163.com/#/song?id=419646052" target="_blank" rel="noopener"
+&gt;《旗正飘飘》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1rA4y1S7KC"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646052&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://music.163.com/#/song?id=419646053" target="_blank" rel="noopener"
+&gt;《满江红》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646053&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://music.163.com/#/song?id=419646054" target="_blank" rel="noopener"
+&gt;《中国人》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&amp;id=419646054&amp;auto=1&amp;height=66"&gt;&lt;/iframe&gt;</description></item><item><title>500 Miles</title><link>https://xieyuen-org.github.io/old/500-miles/</link><pubDate>Sat, 15 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/500-miles/</guid><description>&lt;p&gt;Lord, I can't go back home this ole away&lt;/p&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1FA411s7df"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;p&gt;歌词：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-plaintext" data-lang="plaintext"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;If you missed the train I&amp;#39;m on,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You will know that I&amp;#39;m gone.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You can hear the whistle blow a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;A hundred miles, a hundred miles,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;a hundred miles, a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You can hear the whistle blow a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Lord, I&amp;#39;m one, Lord, I&amp;#39;m two,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Lord, I&amp;#39;m three, Lord, I&amp;#39;m four.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Lord, I&amp;#39;m five hundred miles away from home.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Away from home, away from home,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;away from home, away from home.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Lord, I&amp;#39;m five hundred miles away from home.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Not a shirt on my back,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;not a penny to my name.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Lord, I can&amp;#39;t go back home this ole way.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;This ole way, this ole way,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;this ole way, this ole way.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Lord, I can&amp;#39;t go back home this ole way.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;If you missed the train I&amp;#39;m on,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You will know that I&amp;#39;m gone.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You can hear the whistle blow a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;A hundred miles, a hundred miles,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;a hundred miles, a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You can hear the whistle blow a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You can hear the whistle blow a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;You can hear the whistle blow a hundred miles.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://y.qq.com/#type=song&amp;amp;mid=00262GDA2fW2H3&amp;amp;tpl=yqq_song_detail" target="_blank" rel="noopener"
+&gt;QQ 音乐&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="link" href="https://music.163.com/#/song?id=1346285259" target="_blank" rel="noopener"
+&gt;网易云音乐&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>2023-4 Love 列表</title><link>https://xieyuen-org.github.io/old/love/</link><pubDate>Sat, 01 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/love/</guid><description>&lt;p&gt;黄河大合唱！&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;盛世中华III【盛世中华】&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV19E41197Kc"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;《西游记之大圣归来》MV遇到戴荃老师原创歌曲...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1cs411S7DX"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;【春晚鬼畜】赵本山：我就是念诗之王！【改革春风吹满地】
+&lt;ul&gt;
+&lt;li&gt;Bilibili &lt;strong&gt;1.1亿&lt;/strong&gt; 播放量！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1bW411n7fY"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;《Proud of you》
+&lt;ul&gt;
+&lt;li&gt;一首很好听的歌&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1DC4y147So"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://xieyuen-org.github.io/love/music/yellow-river-cantata" &gt;《黄河大合唱》！&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV14f4y1E7Dk"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a class="link" href="https://xieyuen-org.github.io/posts/2023/4/500-miles" &gt;《Five Hundred Miles》&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1FA411s7df"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;《Last Text》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1wL411X77t"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;《In the Shadow of Sun》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1MR4y1P7T3"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;《Unstoppable》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1Tv4y1p7wr"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;《So Far Way》&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1FT411D7n1"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;</description></item><item><title>【转载】关于2023年初中学业水平考试时间安排的通知</title><link>https://xieyuen-org.github.io/old/2023zk/</link><pubDate>Sat, 18 Mar 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/2023zk/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;时间 : 2023-01-12 17:12:38 &lt;/br&gt;
+来源 : 广东省教育考试院 &lt;/br&gt;
+文号 ：粤教考函〔2023〕2号&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;各地级以上市教育局：&lt;/p&gt;
+&lt;p&gt;根据&lt;code&gt;《广东省教育厅关于印发初中学业水平考试实施办法的通知》（粤教考〔2018〕12号）&lt;/code&gt;的要求，在充分征求各地市意见的基础上，经研究，现将2023年省统一命题地市的初中学业水平&lt;strong&gt;语文、数学、英语、道德与法治、历史、地理、物理、化学和生物学&lt;/strong&gt;等科目考试时间安排如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://eea.gd.gov.cn/img/0/979/979440/4080537.png"
+loading="lazy"
+alt="初中学业水平考试时间安排"
+&gt;&lt;/p&gt;
+&lt;p&gt;初中学业水平体育与健康、音乐、美术、信息技术等科目及物理、化学、生物实验操作统一考试的具体时间，由各地市根据本地实际情况确定。非省统一命题地市初中学业水平相应科目的考试时间，由相关市自行确定。&lt;/p&gt;
+&lt;p&gt;请各地加强对有关考试时间安排的宣传解读，做好学生考试和升学的指导，为广大考生创造安全的考试环境，全力保障初中学业水平考试安全平稳顺利举行。&lt;/p&gt;
+&lt;p&gt;广东省教育厅&lt;br&gt;
+2023年1月11日&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;二载沉淀生地首役一日分高下&lt;/p&gt;
+&lt;p&gt;百日拼搏中考会战九招定乾坤&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Archives</title><link>https://xieyuen-org.github.io/archives/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/archives/</guid><description/></item><item><title>Hello World</title><link>https://xieyuen-org.github.io/p/hello-world/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/hello-world/</guid><description>&lt;img src="https://xieyuen-org.github.io/p/hello-world/cover.jpg" alt="Featured image of post Hello World" /&gt;&lt;p&gt;Welcome to Hugo theme Stack. This is your first post. Edit or delete it, then start writing!&lt;/p&gt;
+&lt;p&gt;For more information about this theme, check the documentation: &lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+&gt;https://stack.jimmycai.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Want a site like this? Check out &lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+&gt;hugo-theme-stack-stater&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@pawel_czerwinski" target="_blank" rel="noopener"
+&gt;Pawel Czerwinski&lt;/a&gt; on [Unsplash](&lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+&gt;https://unsplash.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>实践是检验真理的唯一标准</title><link>https://xieyuen-org.github.io/paper/politics/practice-is-the-sole-criterion-for-testing-truth/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/paper/politics/practice-is-the-sole-criterion-for-testing-truth/</guid><description>&lt;p&gt;检验真理的标准是什么？这是早被无产阶级的革命导师解决了的问题。但是这些年来，由于“四人帮”的破坏和他们控制下的舆论工具大量的歪曲宣传，把这个问题搞得混乱不堪。为了深入批判“四人帮”，肃清其流毒和影响，在这个问题上拨乱反正，十分必要。&lt;/p&gt;
+&lt;h3 id="检验真理的标准只能是社会实践"&gt;检验真理的标准只能是社会实践
+&lt;/h3&gt;&lt;p&gt;怎样区别真理与谬误呢？1845年，马克思就提出了检验真理的标准问题：&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="（《马克思恩格斯选集》第1卷第16页）"
+target="_blank" rel="noopener"
+&gt;“人的思维是否具有客观的真理性，这并不是一个理论的问题，而是一个实践的问题。人应该在实践中证明自己思维的真理性，即自己思维的现实性和力量，亦即自己思维的此岸性。关于离开实践的思维是否具有现实性的争论，是一个纯粹经院哲学的问题。”&lt;/a&gt;这就非常清楚地告诉我们，一个理论，是否正确反映了客观实际，是不是真理，只能靠社会实践来检验。这是马克思主义认识论的一个基本原理。&lt;/p&gt;
+&lt;p&gt;实践不仅是检验真理的标准，而且是唯一的标准。毛主席说：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/514673381" title="《新民主主义论》"
+target="_blank" rel="noopener"
+&gt;“真理只有一个，而究竟谁发现了真理，不依靠主观的夸张，而依靠客观的实践。只有千百万人民的革命实践，才是检验真理的尺度。”&lt;/a&gt; &lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="《实践论》"
+target="_blank" rel="noopener"
+&gt;“真理的标准只能是社会的实践。”&lt;/a&gt;这里说：“只能” “才是”，就是说，标准只有一个，没有第二个。这是因为，辩证唯物主义所说的真理是客观真理，是人的思想对于客观世界及其规律的正确反映。因此，作为检验真理的标准，就不能到主观领域内去寻找，不能到理论领域内去寻找，思想、理论自身不能成为检验自身是否符合客观实际的标准，正如在法律上原告是否属实，不能依他自己的起诉为标准一样。作为检验真理的标准，必须具有把人的思想和客观世界联系起来的特性，否则就无法检验。人的社会实践是改造客观世界的活动，是主观见之于客观的东西。实践具有把思想和客观实际联系起来的特性。因此，正是实践，也只有实践，才能够完成检验真理的任务。科学史上的无数事实，充分地说明了这个问题。&lt;/p&gt;
+&lt;p&gt;门捷列夫根据原子量的变化，制定了元素周期表，有人赞同，有人怀疑，争论不休。尔后，根据元素周期表发现了几种元素，它们的化学特性刚好符合元素周期表的预测。这样，元素周期表就被证实了是真理。哥白尼的太阳系学说在300年里一直是一种假说，而当勒维烈从这个太阳系学说所提供的数据，不仅推算出一定还存在一个尚未知道的行星，而且还推算出这个行星在太空中的位置的时候，当加勒于1846年确实发现了海王星这颗行星的时候，哥白尼的太阳系学说才被证实了，成了公认的真理。&lt;/p&gt;
+&lt;p&gt;马克思主义之所以被承认为真理，正是千百万群众长期实践证实的结果。毛主席说：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="《实践论》"
+target="_blank" rel="noopener"
+&gt;“马克思列宁主义之所以被称为真理，也不但在于马克思、恩格斯、列宁、斯大林等人科学地构成这些学说的时候，而且在于为尔后革命的阶级斗争和民族斗争的实践所证实的时候。”&lt;/a&gt;马克思主义原是工人运动中的一个派别，开始并不出名，反动派围攻它，资产阶级学者反对它，其他的社会主义流派攻击它，但是，长期的革命实践证明了马克思主义是真理，终于成为国际共产主义运动的指导思想。&lt;/p&gt;
+&lt;p&gt;检验路线之正确与否，情形也是这样。马克思主义政党在制订自己的路线时，当然要从现实的阶级关系和阶级斗争的情况出发，依据革命理论的指导并且加以论证。但是，国际共产主义运动和各个革命政党的路线是否正确，同样必须由社会实践来检验。20世纪初，国际共产主义运动和俄国工人运动中，都发生了列宁的马克思主义路线与第二国际修正主义路线的激烈斗争，那时第二国际的头面人物是考茨基，列宁主义者是少数，斗争持续了很长一个时间。俄国十月革命和各国无产阶级革命的实践证明列宁主义是真理，宣告了第二国际修正主义路线的破产。&lt;/p&gt;
+&lt;p&gt;毛泽东思想是马克思列宁主义普遍真理与革命具体实践相结合的产物。毛主席的革命路线与“左”、右倾机会主义路线进行了长期的斗争。在一个时期内，毛主席的革命路线没有占主导地位。长期的革命斗争，成功的经验和失败的教训，从正反两个方面证明毛主席的革命路线是正确的，而“左”、右倾机会主义路线是错误的。标准是什么呢？只有一个：就是千百万人民的社会实践。&lt;/p&gt;
+&lt;h3 id="理论与实践的统一是马克思主义的一个最基本的原则"&gt;理论与实践的统一，是马克思主义的一个最基本的原则
+&lt;/h3&gt;&lt;p&gt;有的同志担心，坚持实践是检验真理的唯一标准，会削弱理论的意义。这种担心是多余的。凡是科学的理论，都不会害怕实践的检验。相反，只有坚持实践是检验真理的唯一标准，才能够使伪科学、伪理论现出原形，从而捍卫真正的科学与理论。这一点，对于澄清被“四人帮”搞得非常混乱的理论问题，具有特别重要的意义。&lt;/p&gt;
+&lt;p&gt;“四人帮”出于篡党夺权的反革命需要，鼓吹种种唯心论的先验论，反对实践是检验真理的标准。例如，他们炮制“天才论”，捏造文艺、教育等各条战线的“黑线专政”论，伪造老干部是民主派、民主派必然变成走资派的“规律”，胡诌社会主义生产关系“是产生新的资产阶级分子的经济基础”的谬论，虚构儒法斗争继续到现在的无稽之谈，等等。所有这些，都曾经被奉为神圣不可侵犯的所谓“理论”，谁反对，就会被扣上反对马列主义、反对毛泽东思想的大帽子。但是，这些五花八门的谬论，根本经不起革命实践的检验，它们连同“四人帮”另立的“真理标准”，一个个都像肥皂泡那样很快破灭了。这个事实雄辩地说明，他们自吹自擂证明不了真理，大规模的宣传证明不了真理，强权证明不了真理。他们以马列主义、毛泽东思想的“权威”自居，实践证明他们是反马列主义，反毛泽东思想的政治骗子。&lt;/p&gt;
+&lt;p&gt;马列主义、毛泽东思想之所以有力量，正是由于它是经过实践检验了的客观真理，正是由于它高度概括了实践经验，使之上升为理论，并用来指导实践。正因为这样，我们要非常重视革命理论。列宁指出：&lt;a class="link" href="https://ebook.dswxyjy.org.cn/storage/files/20200426/5cc7233cad059dfe2c08f11c1ff3759539974/mobile/index.html" title="《列宁选集》第一卷第241页"
+target="_blank" rel="noopener"
+&gt;“没有革命的理论，就不会有革命的运动。”&lt;/a&gt;理论所以重要，就是在于它来源于实践，又能正确指导实践，而理论到底是不是正确地指导了实践以及怎样才能正确地指导实践，一点也离不开实践的检验。不掌握这个精神实质，那是不可能真正发挥理论的作用的。&lt;/p&gt;
+&lt;p&gt;有的同志说，我们批判修正主义，难道不是用马列主义、毛泽东思想去衡量，从而证明修正主义是错误的吗？我们说，是的，马列主义、毛泽东思想是我们批判修正主义的锐利武器，也是我们论证的根据。我们用马列主义、毛泽东思想的基本原理去批判修正主义，这些基本原理是马、恩、列、斯和毛主席从革命斗争的实践经验概括起来的，它们被长期的实践证明为不易之真理；但同时我们用这些原理去批判修正主义，仍然一点也不能离开当前的（和过去的）实践，只有从实践经验出发，才能使这些原理显示出巨大的生命力；我们的批判只有结合大量的事实分析，才有说服力。不研究实践经验，不从实践经验出发，是不能最终驳倒修正主义的。&lt;/p&gt;
+&lt;p&gt;客观世界是不断发展的，实践是不断发展的。新事物新问题层出不穷，这就需要在马克思主义一般原理指导下研究新事物、新问题，不断作出新的概括，把理论推向前进。这些新的理论概括是否正确由什么来检验呢？只能用实践来检验。例如，列宁关于帝国主义时代个别国家或少数国家可以取得社会主义革命胜利的学说，是一个新的结论，这个结论正确不正确，不能用马克思主义关于资本主义的一般理论去检验，只有帝国主义时代的实践，第一次世界大战和十月革命的实践，才能证明列宁这个学说是真理。&lt;/p&gt;
+&lt;p&gt;毛主席说：“理论与实践的统一，是马克思主义的一个最基本的原则。”(《毛泽东选集》第5卷第297页)坚持实践是检验真理的唯一标准，就是坚持马克思主义，坚持辩证唯物主义。&lt;/p&gt;
+&lt;h3 id="革命导师是坚持用实践检验真理的榜样"&gt;革命导师是坚持用实践检验真理的榜样
+&lt;/h3&gt;&lt;p&gt;革命导师们不仅提出了实践是检验真理的唯一标准，而且亲自作出了用实践去检验一切理论包括自己所提出的理论的光辉榜样。马克思和恩格斯对待他们所共同创造的著名的马克思主义科学文献&lt;a class="link" href="https://article.xuexi.cn/articles/pdf/index.html?art_id=4971674427756836158" target="_blank" rel="noopener"
+&gt;《共产党宣言》&lt;/a&gt;的态度，就是许多事例当中的一个生动的例子。1848年《宣言》发表后，在45年中马克思和恩格斯一直在用实践来检验它。《宣言》的七篇序言，详细地记载了这个事实。首先，马克思恩格斯指出：“不管最近25年来的情况发生了多大的变化，这个《宣言》中所发挥的一般基本原理整个说来到现在还是完全正确的。”同时，他们又指出，&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="《马克思恩格斯选集》第1卷第228页"
+target="_blank" rel="noopener"
+&gt;“这些基本原理的实际运用，正如《宣言》中所说的，随时随地都要以当时的历史条件为转移。”&lt;/a&gt;马克思和恩格斯根据新实践的不断检验，包括新的历史事实的发现，曾对《宣言》的个别论点作了修改。例如，&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="《马克思恩格斯选集》第1卷第251页"
+target="_blank" rel="noopener"
+&gt;《宣言》第一章的第一句是：“到目前为止的一切社会的历史都是阶级斗争的历史。”恩格斯在1888年的《宣言》英文版上加了一条注释：“确切地说，这是指有文字记载的历史。”&lt;/a&gt;这是因为，《宣言》发表以后人们对于社会的史前史有了进一步的认识，特别是摩尔根的调查研究证明：在阶级社会以前，有一个很长的无阶级社会；阶级是社会发展到一定历史阶段的产物，并非从来就有的。可见，说“一切社会的历史都是阶级斗争的历史”，并不确切。恩格斯根据新发现的历史事实，作了这个说明，修改了《宣言》的旧提法。《宣言》还有一个说法，说到无产阶级要用暴力革命夺取政权，以推翻资产阶级。1872年，两位革命导师在他们共同签名的最后一篇序言中，明确指出：&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="《马克思恩格斯选集》第1卷第229页"
+target="_blank" rel="noopener"
+&gt;“由于最近25年来大工业已有很大发展而工人阶级的政党组织也跟着发展起来，由于首先有了二月革命的实际经验而后来尤其是有了无产阶级第一次掌握政权达两月之久的巴黎公社的实际经验，所以这个纲领现在有些地方已经过时了。特别是公社已经证明：‘工人阶级不能简单地掌握现成的国家机器，并运用它来达到自己的目的。’”&lt;/a&gt; 列宁对马克思和恩格斯的这个说明十分重视，&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804607" title="《列宁选集》第3卷第201页"
+target="_blank" rel="noopener"
+&gt;他认为这是对《共产党宣言》的一个“重要的修改”。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;正如华主席所指出的：“毛主席从来对思想理论问题采取极其严肃和慎重的态度，他总是要让他的著作经过一段时间的实践的考验以后再来编定他的选集”。毛主席一贯严格要求不断用革命实践来检验自己提出的理论和路线。1955年毛主席在编辑《中国农村的社会主义高潮》一书的时候，写了104篇按语。当时没有预料到1956年以后国际国内所发生的阶级斗争的新情况。因此，1958年在重印一部分按语的时候，毛主席特别写了一个说明，指出这些按语其中有一些现在还没有丧失它们的意义。其中说：“1955年是社会主义与资本主义决战取得基本胜利的一年，这样说不妥当。应当说：1955年是在生产关系的所有制方面取得基本胜利的一年，在生产关系的其他方面以及上层建筑的某些方面即思想战线方面和政治战线方面，则或者还没有基本胜利，或者还没有完全胜利，还有待于尔后努力。”(《毛泽东选集》第5卷第225页)&lt;/p&gt;
+&lt;p&gt;革命导师这种尊重实践的严肃的科学态度，给我们极大的教育。他们并不认为自己提出的理论是已经完成了的绝对真理或“顶峰”，可以不受实践检验的；并不认为只要是他们作出的结论不管实际情况如何都不能改变；更不要说那些根据个别情况作出的个别论断了。他们处处时时用实践来检验自己的理论、论断、指示，坚持真理，修正错误，尊重实践，尊重群众，毫无偏见。他们从不容许别人把他们的言论当作“圣经”来崇拜。毫无疑义，马克思主义的基本原理，马克思主义的立场、观点和方法，必须坚持，决不能动摇；但是，马克思主义的理论宝库并不是一堆僵死不变的教条，它要在实践中不断增加新的观点、新的结论，抛弃那些不再适合新情况的个别旧观点、旧结论。关于哲学，毛主席曾经说过：现在，我们已经进入社会主义时代，出现了一系列新的问题，如果只有几篇原有的哲学著作，不适应新的需要，写出新的著作，形成新的理论，那是不行的。实践、生活的观点是认识论的首要的和基本的观点。实践、生活之树是常青的。正是革命导师的这种坚持实践是检验真理的唯一标准的辩证唯物主义立场，才保证了马克思主义的不断发展，而永葆其青春。&lt;/p&gt;
+&lt;h3 id="任何理论都要不断接受实践的检验"&gt;任何理论都要不断接受实践的检验
+&lt;/h3&gt;&lt;p&gt;我们不仅承认实践是真理的标准，而且要从发展的观点看待实践标准。实践是不断发展的，因此作为检验真理的标准，它既具有绝对的意义，又具有相对的意义。就一切思想和理论都必须由实践来检验这一点讲，它是绝对的、无条件的；就实践在它发展的一定阶段上都有其局限性，不能无条件地完全证实或完全驳倒一切思想和理论这一点来讲，它又是相对的、有条件的；但是，今天的实践回答不了的问题，以后的实践终究会回答它，就这点来讲，它又是绝对的。列宁说：&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804605" title="（《列宁选集》第2卷第142页）"
+target="_blank" rel="noopener"
+&gt;“当然，在这里不要忘记：实践标准实质上决不能完全地证实或驳倒人类的任何表象。这个标准也是这样的‘不确定’，以便不至于使人的知识变成‘绝对’，同时它又是这样的确定，以便同唯心主义和不可知论的一切变种进行无情的斗争。”&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;辩证唯物主义认识论关于实践标准的绝对性和相对性辩证统一的观点，就是任何思想、任何理论必须无例外地、永远地、不断地接受实践的检验的观点，也就是真理发展的观点。任何思想、理论，即使是已经在一定的实践阶段上证明为真理，在其发展过程中仍然要接受新的实践的检验而得到补充、丰富或者纠正。毛主席指出：“人类认识的历史告诉我们，许多理论的真理性是不完全的，经过实践的检验而纠正了它们的不完全性。许多理论是错误的，经过实践的检验而纠正其错误。”又指出：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="《实践论》"
+target="_blank" rel="noopener"
+&gt;“客观现实世界的变化运动永远没有完结，人们在实践中对于真理的认识也就永远没有完结。马克思列宁主义并没有结束真理，而是在实践中不断地开辟认识真理的道路。”&lt;/a&gt;马克思主义强调实践是检验真理的标准，强调在实践中对于真理的认识永远没有完结，就是承认我们的认识不可能一次完成或最终完成。就是承认由于历史的和阶级的局限性，我们的认识可能犯错误，需要由实践来检验，凡经实践证明是错误的或者不符合实际的东西，就应当改变，不应再坚持。事实上这种改变是常有的。毛主席说：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="（《实践论》）"
+target="_blank" rel="noopener"
+&gt;“真正的革命的指导者，不但在于当自己的思想、理论、计划、方案有错误时须得善于改正”，“而且在于当某一客观过程已经从某一发展阶段向另一发展阶段推移转变的时候，须得善于使自己和参加革命的一切人员在主观认识上也跟着推移转变，即是要使新的革命任务和新的工作方案的提出，适合于新的情况的变化。”&lt;/a&gt;林彪、“四人帮”为了篡党夺权，胡诌什么“一句顶一万句” “句句是真理”。实践证明，他们所说的绝不是毛泽东思想的真理，而是他们冒充毛泽东思想的谬论。&lt;/p&gt;
+&lt;p&gt;现在，“四人帮”及其资产阶级帮派体系已被摧毁，但是，“四人帮”加在人们身上的精神枷锁，还远没有完全粉碎。毛主席在第二次国内革命战争时期曾经批评过的&lt;a class="link" href="https://weiyinfu.cn/MaoZeDongAnthology/011-%E8%AE%BA%E5%8F%8D%E5%AF%B9%E6%97%A5%E6%9C%AC%E5%B8%9D%E5%9B%BD%E4%B8%BB%E4%B9%89%E7%9A%84%E7%AD%96%E7%95%A5.html" title="《论反对日本帝国主义的策略》"
+target="_blank" rel="noopener"
+&gt;“圣经上载了的才是对的”&lt;/a&gt;这种倾向依然存在。无论在理论上或实际工作中，“四人帮”都设置了不少禁锢人们思想的“禁区”，对于这些“禁区”我们要敢于去触及，敢于去弄清是非。科学无禁区。凡有超越于实践并自奉为绝对的“禁区”的地方，就没有科学，就没有真正的马列主义、毛泽东思想，而只有蒙昧主义、唯心主义、文化专制主义。&lt;/p&gt;
+&lt;p&gt;党的十一大和五届人大，确定了全党和全国人民在社会主义革命和社会主义建设新的发展时期的总任务。社会主义对于我们来说，有许多地方还是未被认识的必然王国。我们要完成这个伟大的任务，面临着许多新的问题，需要我们去认识，去研究，躺在马列主义毛泽东思想的现成条文上，甚至拿现成的公式去限制、宰割、裁剪无限丰富的飞速发展的革命实践，这种态度是错误的。我们要有共产党人的责任心和胆略，勇于研究生动的实际生活，研究现实的确切事实，研究新的实践中提出的新问题。只有这样，才是对待马克思主义的正确态度，才能够逐步地由必然王国向自由王国前进，顺利地进行新的伟大的长征。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;载自《光明日报》1978年5月11日&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Donation</title><link>https://xieyuen-org.github.io/donation/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/donation/</guid><description>&lt;p&gt;Could you donate to me? any amount is appreciated.&lt;/p&gt;
+&lt;p&gt;If you leave a message with your donation, I will add your name here ；）&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/donation.jpg"
+loading="lazy"
+alt="Wechat Pay"
+&gt;&lt;/p&gt;</description></item><item><title>Links</title><link>https://xieyuen-org.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/links/</guid><description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
+&lt;p&gt;This page's frontmatter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;links&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;GitHub&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;GitHub is the world&amp;#39;s largest software development platform.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;website&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://github.com&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;TypeScript&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;website&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;https://www.typescriptlang.org&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ts-logo-128.jpg&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;&lt;code&gt;image&lt;/code&gt; field accepts both local and external images.&lt;/p&gt;</description></item><item><title>Search</title><link>https://xieyuen-org.github.io/search/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/search/</guid><description/></item></channel></rss>

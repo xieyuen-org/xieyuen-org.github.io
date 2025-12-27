@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Competition on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/tags/competition/</link><description>Recent content in Competition on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Dec 2025 12:30:31 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/tags/competition/index.xml" rel="self" type="application/rss+xml"/><item><title>2025 河源中学高一年级数学竞赛试题解析--第7题</title><link>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</link><pubDate>Fri, 26 Dec 2025 12:30:31 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</guid><description>&lt;h2 id="原题"&gt;原题
+&lt;/h2&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;blockquote&gt;
+&lt;ol start="7"&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="解析"&gt;解析
+&lt;/h2&gt;&lt;p&gt;我们可以用映射的思想来求解.&lt;/p&gt;
+&lt;p&gt;下面是甲乙两人卡片的映射关系：&lt;/p&gt;
+$$
+\begin{matrix}
+甲 &amp; 乙 \\
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;具体的映射并没有用线画出, 但是我们知道甲乙得分有一定的关系:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲得0分 等价于 乙得4分&lt;/li&gt;
+&lt;li&gt;甲得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲得3分 等价于 乙得1分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;并且甲不能得4分, 因为甲有一张 1, 是必输的, 那我们试着把这张1改成9再看看:&lt;/p&gt;
+$$
+\begin{matrix}
+甲' &amp; 乙 \\
+9 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;这下甲$'$就因为这张牌就会比原来的甲多一分, 乙就少一分, 也就是说:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲$'$得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲$'$得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲$'$得3分 等价于 乙得1分&lt;/li&gt;
+&lt;li&gt;甲$'$得4分 等价于 乙得0分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而我们的比赛只是比大小, 所以结果和具体的数字无关, 我们就可以让每张牌都减1, 并且再调序, 变成:&lt;/p&gt;
+$$
+\begin{matrix}
+甲'' &amp; 乙' \\
+2 &amp; 1 \\
+4 &amp; 3 \\
+6 &amp; 5 \\
+8 &amp; 7 \\
+\end{matrix}
+$$&lt;p&gt;这个时候你发现了啥? 甲$''$不就是乙吗? 乙$'$不就是甲吗? 我们把前面的关系串起来, 就知道甲得1分就是甲$''$得2分, 就是乙得2分, 再回到原来的甲, 就是甲得2分. 我们就证明了 $P(甲得1分) = P(甲得2分)$&lt;/p&gt;
+&lt;p&gt;不难注意到, 甲得0分和甲得3分的情况都只有一种, 即 $P(甲得0分) = P(甲得3分)$&lt;/p&gt;
+&lt;p&gt;那题目要求的 $P(甲得分小于2) = P(甲得0分) + P(甲得1分) = \frac{1}{2}[P(甲得0分) + P(甲得1分) + P(甲得2分) + P(甲得3分)] = \frac{1}{2}$&lt;/p&gt;
+&lt;p&gt;所以答案为:&lt;/p&gt;
+$$\boxed{\frac{1}{2}}$$</description></item><item><title>2025年河源中学高一年级数学竞赛</title><link>https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</link><pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</guid><description>&lt;h2 id="试题部分"&gt;试题部分
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;注意事项:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全卷共 16 小题, 满分 120+30 分, 考试时长 90 分钟.&lt;/li&gt;
+&lt;li&gt;答题前, 考生务必将自己的姓名、班级等信息填写在答题卡的相应位置.&lt;/li&gt;
+&lt;li&gt;考生请在答题卡上作答, 在试卷上作答无效.&lt;/li&gt;
+&lt;li&gt;选择题请使用 2B 铅笔填涂, 非选择题使用0.5mm 黑色签字笔作答.&lt;/li&gt;
+&lt;li&gt;考试结束后, 上交答题卡.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="一填空题共8题-64分"&gt;一、填空题（共8题, 64分）
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;已知集合 $M = { u | u = 12m + 8n + 4l, m, n, l \in \mathbb{Z}}$, $N = { v | v = 20p + 16q + 12r, p, q, r \in \mathbb{Z}}$, 则 $M$ 与 $N$ 的关系是______&lt;/li&gt;
+&lt;li&gt;函数迭代, 就是一个函数与自身复合多次, 将 $f(x)$ 迭代 $n$ 次记作 $f^{(n)}(x), n \in \mathbb{N^*}$. 一般地, 有 $f^{(0)}(x) = x, f^{(1)}(x) = f(f^{(0)}(x)) = f(x),f^{(2)}(x) = f(f^{(1)}(x)) = f(f(x)), f^{(3)}(x) = f(f^{(2)}(x)), \cdots ,f^{(n)}(x) = f(f^{(n-1)}(x))$. 已知 $f(x) = \frac{1+\sqrt{3}x}{\sqrt{3}-x}$, 则 $f^{(2023)}(2023) = $ ______&lt;/li&gt;
+&lt;li&gt;已知 $f(x) = x^4 + bx^3 + cx^2 + dx + a$, 且 $f(1) = 5, f(2) = 10, f(3) = 15$, 则 $f(8) + f(-4) = $ ______&lt;/li&gt;
+&lt;li&gt;已知 $a + b +c = m, m &amp;gt; 0, m \neq 1, a, b, c &amp;gt; 0$, 则 $\frac{a}{b+2c}+\frac{2c}{a+b}+\frac{b}{a+2c}$ 的取值范围是 ______&lt;/li&gt;
+&lt;li&gt;若 $x^{x^3} = 3$, 则 $x^9 = $ ______&lt;/li&gt;
+&lt;li&gt;$x^{2026} = e^x$ 的两个绝对值不大于二的实数根为 $\alpha, \beta, |\alpha+\beta|=a \cdot 10^{-b}, b \in \mathbb{N^*}$, 且 $|\lg a - 1|$ 最小, 则 $b =$ ______&lt;/li&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;li&gt;已知 $xy = 6, x, y &amp;gt; 0$, 则 $x + y + \sqrt{(x-2)^2 + (y-3)^2}$ 的最小值为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二解答题共3题-56分"&gt;二、解答题（共3题, 56分）
+&lt;/h3&gt;&lt;h4 id="9-16分-106"&gt;9. (16分， 10+6)
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;如图 1, 圆 $O$ 的一条半径 $OB = 1$, $A, D$ 在射线 $OB$ 上, 且 $OA = \sqrt{2}-1$, $E$ 是圆上一动点, 连接 $AE$ 并延长交圆 $O$ 于点 $F$, 连接 $DF$ 并延长交圆 $O$ 于点 $C$. 求证: $OD = \sqrt{2}-1$ 是 $CE \perp AD$ 的充要条件.&lt;/li&gt;
+&lt;li&gt;如图 2, $BC$ 是圆 $O$ 的一条直径, $A$ 在线段 $OB$ 上, $OA = a, OB = r$, 过点 $A$ 作直线交圆 $O$ 于 $D, E$, 直线 $CD, BE$ 交于点 $F$, 过 $F$ 作 $FG \perp BC$ 于点 $G$. 问: $BG$ 是否为定值? 若是, 求出该定值(用 $a, r$ 表示); 若不是, 说明理由.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1.png"
+width="1449"
+height="856"
+srcset="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1_hu_b943c38779cd1705.png 480w, https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1_hu_13aa3973c7f14851.png 1024w"
+loading="lazy"
+alt="图 1"
+class="gallery-image"
+data-flex-grow="169"
+data-flex-basis="406px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2.png"
+width="1322"
+height="828"
+srcset="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2_hu_50cb146ec371ad52.png 480w, https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2_hu_32b323b3c9bd992b.png 1024w"
+loading="lazy"
+alt="图 2"
+class="gallery-image"
+data-flex-grow="159"
+data-flex-basis="383px"
+&gt;&lt;/p&gt;
+&lt;h4 id="10-20分-488"&gt;10. (20分, 4+8+8)
+&lt;/h4&gt;&lt;p&gt;已知 $x^2 - 4xy + 8y^2 = 8, x, y \in \mathbb{R}$.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求 $xy$ 的最大值.&lt;/li&gt;
+&lt;li&gt;分别求 $x, y$ 的取值范围, 并求当 $|x|$ 最大时 $|x+y|$ 的值.&lt;/li&gt;
+&lt;li&gt;当 $x &amp;lt; 0, y &amp;gt; 0$ 时, $x, y$ 之间存在函数关系 $y = f(x)$. 证明或证伪: $f(x)$ 单调.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="11-20分-479"&gt;11. (20分, 4+7+9)
+&lt;/h4&gt;&lt;p&gt;若函数 $f(x)$ 满足: 对于任意的正数$s, t$, 都有 $f(s), f(t) &amp;gt; 0$, 且 $f(s) + f(t) &amp;lt; f(s + t)$, 则称 $f(x)$ 为“L 函数”.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;试判断 $h(x) = x^3 + x$ 是不是 “L 函数”, 说明理由.&lt;/li&gt;
+&lt;li&gt;若函数 $g(x) = a(e^x - 1) + (e^x + 1)$ 是“L 函数”，求实数 $a$ 的取值范围.&lt;/li&gt;
+&lt;li&gt;若函数 $f(x)$ 是“L 函数”, 且 $f(x) = 2$. 求证: $\forall x \in (1, +\infty), f(x) &amp;gt; 2(x-1)$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="三附加单选题共-5-题-30分"&gt;三、附加单选题（共 5 题, 30分）
+&lt;/h3&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;ol start="12"&gt;
+&lt;li&gt;在平面直角坐标系中, 设 $\triangle ABC$ 的顶点分别为 $A(0, a), B(b, 0), C(c, 0)$, 点 $P(0, p)$ 在线段 $OA$ 上且异于端点, 设 $abcp \neq 0$, 直线 $BP$ 与 $AC$ 相交于 $E$, $CP$ 交 $AB$ 于 $F$, 已知直线 $OE: (\frac{1}{b}-\frac{1}{c})x+(\frac{1}{p}-\frac{1}{a})y=0$, 则 $OF$ 的表达式为 ______
+&lt;ul&gt;
+&lt;li&gt;A. $(\frac{1}{c}-\frac{1}{b})x+(\frac{1}{p}-\frac{1}{a})y=0$&lt;/li&gt;
+&lt;li&gt;B. $(\frac{1}{b}-\frac{1}{a})x+(\frac{1}{p}-\frac{1}{c})y=0$&lt;/li&gt;
+&lt;li&gt;C. $(b-c)x+(p-a)y=0$&lt;/li&gt;
+&lt;li&gt;D. 以上说法均错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;从 $1, 2, 3, \cdots, 10$ 中选出三个不同的数, 使得这三个数中任意两数之和都是合数, 则不同的选法共有 ______
+&lt;ul&gt;
+&lt;li&gt;A. 20&lt;/li&gt;
+&lt;li&gt;B. 25&lt;/li&gt;
+&lt;li&gt;C. 30&lt;/li&gt;
+&lt;li&gt;D. 35&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;设 $n \in \mathbb{N^*}$, 且 $n^2 + 19 n + 13$ 为完全平方数. 这样的 $n$ 的个数有 ______
+&lt;ul&gt;
+&lt;li&gt;A. 0&lt;/li&gt;
+&lt;li&gt;B. 1&lt;/li&gt;
+&lt;li&gt;C. 2&lt;/li&gt;
+&lt;li&gt;D. 无穷多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;把一个集合 $M$ 分成 $n$ 个非空子集: $A_1, A_2, A_3, \cdots, A_n$, 如果: (1) $A_i \cap A_j = \emptyset, 1 \le i, j \le n, i \neq j$; (2) $A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_n = M$, 那么这些子集的全体叫做集合 $M$ 的一个 $n$-分划. 现有由正整数组成的集合 $C$, 满足如下条件: 删除其中的任意一个元素后形成的集合 $C_0$ 存在一个 2-分划, 使得每个子集内的元素之和相等. 则集合 $C$ 中至少有多少个元素?
+&lt;ul&gt;
+&lt;li&gt;A. 5&lt;/li&gt;
+&lt;li&gt;B. 7&lt;/li&gt;
+&lt;li&gt;C. 8&lt;/li&gt;
+&lt;li&gt;D. 10&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;若 $a = \lg 2 \times \lg 5, b = \frac{\ln 2}{2}, c = \frac{\ln 3}{3}$, 则
+&lt;ul&gt;
+&lt;li&gt;A. $a &amp;gt; c &amp;gt; b$&lt;/li&gt;
+&lt;li&gt;B. $b &amp;gt; c &amp;gt; a$&lt;/li&gt;
+&lt;li&gt;C. $a &amp;gt; b &amp;gt; c$&lt;/li&gt;
+&lt;li&gt;D. $c &amp;gt; b &amp;gt; a$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="参考答案"&gt;参考答案
+&lt;/h2&gt;&lt;h3 id="一填空题"&gt;一、填空题
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;$M = N$&lt;/li&gt;
+&lt;li&gt;$\frac{1 + \sqrt{3} \cdot 2023}{\sqrt{3} - 2023}$&lt;/li&gt;
+&lt;li&gt;2540&lt;/li&gt;
+&lt;li&gt;$[\frac{3}{2}, +\infty)$&lt;/li&gt;
+&lt;li&gt;27&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;li&gt;$\frac{1}{2}$&lt;/li&gt;
+&lt;li&gt;$5-2\sqrt{3}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二解答题"&gt;二、解答题
+&lt;/h3&gt;&lt;!--markdownlint-disable MD024--&gt;
+&lt;h4 id="9"&gt;9
+&lt;/h4&gt;&lt;h5 id="各小题答案"&gt;各小题答案
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;略&lt;/li&gt;
+&lt;li&gt;$BG = \frac{a^2}{r} - r$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="解析"&gt;解析
+&lt;/h5&gt;&lt;p&gt;暂不提供, 但推荐极点极线法&lt;/p&gt;
+&lt;h4 id="10"&gt;10
+&lt;/h4&gt;&lt;h5 id="各小题答案-1"&gt;各小题答案
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;$2 + 2\sqrt{2}$&lt;/li&gt;
+&lt;li&gt;$x$ 的取值范围是 $[-4, 4]$, $y$ 的取值范围是 $[-\sqrt{2}, \sqrt{2}]$, 当 $|x|$ 最大时 $|x+y|=5$&lt;/li&gt;
+&lt;li&gt;$f(x)$ 单调递增, 证明略&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="解析-1"&gt;解析
+&lt;/h5&gt;&lt;h6 id="1"&gt;(1)
+&lt;/h6&gt;$$ 8 = x^2 - 4xy + 8y^2 \ge 4\sqrt{2} - 4xy $$$$\therefore xy \le 2 + 2\sqrt{2}$$&lt;p&gt;当且仅当 $x = 2\sqrt{2}y$, 即&lt;/p&gt;
+$$
+\left\{\begin{align*}
+x = \sqrt{8+4\sqrt{2}} \\
+y = \sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+或
+\left\{\begin{align*}
+x = -\sqrt{8+4\sqrt{2}} \\
+y = -\sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+$$&lt;p&gt;时取等.&lt;/p&gt;
+&lt;h6 id="2"&gt;(2)
+&lt;/h6&gt;&lt;p&gt;配方得&lt;/p&gt;
+&lt;p&gt;$(x - 2y)^2 + 4y^2 = 8$&lt;/p&gt;
+&lt;p&gt;$\therefore 8 = (x - 2y)^2 + 4y^2 \ge \frac{1}{2}x^2 \Rightarrow x^2 \le 16$&lt;/p&gt;
+&lt;p&gt;$\therefore x$ 的范围是&lt;/p&gt;
+$$
+[-4, 4]
+$$&lt;p&gt;又 $x^2-4xy+8y^2-8=0$,&lt;/p&gt;
+&lt;p&gt;把它看作关于 $x$ 的一元二次方程, 则该方程有解,&lt;/p&gt;
+&lt;p&gt;$\therefore \Delta = (4y)^2 - 4 \cdot 1 \cdot (8y^2 - 8) = 16(2-y^2) \ge 0$&lt;/p&gt;
+&lt;p&gt;$\therefore y$ 的范围是&lt;/p&gt;
+$$
+[-\sqrt{2}, \sqrt{2}]
+$$&lt;p&gt;当 $|x|$ 取最大值 4 时, 令 $x = 4 \Rightarrow y = 1, x = -4 \Rightarrow y = -1$,&lt;/p&gt;
+$$
+\therefore |x+y|=5
+$$&lt;h6 id="3"&gt;(3)
+&lt;/h6&gt;&lt;p&gt;$\forall -4 \le x_1 &amp;lt; x_2 &amp;lt; 0$ 且 $y_1 = f(x_1) &amp;gt; 0, y_2 = f(x_2) &amp;gt; 0$,&lt;/p&gt;
+&lt;p&gt;则&lt;/p&gt;
+$$
+\begin{align*}
+x_1^2 - 4x_1y_1 + 8y_1^2 = 8 \\
+x_2^2 - 4x_2y_2 + 8y_2^2 = 8
+\end{align*}
+$$&lt;p&gt;两式相减得&lt;/p&gt;
+&lt;p&gt;$(x_1^2 - x_2^2) - 4(x_1y_1 - x_2y_2) + 8(y_1 - y_2)(y_1 + y_2) = 0$&lt;/p&gt;
+&lt;p&gt;$\because x_1 &amp;lt; x_2 &amp;lt; 0 \Rightarrow (x_1 - x_2)(x_1 + x_2) &amp;gt; 0$,&lt;/p&gt;
+&lt;p&gt;$\therefore 2(y_1 - y_2)(y_1 + y_2) &amp;lt; x_1y_1 - x_2y_2 &amp;lt; x_2(y_1 - y_2)$&lt;/p&gt;
+&lt;p&gt;$\therefore (y_1 - y_2)(2y_1 + 2y_2 - x_2) &amp;lt; 0$&lt;/p&gt;
+&lt;p&gt;$\because y_1 &amp;gt; 0, y_2 &amp;gt; 0, x_2 &amp;lt; 0 \Rightarrow 2y_1 + 2y_2 - x_2 &amp;gt; 0$&lt;/p&gt;
+&lt;p&gt;$\therefore y_1 &amp;lt; y_2, f(x_1) &amp;lt; f(x_2)$&lt;/p&gt;
+&lt;p&gt;$\therefore f(x)$ 单调递增.&lt;/p&gt;
+&lt;h4 id="11"&gt;11
+&lt;/h4&gt;&lt;p&gt;暂不提供&lt;/p&gt;
+&lt;h3 id="三附加单选题"&gt;三、附加单选题
+&lt;/h3&gt;&lt;p&gt;暂不提供&lt;/p&gt;</description></item></channel></rss>

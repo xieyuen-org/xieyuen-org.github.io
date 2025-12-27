@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Question on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/tags/question/</link><description>Recent content in Question on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Wed, 26 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/tags/question/index.xml" rel="self" type="application/rss+xml"/><item><title>黄诗雯的问题</title><link>https://xieyuen-org.github.io/old/huang-ques/</link><pubDate>Wed, 26 Jul 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/huang-ques/</guid><description>&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/pictures/2023-7-math-ques/20230726_091701.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【问】：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;已知 $\angle 1 = \angle 2 = \angle 3 = 90^{\circ}$ , $C$ 为 $AE$ 中点，求证：$\triangle ABC \sim \triangle CDE \sim \triangle ACE$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;【解】：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/pictures/2023-7-math-ques/20230726_091832.png"
+loading="lazy"
+&gt;&lt;/p&gt;
+&lt;p&gt;如图，过点 $C$ 作 $CF \parallel AB$ 交 $AE$ 于点 $F$ , &lt;/br&gt;
+易证 $F$ 为 $AE$ 中点，$AF = EF = CF$&lt;/br&gt;
+即 $\angle FAC = \angle FCA$ , $\angle FEC = \angle FCE$&lt;/br&gt;
+$\because CF \parallel AB \Rightarrow \angle BAC = \angle ACF = \angle FAC$&lt;/br&gt;
+同理得 $\angle FEC = \angle CED$&lt;/p&gt;
+&lt;!--markdownlint-disable--&gt;
+&lt;h6 id="后面的我不写了"&gt;后面的我不写了（
+&lt;/h6&gt;</description></item><item><title>emmmm... 一道小题目</title><link>https://xieyuen-org.github.io/old/math-question/</link><pubDate>Tue, 25 Jul 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/math-question/</guid><description>&lt;p&gt;这道小题目有亿丢丢复杂，看下面（&lt;/p&gt;
+$$
+\cfrac { \cfrac { \int _ { 0 } ^ { + \infty } e ^ { - s } s ^ { 5 } \mathrm { d } x } { 2 } + \cfrac { \int _ { - \infty } ^ { + \infty } e ^ { - \frac { t ^ { 2 } } { 2 } } \mathrm { d } x } { \int _ { 0 } ^ { + \infty } \sin t ^ { 2 } \mathrm { d } x } \left ( \cfrac { \sum _ { n = 0 } ^ { \infty } \dfrac { \left ( -1 \right ) ^ { n } } { 2 n + 1 } } { \int _ { 0 } ^ { + \infty } \dfrac { \sin x } { x } \mathrm { d } x } + \cfrac { \sum _ { n = 1 } ^ { \infty } \arctan \dfrac { 2 } { n ^ { 2 } } } { \lim _ { t \to 0 ^ { + } } \int _ { -2020 } ^ { 2020 } \dfrac { t \cos x } { x ^ { 2 } + t ^ { 2 } } \mathrm { d } x } \right ) } { \lim _ { n \to \infty } \left \{ \left [ \left ( \int_{0}^{1} \dfrac { x ^ { n - 1 } } { 1 + x } \mathrm { d } x \right ) n - \dfrac { 1 } { 2 } \right ] \dfrac { n } { 2 } \right \} }
+$$&lt;p&gt;下面是题目的分解&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;${ \int _ { 0 } ^ { + \infty } e ^ { - s } s ^ { 5 } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \int _ { - \infty } ^ { + \infty } e ^ { - \frac { t ^ { 2 } } { 2 } } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \int _ { 0 } ^ { + \infty } \sin t ^ { 2 } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \sum _ { n = 0 } ^ { \infty } \frac { \left ( -1 \right ) ^ { n } } { 2 n + 1 } }$&lt;/li&gt;
+&lt;li&gt;${ \int _ { 0 } ^ { + \infty } \frac { \sin x } { x } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \sum _ { n = 1 } ^ { \infty } \arctan \frac { 2 } { n ^ { 2 } } }$&lt;/li&gt;
+&lt;li&gt;${ \lim _ { t \to 0 ^ { + } } \int _ { -2020 } ^ { 2020 } \frac { t \cos x } { x ^ { 2 } + t ^ { 2 } } \mathrm { d } x }$&lt;/li&gt;
+&lt;li&gt;${ \lim _ { n \to \infty } \frac { n } { 2 } \left ( n \int_{0}^{1} \frac { x ^ { n - 1 } } { 1 + x } \mathrm { d } x - \frac { 1 } { 2 } \right ) }$&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>

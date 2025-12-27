@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Release on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/tags/release/</link><description>Recent content in Release on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Sat, 25 Oct 2025 17:59:10 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/tags/release/index.xml" rel="self" type="application/rss+xml"/><item><title>MCDRpost v3.3.3</title><link>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</link><pubDate>Sat, 25 Oct 2025 17:59:10 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;[!IMPORTANT]
+此版本强烈建议更新！除非你没有更新3.3.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="changelog"&gt;ChangeLog
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;li&gt;（&lt;strong&gt;严重&lt;/strong&gt;）修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;</description></item></channel></rss>

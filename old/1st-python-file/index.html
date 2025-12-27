@@ -1,0 +1,246 @@
+<!doctype html><html lang=zh-cn dir=ltr><head><meta charset=utf-8><meta name=viewport content='width=device-width,initial-scale=1'><meta name=description content="对 MC 服务器卡死无法关闭的情况做了优化\n我的服务器就不知为什么总是在关闭服务器时卡死，自然状态下需要 WatchDog 帮忙还不一定有用\n所以最核心的代码就是这个：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def stop(self, server: PluginServerInterface): server.logger.info('服务器关闭') server.stop() # wait 20 secs time.sleep(20) if server.is_server_running: server.logger.warning('服务器似乎卡死了') server.logger.warning('3s 后将会杀死服务端') time.sleep(3) server.kill() server.logger.info('服务端已停止') 当服务器关闭命令发送 20s 后仍在运行状态就执行 server.kill() 方法杀死服务端进程\n"><title>我自己的第一个 MCDR 插件</title><link rel=canonical href=https://xieyuen-org.github.io/old/1st-python-file/><link rel=stylesheet href=/scss/style.min.833d6eed45de56f48306bf57268d5b8cdfc8a60e8e7bdc99810464fcd033f7c6.css><meta property='og:title' content="我自己的第一个 MCDR 插件"><meta property='og:description' content="对 MC 服务器卡死无法关闭的情况做了优化\n我的服务器就不知为什么总是在关闭服务器时卡死，自然状态下需要 WatchDog 帮忙还不一定有用\n所以最核心的代码就是这个：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def stop(self, server: PluginServerInterface): server.logger.info('服务器关闭') server.stop() # wait 20 secs time.sleep(20) if server.is_server_running: server.logger.warning('服务器似乎卡死了') server.logger.warning('3s 后将会杀死服务端') time.sleep(3) server.kill() server.logger.info('服务端已停止') 当服务器关闭命令发送 20s 后仍在运行状态就执行 server.kill() 方法杀死服务端进程\n"><meta property='og:url' content='https://xieyuen-org.github.io/old/1st-python-file/'><meta property='og:site_name' content='xieyuen 的个人站点'><meta property='og:type' content='article'><meta property='article:section' content='Old'><meta property='article:tag' content='MCDR-Plugin'><meta property='article:published_time' content='2023-08-10T00:00:00+00:00'><meta property='article:modified_time' content='2023-08-10T00:00:00+00:00'><meta name=twitter:title content="我自己的第一个 MCDR 插件"><meta name=twitter:description content="对 MC 服务器卡死无法关闭的情况做了优化\n我的服务器就不知为什么总是在关闭服务器时卡死，自然状态下需要 WatchDog 帮忙还不一定有用\n所以最核心的代码就是这个：\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 def stop(self, server: PluginServerInterface): server.logger.info('服务器关闭') server.stop() # wait 20 secs time.sleep(20) if server.is_server_running: server.logger.warning('服务器似乎卡死了') server.logger.warning('3s 后将会杀死服务端') time.sleep(3) server.kill() server.logger.info('服务端已停止') 当服务器关闭命令发送 20s 后仍在运行状态就执行 server.kill() 方法杀死服务端进程\n"><link rel="shortcut icon" href=/favicon.png></head><body class=article-page><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"auto")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky"><button class="hamburger hamburger--spin" type=button id=toggle-menu aria-label=切换菜单>
+<span class=hamburger-box><span class=hamburger-inner></span></span></button><header><figure class=site-avatar><a href=/><img src=/img/avatar_hu_4d30cc999a5cf9b0.jpg width=300 height=300 class=site-logo loading=lazy alt=Avatar>
+</a><span class=emoji>🍥</span></figure><div class=site-meta><h1 class=site-name><a href=/>xieyuen 的个人站点</a></h1><h2 class=site-description>My Personal Site built with Hugo at 17 years old</h2></div></header><ol class=menu-social><li><a href=https://github.com/xieyuen-org/xieyuen-org.github.io target=_blank title=GitHub rel=me><svg class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6.0 00-1.3-3.2 4.2 4.2.0 00-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3.0 00-6.2.0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2.0 00-.1 3.2A4.6 4.6.0 004 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></a></li><li><a href='https://wpa.qq.com/msgrd?v=3&amp;uin=2035381689&amp;site=qq&amp;menu=yes' target=_blank title=QQ rel=me><!doctype html><svg t="1759809958480" class="icon" viewBox="0 0 1024 1024" p-id="2382" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M110.08 808.409c22.43 7.581 46.927 2.973 68.962-13.135.572.886 1.123 1.752 1.694 2.619-37.632 22.961-58.624 55.02-58.624 90.762.0 73.511 86.469 126.858 205.627 126.858 63.193.0 121.758-16.404 159.39-44.288 12.229.689 23.138.689 35.505.02 37.632 27.864 96.177 44.268 159.37 44.268 119.138.0 205.646-53.347 205.646-126.858.0-35.663-20.913-67.624-58.387-90.605a99.888 99.888.0 001.713-2.638c21.977 15.99 46.316 20.618 68.766 13.016 67.17-22.823 70.833-140.012 40.192-238.69-16.266-52.342-46.16-93.361-71.07-120.655.295-3.78.453-7.542.453-11.343.0-28.947-7.582-57.029-22.528-83.672v-.374c0-190.327-153.265-345.187-341.642-345.187-188.396.0-341.661 154.86-341.661 345.187v1.22c-14.632 26.388-22.056 54.213-22.056 82.807.0 3.446.118 6.931.394 10.476-25.226 27.451-55.473 68.785-71.857 121.54-30.661 98.718-26.998 215.868 40.113 238.672zm7.956-223.725c15.242-49.132 45.45-86.96 68.096-110.02a25.196 25.196.0 006.892-21.564c-.827-5.317-1.26-10.397-1.26-15.34.0-21.681 6.301-43.047 18.688-63.429a25.488 25.488.0 003.623-14.828 79.882 79.882.0 01-.236-5.79c0-162.56 130.678-294.813 291.288-294.813s291.289 132.253 291.289 294.813c0 1.753-.079 3.446-.197 5.16a25.277 25.277.0 003.683 14.828c12.642 20.559 19.042 42.102 19.042 64.04.0 5.159-.453 10.377-1.359 15.93-1.339 7.917 1.221 15.951 6.833 21.721 22.37 22.902 52.264 60.475 67.407 109.292 26.959 86.784 17.507 167.286-8.211 176.03-13.332 4.51-29.125-9.708-38.952-21.445-5.336-6.42-13.41-9.807-21.937-8.881a25.137 25.137.0 00-19.594 13.233 324.714 324.714.0 01-31.252 47.97 25.242 25.242.0 00-4.549 21.918 25.215 25.215.0 0014.69 16.876c35.152 14.651 55.277 35.88 55.277 58.25.0 42.181-69.651 76.485-155.274 76.485-55.512.0-107.185-14.828-134.813-38.715a25.174 25.174.0 00-16.463-6.124c-.61.0-1.26.02-1.87.078-17.389 1.3-30.957 1.28-47.853-.02-6.932-.61-13.351 1.675-18.393 6.046-27.667 23.907-79.34 38.735-134.872 38.735-85.603.0-155.254-34.304-155.254-76.485.0-22.45 20.243-43.737 55.512-58.368 7.286-3.033 12.721-9.236 14.71-16.876a25.113 25.113.0 00-4.51-21.918c-11.874-15.183-22.37-31.35-31.231-48.049a25.163 25.163.0 00-19.633-13.253c-8.468-.886-16.581 2.462-21.957 8.881-9.886 11.835-25.522 26.349-39.11 21.622-25.776-8.704-35.19-89.186-8.25-175.99z" p-id="2383"/></svg></a></li></ol><ol class=menu id=main-menu><li><a href=/><svg class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="5 12 3 12 12 3 21 12 19 12"/><path d="M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"/><path d="M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6"/></svg>
+<span>Home</span></a></li><li><a href=/archives/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Archives</span></a></li><li><a href=/search/><svg class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="10" cy="10" r="7"/><line x1="21" y1="21" x2="15" y2="15"/></svg>
+<span>Search</span></a></li><li><a href=/links/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Links</span></a></li><li><a href=/announcement/><svg class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><rect x="3" y="4" width="18" height="4" rx="2"/><path d="M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+<span>Announcement</span></a></li><li><a href=/donation/><svg class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M10 14a3.5 3.5.0 005 0l4-4a3.5 3.5.0 00-5-5l-.5.5"/><path d="M14 10a3.5 3.5.0 00-5 0l-4 4a3.5 3.5.0 005 5l.5-.5"/></svg>
+<span>Donation</span></a></li><li class=menu-bottom-section><ol class=menu><li id=dark-mode-toggle><svg class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="8" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<svg class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="16" cy="12" r="2"/><rect x="2" y="6" width="20" height="12" rx="6"/></svg>
+<span>暗色模式</span></li></ol></li></ol></aside><main class="main full-width"><article class=main-article><header class=article-header><div class=article-details><header class=article-category><a href=/categories/mcdr-plugin/>MCDR-Plugin</a></header><div class=article-title-wrapper><h2 class=article-title><a href=/old/1st-python-file/>我自己的第一个 MCDR 插件</a></h2></div><footer class=article-time><div><svg class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published datetime=2023-08-10T00:00:00Z>Aug 10, 2023</time></div><div><svg class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>阅读时长: 2 分钟</time></div></footer></div></header><section class=article-content><p>对 MC 服务器卡死无法关闭的情况做了优化</p><p>我的服务器就不知为什么总是在关闭服务器时卡死，自然状态下需要 <code>WatchDog</code> 帮忙还不一定有用</p><p>所以最核心的代码就是这个：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=k>def</span> <span class=nf>stop</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;服务器关闭&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>stop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1># wait 20 secs</span>
+</span></span><span class=line><span class=cl>    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>server</span><span class=o>.</span><span class=n>is_server_running</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;服务器似乎卡死了&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;3s 后将会杀死服务端&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        <span class=n>server</span><span class=o>.</span><span class=n>kill</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;服务端已停止&#39;</span><span class=p>)</span>
+</span></span></code></pre></td></tr></table></div></div><p>当服务器关闭命令发送 <code>20s</code> 后仍在运行状态就执行 <code>server.kill()</code> 方法杀死服务端进程</p><p>还有一个改写过的 <code>exit()</code> 方法</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=k>def</span> <span class=nf>exit</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=n>server</span><span class=o>.</span><span class=n>is_server_running</span><span class=p>():</span> <span class=bp>self</span><span class=o>.</span><span class=n>stop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>exit</span><span class=p>()</span>
+</span></span></code></pre></td></tr></table></div></div><p>这个方法会在关闭 MC 服务端后直接退出 MCDR，小小的改动（</p><hr><p>不知道 <a class=link href=https://github.com/Fallen-Breath/MCDReforged title="全称 MCDReforged" target=_blank rel=noopener>MCDR</a> 是什么？看<a class=link href=https://github.com/Fallen-Breath/MCDReforged target=_blank rel=noopener>仓库</a></p><hr><p>源代码：</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span><span class=lnt>54
+</span><span class=lnt>55
+</span><span class=lnt>56
+</span><span class=lnt>57
+</span><span class=lnt>58
+</span><span class=lnt>59
+</span><span class=lnt>60
+</span><span class=lnt>61
+</span><span class=lnt>62
+</span><span class=lnt>63
+</span><span class=lnt>64
+</span><span class=lnt>65
+</span><span class=lnt>66
+</span><span class=lnt>67
+</span><span class=lnt>68
+</span><span class=lnt>69
+</span><span class=lnt>70
+</span><span class=lnt>71
+</span><span class=lnt>72
+</span><span class=lnt>73
+</span><span class=lnt>74
+</span><span class=lnt>75
+</span><span class=lnt>76
+</span><span class=lnt>77
+</span><span class=lnt>78
+</span><span class=lnt>79
+</span><span class=lnt>80
+</span><span class=lnt>81
+</span><span class=lnt>82
+</span><span class=lnt>83
+</span><span class=lnt>84
+</span><span class=lnt>85
+</span><span class=lnt>86
+</span><span class=lnt>87
+</span><span class=lnt>88
+</span><span class=lnt>89
+</span><span class=lnt>90
+</span><span class=lnt>91
+</span><span class=lnt>92
+</span><span class=lnt>93
+</span><span class=lnt>94
+</span><span class=lnt>95
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-py data-lang=py><span class=line><span class=cl><span class=kn>import</span> <span class=nn>os</span>
+</span></span><span class=line><span class=cl><span class=kn>import</span> <span class=nn>time</span>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>platform</span> <span class=kn>import</span> <span class=n>system</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>mcdreforged.api.all</span> <span class=kn>import</span> <span class=o>*</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>PLUGIN_METADATA</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;id&#39;</span><span class=p>:</span> <span class=s1>&#39;tool_plugin&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;version&#39;</span><span class=p>:</span> <span class=s1>&#39;1.0.0&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;name&#39;</span><span class=p>:</span> <span class=s1>&#39;Tool Plugin&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;description&#39;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;en_us&#39;</span><span class=p>:</span> <span class=s1>&#39;A tool plugin&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;zh_cn&#39;</span><span class=p>:</span> <span class=s1>&#39;服务器工具(单文件)&#39;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;author&#39;</span><span class=p>:</span> <span class=s1>&#39;xieyuen&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;dependencies&#39;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;mcdreforged&#39;</span><span class=p>:</span> <span class=s1>&#39;&gt;=2.0.0&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>class</span> <span class=nc>Commands</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=bp>self</span><span class=o>.</span><span class=n>server</span> <span class=o>=</span> <span class=bp>self</span><span class=o>.</span><span class=n>ServerControl</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>class</span> <span class=nc>ServerControl</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>):</span> <span class=o>...</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>start</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>server</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;服务器已开启&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>stop</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;服务器关闭&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=n>server</span><span class=o>.</span><span class=n>stop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># wait 20 secs</span>
+</span></span><span class=line><span class=cl>            <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>server</span><span class=o>.</span><span class=n>is_server_running</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>                <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;服务器似乎卡死了&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;3s 后将会杀死服务端&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mi>3</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>                <span class=n>server</span><span class=o>.</span><span class=n>kill</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            
+</span></span><span class=line><span class=cl>            <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;服务端已停止&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>exit</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=k>if</span> <span class=n>server</span><span class=o>.</span><span class=n>is_server_running</span><span class=p>():</span> <span class=bp>self</span><span class=o>.</span><span class=n>stop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=n>server</span><span class=o>.</span><span class=n>exit</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>        <span class=k>def</span> <span class=nf>restart</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>stop</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>            <span class=bp>self</span><span class=o>.</span><span class=n>start</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=k>def</span> <span class=nf>run</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>command</span><span class=p>:</span> <span class=nb>str</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>        <span class=n>exec</span><span class=p>(</span><span class=n>command</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>cmds</span> <span class=o>=</span> <span class=n>Commands</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>def</span> <span class=nf>on_load</span><span class=p>(</span><span class=n>server</span><span class=p>:</span> <span class=n>PluginServerInterface</span><span class=p>,</span> <span class=n>prev_module</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;插件已加载&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;此插件为单文件插件！&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;此插件为单文件插件！&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>warning</span><span class=p>(</span><span class=s1>&#39;此插件为单文件插件！&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>info</span><span class=p>(</span><span class=s1>&#39;Powered by xieyuen&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>register_help_message</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;!!tools&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=s1>&#39;一个小工具&#39;</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=n>server</span><span class=o>.</span><span class=n>register_command</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=n>Literal</span><span class=p>(</span><span class=s1>&#39;!!tools&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=o>.</span><span class=n>requires</span><span class=p>(</span><span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>has_permission</span><span class=p>(</span><span class=mi>1</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=o>.</span><span class=n>runs</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>reply</span><span class=p>(</span><span class=n>server</span><span class=o>.</span><span class=n>rtr</span><span class=p>(</span><span class=s1>&#39;tool_plugin.help&#39;</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span><span class=o>.</span><span class=n>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>            <span class=n>Literal</span><span class=p>(</span><span class=s1>&#39;server&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>            <span class=o>.</span><span class=n>requires</span><span class=p>(</span><span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>has_permission</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=o>.</span><span class=n>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=n>Literal</span><span class=p>(</span><span class=s1>&#39;start&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>runs</span><span class=p>(</span><span class=n>cmds</span><span class=o>.</span><span class=n>server</span><span class=o>.</span><span class=n>start</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>requires</span><span class=p>(</span><span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>has_permission</span><span class=p>(</span><span class=mi>4</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span><span class=o>.</span><span class=n>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=n>Literal</span><span class=p>(</span><span class=s1>&#39;stop&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>runs</span><span class=p>(</span><span class=n>cmds</span><span class=o>.</span><span class=n>server</span><span class=o>.</span><span class=n>stop</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>requires</span><span class=p>(</span><span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>has_permission</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span><span class=o>.</span><span class=n>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=n>Literal</span><span class=p>(</span><span class=s1>&#39;exit&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>runs</span><span class=p>(</span><span class=n>cmds</span><span class=o>.</span><span class=n>server</span><span class=o>.</span><span class=n>exit</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>requires</span><span class=p>(</span><span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>has_permission</span><span class=p>(</span><span class=mi>4</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span><span class=o>.</span><span class=n>then</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>                <span class=n>Literal</span><span class=p>(</span><span class=s1>&#39;restart&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>runs</span><span class=p>(</span><span class=n>cmds</span><span class=o>.</span><span class=n>server</span><span class=o>.</span><span class=n>restart</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>                <span class=o>.</span><span class=n>requires</span><span class=p>(</span><span class=k>lambda</span> <span class=n>src</span><span class=p>:</span> <span class=n>src</span><span class=o>.</span><span class=n>has_permission</span><span class=p>(</span><span class=mi>3</span><span class=p>))</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span>  <span class=c1># reg command</span>
+</span></span></code></pre></td></tr></table></div></div></section><footer class=article-footer><section class=article-tags><a href=/tags/mcdr-plugin/>MCDR-Plugin</a></section><section class=article-copyright><svg class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>All rights reserved</span></section></footer></article><aside class=related-content--wrapper><h2 class=section-title>相关文章</h2><div class=related-content><div class="flex article-list--tile"><article><a href=/p/mcdrpost-v3.3.3/><div class=article-details><h2 class=article-title>MCDRpost v3.3.3</h2></div></a></article><article><a href=/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/><div class=article-details><h2 class=article-title>MCDRpost 更新日志</h2></div></a></article></div></div></aside><script src=https://giscus.app/client.js data-repo=xieyuen-org/xieyuen-org.github.io data-repo-id=R_kgDOP9lsOg data-category=Comments data-category-id=DIC_kwDOP9lsOs4CxVfe data-mapping=pathname data-strict=0 data-reactions-enabled=1 data-emit-metadata=0 data-input-position=top data-theme=light data-lang=zh-CN data-loading crossorigin=anonymous async></script><script>function setGiscusTheme(e){let t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:{setConfig:{theme:e}}},"https://giscus.app")}(function(){addEventListener("message",t=>{if(event.origin!=="https://giscus.app")return;e()}),window.addEventListener("onColorSchemeChange",e);function e(){setGiscusTheme(document.documentElement.dataset.scheme==="light"?"light":"dark")}})()</script><footer class=site-footer><section class=copyright>&copy;
+2025 xieyuen 的个人站点</section><section class=powerby>使用 <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> 构建<br>主题 <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.33.0>Stack</a></b> 由 <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a> 设计</section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css crossorigin=anonymous></main></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z+KMkF24hUW8WePSA9HM=" crossorigin=anonymous></script><script type=text/javascript src=/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js defer></script><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>

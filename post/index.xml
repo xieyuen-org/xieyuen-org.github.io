@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/post/</link><description>Recent content in Posts on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Dec 2025 12:30:31 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>2025 河源中学高一年级数学竞赛试题解析--第7题</title><link>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</link><pubDate>Fri, 26 Dec 2025 12:30:31 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</guid><description>&lt;h2 id="原题"&gt;原题
+&lt;/h2&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;blockquote&gt;
+&lt;ol start="7"&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="解析"&gt;解析
+&lt;/h2&gt;&lt;p&gt;我们可以用映射的思想来求解.&lt;/p&gt;
+&lt;p&gt;下面是甲乙两人卡片的映射关系：&lt;/p&gt;
+$$
+\begin{matrix}
+甲 &amp; 乙 \\
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;具体的映射并没有用线画出, 但是我们知道甲乙得分有一定的关系:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲得0分 等价于 乙得4分&lt;/li&gt;
+&lt;li&gt;甲得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲得3分 等价于 乙得1分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;并且甲不能得4分, 因为甲有一张 1, 是必输的, 那我们试着把这张1改成9再看看:&lt;/p&gt;
+$$
+\begin{matrix}
+甲' &amp; 乙 \\
+9 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;这下甲$'$就因为这张牌就会比原来的甲多一分, 乙就少一分, 也就是说:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲$'$得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲$'$得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲$'$得3分 等价于 乙得1分&lt;/li&gt;
+&lt;li&gt;甲$'$得4分 等价于 乙得0分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而我们的比赛只是比大小, 所以结果和具体的数字无关, 我们就可以让每张牌都减1, 并且再调序, 变成:&lt;/p&gt;
+$$
+\begin{matrix}
+甲'' &amp; 乙' \\
+2 &amp; 1 \\
+4 &amp; 3 \\
+6 &amp; 5 \\
+8 &amp; 7 \\
+\end{matrix}
+$$&lt;p&gt;这个时候你发现了啥? 甲$''$不就是乙吗? 乙$'$不就是甲吗? 我们把前面的关系串起来, 就知道甲得1分就是甲$''$得2分, 就是乙得2分, 再回到原来的甲, 就是甲得2分. 我们就证明了 $P(甲得1分) = P(甲得2分)$&lt;/p&gt;
+&lt;p&gt;不难注意到, 甲得0分和甲得3分的情况都只有一种, 即 $P(甲得0分) = P(甲得3分)$&lt;/p&gt;
+&lt;p&gt;那题目要求的 $P(甲得分小于2) = P(甲得0分) + P(甲得1分) = \frac{1}{2}[P(甲得0分) + P(甲得1分) + P(甲得2分) + P(甲得3分)] = \frac{1}{2}$&lt;/p&gt;
+&lt;p&gt;所以答案为:&lt;/p&gt;
+$$\boxed{\frac{1}{2}}$$</description></item><item><title>2025年河源中学高一年级数学竞赛</title><link>https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</link><pubDate>Fri, 19 Dec 2025 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/</guid><description>&lt;h2 id="试题部分"&gt;试题部分
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;注意事项:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;全卷共 16 小题, 满分 120+30 分, 考试时长 90 分钟.&lt;/li&gt;
+&lt;li&gt;答题前, 考生务必将自己的姓名、班级等信息填写在答题卡的相应位置.&lt;/li&gt;
+&lt;li&gt;考生请在答题卡上作答, 在试卷上作答无效.&lt;/li&gt;
+&lt;li&gt;选择题请使用 2B 铅笔填涂, 非选择题使用0.5mm 黑色签字笔作答.&lt;/li&gt;
+&lt;li&gt;考试结束后, 上交答题卡.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="一填空题共8题-64分"&gt;一、填空题（共8题, 64分）
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;已知集合 $M = { u | u = 12m + 8n + 4l, m, n, l \in \mathbb{Z}}$, $N = { v | v = 20p + 16q + 12r, p, q, r \in \mathbb{Z}}$, 则 $M$ 与 $N$ 的关系是______&lt;/li&gt;
+&lt;li&gt;函数迭代, 就是一个函数与自身复合多次, 将 $f(x)$ 迭代 $n$ 次记作 $f^{(n)}(x), n \in \mathbb{N^*}$. 一般地, 有 $f^{(0)}(x) = x, f^{(1)}(x) = f(f^{(0)}(x)) = f(x),f^{(2)}(x) = f(f^{(1)}(x)) = f(f(x)), f^{(3)}(x) = f(f^{(2)}(x)), \cdots ,f^{(n)}(x) = f(f^{(n-1)}(x))$. 已知 $f(x) = \frac{1+\sqrt{3}x}{\sqrt{3}-x}$, 则 $f^{(2023)}(2023) = $ ______&lt;/li&gt;
+&lt;li&gt;已知 $f(x) = x^4 + bx^3 + cx^2 + dx + a$, 且 $f(1) = 5, f(2) = 10, f(3) = 15$, 则 $f(8) + f(-4) = $ ______&lt;/li&gt;
+&lt;li&gt;已知 $a + b +c = m, m &amp;gt; 0, m \neq 1, a, b, c &amp;gt; 0$, 则 $\frac{a}{b+2c}+\frac{2c}{a+b}+\frac{b}{a+2c}$ 的取值范围是 ______&lt;/li&gt;
+&lt;li&gt;若 $x^{x^3} = 3$, 则 $x^9 = $ ______&lt;/li&gt;
+&lt;li&gt;$x^{2026} = e^x$ 的两个绝对值不大于二的实数根为 $\alpha, \beta, |\alpha+\beta|=a \cdot 10^{-b}, b \in \mathbb{N^*}$, 且 $|\lg a - 1|$ 最小, 则 $b =$ ______&lt;/li&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;li&gt;已知 $xy = 6, x, y &amp;gt; 0$, 则 $x + y + \sqrt{(x-2)^2 + (y-3)^2}$ 的最小值为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二解答题共3题-56分"&gt;二、解答题（共3题, 56分）
+&lt;/h3&gt;&lt;h4 id="9-16分-106"&gt;9. (16分， 10+6)
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;如图 1, 圆 $O$ 的一条半径 $OB = 1$, $A, D$ 在射线 $OB$ 上, 且 $OA = \sqrt{2}-1$, $E$ 是圆上一动点, 连接 $AE$ 并延长交圆 $O$ 于点 $F$, 连接 $DF$ 并延长交圆 $O$ 于点 $C$. 求证: $OD = \sqrt{2}-1$ 是 $CE \perp AD$ 的充要条件.&lt;/li&gt;
+&lt;li&gt;如图 2, $BC$ 是圆 $O$ 的一条直径, $A$ 在线段 $OB$ 上, $OA = a, OB = r$, 过点 $A$ 作直线交圆 $O$ 于 $D, E$, 直线 $CD, BE$ 交于点 $F$, 过 $F$ 作 $FG \perp BC$ 于点 $G$. 问: $BG$ 是否为定值? 若是, 求出该定值(用 $a, r$ 表示); 若不是, 说明理由.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1.png"
+width="1449"
+height="856"
+srcset="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1_hu_b943c38779cd1705.png 480w, https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure1_hu_13aa3973c7f14851.png 1024w"
+loading="lazy"
+alt="图 1"
+class="gallery-image"
+data-flex-grow="169"
+data-flex-basis="406px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2.png"
+width="1322"
+height="828"
+srcset="https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2_hu_50cb146ec371ad52.png 480w, https://xieyuen-org.github.io/p/2025%E5%B9%B4%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B/figure2_hu_32b323b3c9bd992b.png 1024w"
+loading="lazy"
+alt="图 2"
+class="gallery-image"
+data-flex-grow="159"
+data-flex-basis="383px"
+&gt;&lt;/p&gt;
+&lt;h4 id="10-20分-488"&gt;10. (20分, 4+8+8)
+&lt;/h4&gt;&lt;p&gt;已知 $x^2 - 4xy + 8y^2 = 8, x, y \in \mathbb{R}$.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;求 $xy$ 的最大值.&lt;/li&gt;
+&lt;li&gt;分别求 $x, y$ 的取值范围, 并求当 $|x|$ 最大时 $|x+y|$ 的值.&lt;/li&gt;
+&lt;li&gt;当 $x &amp;lt; 0, y &amp;gt; 0$ 时, $x, y$ 之间存在函数关系 $y = f(x)$. 证明或证伪: $f(x)$ 单调.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id="11-20分-479"&gt;11. (20分, 4+7+9)
+&lt;/h4&gt;&lt;p&gt;若函数 $f(x)$ 满足: 对于任意的正数$s, t$, 都有 $f(s), f(t) &amp;gt; 0$, 且 $f(s) + f(t) &amp;lt; f(s + t)$, 则称 $f(x)$ 为“L 函数”.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;试判断 $h(x) = x^3 + x$ 是不是 “L 函数”, 说明理由.&lt;/li&gt;
+&lt;li&gt;若函数 $g(x) = a(e^x - 1) + (e^x + 1)$ 是“L 函数”，求实数 $a$ 的取值范围.&lt;/li&gt;
+&lt;li&gt;若函数 $f(x)$ 是“L 函数”, 且 $f(x) = 2$. 求证: $\forall x \in (1, +\infty), f(x) &amp;gt; 2(x-1)$.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="三附加单选题共-5-题-30分"&gt;三、附加单选题（共 5 题, 30分）
+&lt;/h3&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;ol start="12"&gt;
+&lt;li&gt;在平面直角坐标系中, 设 $\triangle ABC$ 的顶点分别为 $A(0, a), B(b, 0), C(c, 0)$, 点 $P(0, p)$ 在线段 $OA$ 上且异于端点, 设 $abcp \neq 0$, 直线 $BP$ 与 $AC$ 相交于 $E$, $CP$ 交 $AB$ 于 $F$, 已知直线 $OE: (\frac{1}{b}-\frac{1}{c})x+(\frac{1}{p}-\frac{1}{a})y=0$, 则 $OF$ 的表达式为 ______
+&lt;ul&gt;
+&lt;li&gt;A. $(\frac{1}{c}-\frac{1}{b})x+(\frac{1}{p}-\frac{1}{a})y=0$&lt;/li&gt;
+&lt;li&gt;B. $(\frac{1}{b}-\frac{1}{a})x+(\frac{1}{p}-\frac{1}{c})y=0$&lt;/li&gt;
+&lt;li&gt;C. $(b-c)x+(p-a)y=0$&lt;/li&gt;
+&lt;li&gt;D. 以上说法均错误&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;从 $1, 2, 3, \cdots, 10$ 中选出三个不同的数, 使得这三个数中任意两数之和都是合数, 则不同的选法共有 ______
+&lt;ul&gt;
+&lt;li&gt;A. 20&lt;/li&gt;
+&lt;li&gt;B. 25&lt;/li&gt;
+&lt;li&gt;C. 30&lt;/li&gt;
+&lt;li&gt;D. 35&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;设 $n \in \mathbb{N^*}$, 且 $n^2 + 19 n + 13$ 为完全平方数. 这样的 $n$ 的个数有 ______
+&lt;ul&gt;
+&lt;li&gt;A. 0&lt;/li&gt;
+&lt;li&gt;B. 1&lt;/li&gt;
+&lt;li&gt;C. 2&lt;/li&gt;
+&lt;li&gt;D. 无穷多&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;把一个集合 $M$ 分成 $n$ 个非空子集: $A_1, A_2, A_3, \cdots, A_n$, 如果: (1) $A_i \cap A_j = \emptyset, 1 \le i, j \le n, i \neq j$; (2) $A_1 \cup A_2 \cup A_3 \cup \cdots \cup A_n = M$, 那么这些子集的全体叫做集合 $M$ 的一个 $n$-分划. 现有由正整数组成的集合 $C$, 满足如下条件: 删除其中的任意一个元素后形成的集合 $C_0$ 存在一个 2-分划, 使得每个子集内的元素之和相等. 则集合 $C$ 中至少有多少个元素?
+&lt;ul&gt;
+&lt;li&gt;A. 5&lt;/li&gt;
+&lt;li&gt;B. 7&lt;/li&gt;
+&lt;li&gt;C. 8&lt;/li&gt;
+&lt;li&gt;D. 10&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;若 $a = \lg 2 \times \lg 5, b = \frac{\ln 2}{2}, c = \frac{\ln 3}{3}$, 则
+&lt;ul&gt;
+&lt;li&gt;A. $a &amp;gt; c &amp;gt; b$&lt;/li&gt;
+&lt;li&gt;B. $b &amp;gt; c &amp;gt; a$&lt;/li&gt;
+&lt;li&gt;C. $a &amp;gt; b &amp;gt; c$&lt;/li&gt;
+&lt;li&gt;D. $c &amp;gt; b &amp;gt; a$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="参考答案"&gt;参考答案
+&lt;/h2&gt;&lt;h3 id="一填空题"&gt;一、填空题
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;$M = N$&lt;/li&gt;
+&lt;li&gt;$\frac{1 + \sqrt{3} \cdot 2023}{\sqrt{3} - 2023}$&lt;/li&gt;
+&lt;li&gt;2540&lt;/li&gt;
+&lt;li&gt;$[\frac{3}{2}, +\infty)$&lt;/li&gt;
+&lt;li&gt;27&lt;/li&gt;
+&lt;li&gt;4&lt;/li&gt;
+&lt;li&gt;$\frac{1}{2}$&lt;/li&gt;
+&lt;li&gt;$5-2\sqrt{3}$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="二解答题"&gt;二、解答题
+&lt;/h3&gt;&lt;!--markdownlint-disable MD024--&gt;
+&lt;h4 id="9"&gt;9
+&lt;/h4&gt;&lt;h5 id="各小题答案"&gt;各小题答案
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;略&lt;/li&gt;
+&lt;li&gt;$BG = \frac{a^2}{r} - r$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="解析"&gt;解析
+&lt;/h5&gt;&lt;p&gt;暂不提供, 但推荐极点极线法&lt;/p&gt;
+&lt;h4 id="10"&gt;10
+&lt;/h4&gt;&lt;h5 id="各小题答案-1"&gt;各小题答案
+&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;$2 + 2\sqrt{2}$&lt;/li&gt;
+&lt;li&gt;$x$ 的取值范围是 $[-4, 4]$, $y$ 的取值范围是 $[-\sqrt{2}, \sqrt{2}]$, 当 $|x|$ 最大时 $|x+y|=5$&lt;/li&gt;
+&lt;li&gt;$f(x)$ 单调递增, 证明略&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id="解析-1"&gt;解析
+&lt;/h5&gt;&lt;h6 id="1"&gt;(1)
+&lt;/h6&gt;$$ 8 = x^2 - 4xy + 8y^2 \ge 4\sqrt{2} - 4xy $$$$\therefore xy \le 2 + 2\sqrt{2}$$&lt;p&gt;当且仅当 $x = 2\sqrt{2}y$, 即&lt;/p&gt;
+$$
+\left\{\begin{align*}
+x = \sqrt{8+4\sqrt{2}} \\
+y = \sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+或
+\left\{\begin{align*}
+x = -\sqrt{8+4\sqrt{2}} \\
+y = -\sqrt{1+\frac{\sqrt{2}}{2}}
+\end{align*}\right.
+$$&lt;p&gt;时取等.&lt;/p&gt;
+&lt;h6 id="2"&gt;(2)
+&lt;/h6&gt;&lt;p&gt;配方得&lt;/p&gt;
+&lt;p&gt;$(x - 2y)^2 + 4y^2 = 8$&lt;/p&gt;
+&lt;p&gt;$\therefore 8 = (x - 2y)^2 + 4y^2 \ge \frac{1}{2}x^2 \Rightarrow x^2 \le 16$&lt;/p&gt;
+&lt;p&gt;$\therefore x$ 的范围是&lt;/p&gt;
+$$
+[-4, 4]
+$$&lt;p&gt;又 $x^2-4xy+8y^2-8=0$,&lt;/p&gt;
+&lt;p&gt;把它看作关于 $x$ 的一元二次方程, 则该方程有解,&lt;/p&gt;
+&lt;p&gt;$\therefore \Delta = (4y)^2 - 4 \cdot 1 \cdot (8y^2 - 8) = 16(2-y^2) \ge 0$&lt;/p&gt;
+&lt;p&gt;$\therefore y$ 的范围是&lt;/p&gt;
+$$
+[-\sqrt{2}, \sqrt{2}]
+$$&lt;p&gt;当 $|x|$ 取最大值 4 时, 令 $x = 4 \Rightarrow y = 1, x = -4 \Rightarrow y = -1$,&lt;/p&gt;
+$$
+\therefore |x+y|=5
+$$&lt;h6 id="3"&gt;(3)
+&lt;/h6&gt;&lt;p&gt;$\forall -4 \le x_1 &amp;lt; x_2 &amp;lt; 0$ 且 $y_1 = f(x_1) &amp;gt; 0, y_2 = f(x_2) &amp;gt; 0$,&lt;/p&gt;
+&lt;p&gt;则&lt;/p&gt;
+$$
+\begin{align*}
+x_1^2 - 4x_1y_1 + 8y_1^2 = 8 \\
+x_2^2 - 4x_2y_2 + 8y_2^2 = 8
+\end{align*}
+$$&lt;p&gt;两式相减得&lt;/p&gt;
+&lt;p&gt;$(x_1^2 - x_2^2) - 4(x_1y_1 - x_2y_2) + 8(y_1 - y_2)(y_1 + y_2) = 0$&lt;/p&gt;
+&lt;p&gt;$\because x_1 &amp;lt; x_2 &amp;lt; 0 \Rightarrow (x_1 - x_2)(x_1 + x_2) &amp;gt; 0$,&lt;/p&gt;
+&lt;p&gt;$\therefore 2(y_1 - y_2)(y_1 + y_2) &amp;lt; x_1y_1 - x_2y_2 &amp;lt; x_2(y_1 - y_2)$&lt;/p&gt;
+&lt;p&gt;$\therefore (y_1 - y_2)(2y_1 + 2y_2 - x_2) &amp;lt; 0$&lt;/p&gt;
+&lt;p&gt;$\because y_1 &amp;gt; 0, y_2 &amp;gt; 0, x_2 &amp;lt; 0 \Rightarrow 2y_1 + 2y_2 - x_2 &amp;gt; 0$&lt;/p&gt;
+&lt;p&gt;$\therefore y_1 &amp;lt; y_2, f(x_1) &amp;lt; f(x_2)$&lt;/p&gt;
+&lt;p&gt;$\therefore f(x)$ 单调递增.&lt;/p&gt;
+&lt;h4 id="11"&gt;11
+&lt;/h4&gt;&lt;p&gt;暂不提供&lt;/p&gt;
+&lt;h3 id="三附加单选题"&gt;三、附加单选题
+&lt;/h3&gt;&lt;p&gt;暂不提供&lt;/p&gt;</description></item><item><title>学考成绩</title><link>https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/</link><pubDate>Sat, 15 Nov 2025 09:43:37 +0000</pubDate><guid>https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/</guid><description>&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/score.png"
+width="1799"
+height="399"
+srcset="https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/score_hu_c343fbf0c4d2fb92.png 480w, https://xieyuen-org.github.io/p/%E5%AD%A6%E8%80%83%E6%88%90%E7%BB%A9/score_hu_700e87e76622a77b.png 1024w"
+loading="lazy"
+alt="score"
+class="gallery-image"
+data-flex-grow="450"
+data-flex-basis="1082px"
+&gt;&lt;/p&gt;</description></item><item><title>MCDRpost v3.3.3</title><link>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</link><pubDate>Sat, 25 Oct 2025 17:59:10 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-v3.3.3/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;[!IMPORTANT]
+此版本强烈建议更新！除非你没有更新3.3.2&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="changelog"&gt;ChangeLog
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;li&gt;（&lt;strong&gt;严重&lt;/strong&gt;）修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>MCDRpost 更新日志</title><link>https://xieyuen-org.github.io/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</link><pubDate>Sat, 25 Oct 2025 17:42:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/mcdrpost-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97/</guid><description>&lt;!-- markdownlint-disable MD024 --&gt;
+&lt;h2 id="340-alpha3"&gt;[3.4.0-alpha.3]
+&lt;/h2&gt;&lt;h3 id="added"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新开分支专门准备放弃 Python 3.10 的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;内置处理器的条件函数替换成元组比较&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="340-alpha2"&gt;[3.4.0-alpha.2]
+&lt;/h2&gt;&lt;h3 id="added-1"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;补充了一些类型注解&lt;/li&gt;
+&lt;li&gt;添加弃用提示&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-1"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;简化协调器模块的命名&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="deprecated"&gt;Deprecated
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;弃用的配置&lt;/th&gt;
+&lt;th style="text-align: center"&gt;新配置&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;command_prefixed&lt;/td&gt;
+&lt;td style="text-align: center"&gt;prefix.more_prefix&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;allow_alias&lt;/td&gt;
+&lt;td style="text-align: center"&gt;prefix.enable_addition&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;command_permission&lt;/td&gt;
+&lt;td style="text-align: center"&gt;permissions&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="340-alpha1"&gt;[3.4.0-alpha.1]
+&lt;/h2&gt;&lt;h3 id="added-2"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;env.server_version&lt;/code&gt; 支持元组比较
+&lt;ul&gt;
+&lt;li&gt;e.g. &lt;code&gt;env.server_version &amp;gt;= (1, 20, 5)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;补充了 TranslationKeyItem 的 docstring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-2"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构了 CommandManager, 分离 UI 和命令解析
+&lt;ul&gt;
+&lt;li&gt;新增 CommandPreHandler 处理解析的类型与功能类的交互&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重构了 PostManager, 保持邮寄核心功能的单一职责
+&lt;ul&gt;
+&lt;li&gt;添加了 MCDRpostCoordinator 类作为协调器&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333"&gt;[3.3.3]
+&lt;/h2&gt;&lt;h3 id="fixed"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了无法发送/接受物品的 BUG&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-beta2"&gt;[3.3.3-beta.2]
+&lt;/h2&gt;&lt;h3 id="added-3"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;提供自定义音效的 API
+&lt;ul&gt;
+&lt;li&gt;删除了原本的 play_sound 模块&lt;/li&gt;
+&lt;li&gt;添加抽象类: AbstractSoundPlayer&lt;/li&gt;
+&lt;li&gt;添加实现类: NewSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加实现类: OldSoundPlayer 并暴露至 API&lt;/li&gt;
+&lt;li&gt;添加 property: AbstractVersionHandler.play_sound&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;添加了一些注释和类型注解&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-3"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修改了部分变量/属性的名称&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;原名称&lt;/th&gt;
+&lt;th style="text-align: center"&gt;新名称&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;TranslationKeyItem.__FULL_KEY&lt;/td&gt;
+&lt;td style="text-align: center"&gt;TranslationKeyItem.__FULL_KEY_TEMPLATE&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;utils.__Node&lt;/td&gt;
+&lt;td style="text-align: center"&gt;utils.__NodeType&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="333-beta1"&gt;[3.3.3-beta.1]
+&lt;/h2&gt;&lt;h3 id="changed-4"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新的翻译使用方式
+&lt;ul&gt;
+&lt;li&gt;原来的 &lt;code&gt;tr(Tags.xxx)&lt;/code&gt; 使用方法还是不够方便，换成 &lt;code&gt;TranslationKeys.xxx.tr()&lt;/code&gt; 就不用再在外面套一层 &lt;code&gt;tr()&lt;/code&gt; 了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-alpha3"&gt;[3.3.3-alpha.3]
+&lt;/h2&gt;&lt;h3 id="fixed-1"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了 player 命令没有回复的问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="333-alpha2"&gt;[3.3.3-alpha.2]
+&lt;/h2&gt;&lt;h3 id="changed-5"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;放弃对 1.9~1.13 的支持，当服务器使用此区间的版本时只使用外界注册的 Handler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332---yanked"&gt;[3.3.2] - [YANKED]
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;[!CAUTION]
+Due to a critical bug, this version is yanked.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="332-rc2---2025-09-21"&gt;[3.3.2-rc.2] - 2025-09-21
+&lt;/h2&gt;&lt;h3 id="added-4"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增错误提示，保证用户体验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="removed"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了无意义的 &lt;code&gt;__all__&lt;/code&gt; 变量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-rc1---2025-09-21"&gt;[3.3.2-rc.1] - 2025-09-21
+&lt;/h2&gt;&lt;h3 id="fixed-2"&gt;Fixed
+&lt;/h3&gt;&lt;p&gt;修复了玩家无法接受物品的问题&lt;/p&gt;
+&lt;h2 id="332-beta5---2025-09-20"&gt;[3.3.2-beta5] - 2025-09-20
+&lt;/h2&gt;&lt;h3 id="changed-6"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构了 &lt;code&gt;AbstractVersionHandler&lt;/code&gt; 类
+&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;item2str&lt;/code&gt; 和 &lt;code&gt;dict2item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;新增了 (abstractmethod) &lt;code&gt;get_offhand_item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;is_builtin&lt;/code&gt; 不再是 property 而是 classmethod&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;重构了 &lt;code&gt;BulitinVersionHandler&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;新增 &lt;code&gt;get_offhand_item&lt;/code&gt; 实现&lt;/li&gt;
+&lt;li&gt;新增 &lt;code&gt;replace&lt;/code&gt; 实现（仅在 &lt;code&gt;Since9Handler&lt;/code&gt; 中被覆盖）&lt;/li&gt;
+&lt;li&gt;新增 (abstractmethod) &lt;code&gt;item2str&lt;/code&gt; 方法&lt;/li&gt;
+&lt;li&gt;新增 (abstractmethod) &lt;code&gt;dict2item&lt;/code&gt; 方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="added-5"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;新增了 &lt;code&gt;DefaultVersionHandler&lt;/code&gt; 类并且暴露至 api&lt;/li&gt;
+&lt;li&gt;API
+&lt;ul&gt;
+&lt;li&gt;暴露 &lt;code&gt;DefaultVersionHandler&lt;/code&gt; 类&lt;/li&gt;
+&lt;li&gt;暴露 &lt;code&gt;OFFHAND_CODE&lt;/code&gt; 常量&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta4"&gt;[3.3.2-beta4]
+&lt;/h2&gt;&lt;h3 id="added-6"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;实现了自定义 Handler&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta3"&gt;[3.3.2-beta3]
+&lt;/h2&gt;&lt;h3 id="removed-1"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;utils.types&lt;/code&gt; 模块&lt;/li&gt;
+&lt;li&gt;删除了一些没有用的方法/函数&lt;/li&gt;
+&lt;li&gt;删除了 &lt;code&gt;reload&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; 命令及其权限配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="changed-7"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重命名 &lt;code&gt;before17&lt;/code&gt; 为 &lt;code&gt;since9&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;新增 &lt;code&gt;reload&lt;/code&gt; 子命令，用于重新加载配置文件和订单数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed-3"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复反序列化失败的问题&lt;/li&gt;
+&lt;li&gt;修复在插件加载阶段时如果订单无效翻译出错的问题&lt;/li&gt;
+&lt;li&gt;修复了插件加载时的翻译报错问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta2"&gt;[3.3.2-beta2]
+&lt;/h2&gt;&lt;h3 id="changed-8"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;重构 &lt;code&gt;version_handler&lt;/code&gt; 模块&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="332-beta1"&gt;[3.3.2-beta1]
+&lt;/h2&gt;&lt;h3 id="removed-2"&gt;Removed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;删除了 &lt;code&gt;reload&lt;/code&gt; &lt;code&gt;save&lt;/code&gt; 命令及其权限配置信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="fixed-4"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了插件加载时的翻译报错问题&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="331"&gt;[3.3.1]
+&lt;/h2&gt;&lt;h3 id="changed-9"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;获得了 Flyky 的授权，更新 MCDRpost 在插件仓库的信息&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="330"&gt;[3.3.0]
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;[!WARNING]
+此版本和旧版本不兼容，需要更新数据文件&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="added-7"&gt;Added
+&lt;/h3&gt;&lt;p&gt;实现对 Minecraft 1.20.5 版本及以上的支持&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;改变了原来订单中物品的储存方式，拆分得更加细致&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="321"&gt;[3.2.1]
+&lt;/h2&gt;&lt;h3 id="changed-10"&gt;Changed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;使用 MCDR 2.15.0 的新特性，MCDRpost 不再支持低于 2.15.0 以下的版本&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="320"&gt;[3.2.0]
+&lt;/h2&gt;&lt;h3 id="added-8"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;添加了新玩家登录时是否自动注册的配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="312"&gt;[3.1.2]
+&lt;/h2&gt;&lt;h3 id="added-9"&gt;Added
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;添加了命令的权限配置&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="300"&gt;[3.0.0]
+&lt;/h2&gt;&lt;h3 id="changed-11"&gt;Changed
+&lt;/h3&gt;&lt;p&gt;重构了旧代码，具体包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;模块化重构&lt;/li&gt;
+&lt;li&gt;利用面向对象实现 MCDRpost 主要功能&lt;/li&gt;
+&lt;li&gt;增加了配置文件&lt;/li&gt;
+&lt;li&gt;修改了原来的订单管理系统，并且使用 &lt;code&gt;server.load_config_simple&lt;/code&gt; 和 &lt;code&gt;server.save_config_simple&lt;/code&gt; 实现订单数据的加载和保存&lt;/li&gt;
+&lt;li&gt;拆分了冗长的 &lt;code&gt;__init__.py&lt;/code&gt;，用几个 Manager 代替&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="211"&gt;[2.1.1]
+&lt;/h2&gt;&lt;h3 id="fixed-5"&gt;Fixed
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;修复了插件不能加载的问题 (Flyky/MCDRpost#8)&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>My First Post</title><link>https://xieyuen-org.github.io/p/my-first-post/</link><pubDate>Tue, 07 Oct 2025 05:42:14 +0000</pubDate><guid>https://xieyuen-org.github.io/p/my-first-post/</guid><description>&lt;p&gt;My first post!&lt;/p&gt;
+&lt;p&gt;This site will hold all my articles&lt;/p&gt;</description></item><item><title>Markdown Syntax Guide</title><link>https://xieyuen-org.github.io/p/markdown-syntax-guide/</link><pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/markdown-syntax-guide/</guid><description>&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in Hugo content files, also it shows whether basic HTML elements are decorated with CSS in a Hugo theme.&lt;/p&gt;
+&lt;h2 id="headings"&gt;Headings
+&lt;/h2&gt;&lt;p&gt;The following HTML &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt;—&lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; elements represent six levels of section headings. &lt;code&gt;&amp;lt;h1&amp;gt;&lt;/code&gt; is the highest section level while &lt;code&gt;&amp;lt;h6&amp;gt;&lt;/code&gt; is the lowest.&lt;/p&gt;
+&lt;h1 id="h1"&gt;H1
+&lt;/h1&gt;&lt;h2 id="h2"&gt;H2
+&lt;/h2&gt;&lt;h3 id="h3"&gt;H3
+&lt;/h3&gt;&lt;h4 id="h4"&gt;H4
+&lt;/h4&gt;&lt;h5 id="h5"&gt;H5
+&lt;/h5&gt;&lt;h6 id="h6"&gt;H6
+&lt;/h6&gt;&lt;h2 id="paragraph"&gt;Paragraph
+&lt;/h2&gt;&lt;p&gt;Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptionse latur sitiae dolessi aut parist aut dollo enim qui voluptate ma dolestendit peritin re plis aut quas inctum laceat est volestemque commosa as cus endigna tectur, offic to cor sequas etum rerum idem sintibus eiur? Quianimin porecus evelectur, cum que nis nust voloribus ratem aut omnimi, sitatur? Quiatem. Nam, omnis sum am facea corem alique molestrunt et eos evelece arcillit ut aut eos eos nus, sin conecerem erum fuga. Ri oditatquam, ad quibus unda veliamenimin cusam et facea ipsamus es exerum sitate dolores editium rerore eost, temped molorro ratiae volorro te reribus dolorer sperchicium faceata tiustia prat.&lt;/p&gt;
+&lt;p&gt;Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sapicia is sinveli squiatum, core et que aut hariosam ex eat.&lt;/p&gt;
+&lt;h2 id="blockquotes"&gt;Blockquotes
+&lt;/h2&gt;&lt;p&gt;The blockquote element represents content that is quoted from another source, optionally with a citation which must be within a &lt;code&gt;footer&lt;/code&gt; or &lt;code&gt;cite&lt;/code&gt; element, and optionally with in-line changes such as annotations and abbreviations.&lt;/p&gt;
+&lt;h3 id="blockquote-without-attribution"&gt;Blockquote without attribution
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Tiam, ad mint andaepu dandae nostion secatur sequo quae.
+&lt;strong&gt;Note&lt;/strong&gt; that you can use &lt;em&gt;Markdown syntax&lt;/em&gt; within a blockquote.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="blockquote-with-attribution"&gt;Blockquote with attribution
+&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;Don't communicate by sharing memory, share memory by communicating.&lt;br&gt;
+— &lt;cite&gt;Rob Pike&lt;sup id="fnref:1"&gt;&lt;a href="#fn:1" class="footnote-ref" role="doc-noteref"&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="tables"&gt;Tables
+&lt;/h2&gt;&lt;p&gt;Tables aren't part of the core Markdown spec, but Hugo supports supports them out-of-the-box.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Age&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Bob&lt;/td&gt;
+&lt;td&gt;27&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alice&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="inline-markdown-within-tables"&gt;Inline Markdown within tables
+&lt;/h3&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Italics&lt;/th&gt;
+&lt;th&gt;Bold&lt;/th&gt;
+&lt;th&gt;Code&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;em&gt;italics&lt;/em&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;bold&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;code&gt;code&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;A&lt;/th&gt;
+&lt;th&gt;B&lt;/th&gt;
+&lt;th&gt;C&lt;/th&gt;
+&lt;th&gt;D&lt;/th&gt;
+&lt;th&gt;E&lt;/th&gt;
+&lt;th&gt;F&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit.&lt;/td&gt;
+&lt;td&gt;Phasellus ultricies, sapien non euismod aliquam, dui ligula tincidunt odio, at accumsan nulla sapien eget ex.&lt;/td&gt;
+&lt;td&gt;Proin eleifend dictum ipsum, non euismod ipsum pulvinar et. Vivamus sollicitudin, quam in pulvinar aliquam, metus elit pretium purus&lt;/td&gt;
+&lt;td&gt;Proin sit amet velit nec enim imperdiet vehicula.&lt;/td&gt;
+&lt;td&gt;Ut bibendum vestibulum quam, eu egestas turpis gravida nec&lt;/td&gt;
+&lt;td&gt;Sed scelerisque nec turpis vel viverra. Vivamus vitae pretium sapien&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="code-blocks"&gt;Code Blocks
+&lt;/h2&gt;&lt;h3 id="code-block-with-backticks"&gt;Code block with backticks
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&amp;lt;!doctype html&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt; &lt;span class="na"&gt;lang&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;en&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;meta&lt;/span&gt; &lt;span class="na"&gt;charset&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;utf-8&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Example HTML5 Document&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;title&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;head&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;Test&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;body&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;html&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="code-block-indented-with-four-spaces"&gt;Code block indented with four spaces
+&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;&amp;lt;!doctype html&amp;gt;
+&amp;lt;html lang=&amp;quot;en&amp;quot;&amp;gt;
+&amp;lt;head&amp;gt;
+&amp;lt;meta charset=&amp;quot;utf-8&amp;quot;&amp;gt;
+&amp;lt;title&amp;gt;Example HTML5 Document&amp;lt;/title&amp;gt;
+&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;
+&amp;lt;p&amp;gt;Test&amp;lt;/p&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id="diff-code-block"&gt;Diff code block
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-diff" data-lang="diff"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;[dependencies.bevy]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git = &amp;#34;https://github.com/bevyengine/bevy&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rev = &amp;#34;11f52b8c72fc3a568e8bb4a4cd1f3eb025ac2e13&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gd"&gt;- features = [&amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="gi"&gt;+ features = [&amp;#34;jpeg&amp;#34;, &amp;#34;dynamic&amp;#34;]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="one-line-code-block"&gt;One line code block
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;A paragraph&lt;span class="p"&gt;&amp;lt;/&lt;/span&gt;&lt;span class="nt"&gt;p&lt;/span&gt;&lt;span class="p"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="list-types"&gt;List Types
+&lt;/h2&gt;&lt;h3 id="ordered-list"&gt;Ordered List
+&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;First item&lt;/li&gt;
+&lt;li&gt;Second item&lt;/li&gt;
+&lt;li&gt;Third item&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="unordered-list"&gt;Unordered List
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;List item&lt;/li&gt;
+&lt;li&gt;Another item&lt;/li&gt;
+&lt;li&gt;And another item&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="nested-list"&gt;Nested list
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Fruit
+&lt;ul&gt;
+&lt;li&gt;Apple&lt;/li&gt;
+&lt;li&gt;Orange&lt;/li&gt;
+&lt;li&gt;Banana&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Dairy
+&lt;ul&gt;
+&lt;li&gt;Milk&lt;/li&gt;
+&lt;li&gt;Cheese&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="other-elements--abbr-sub-sup-kbd-mark"&gt;Other Elements — abbr, sub, sup, kbd, mark
+&lt;/h2&gt;&lt;p&gt;&lt;abbr title="Graphics Interchange Format"&gt;GIF&lt;/abbr&gt; is a bitmap image format.&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/p&gt;
+&lt;p&gt;X&lt;sup&gt;n&lt;/sup&gt; + Y&lt;sup&gt;n&lt;/sup&gt; = Z&lt;sup&gt;n&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;Press &lt;kbd&gt;CTRL&lt;/kbd&gt; + &lt;kbd&gt;ALT&lt;/kbd&gt; + &lt;kbd&gt;Delete&lt;/kbd&gt; to end the session.&lt;/p&gt;
+&lt;p&gt;Most &lt;mark&gt;salamanders&lt;/mark&gt; are nocturnal, and hunt for insects, worms, and other small creatures.&lt;/p&gt;
+&lt;div class="footnotes" role="doc-endnotes"&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id="fn:1"&gt;
+&lt;p&gt;The above quote is excerpted from Rob Pike's &lt;a class="link" href="https://www.youtube.com/watch?v=PAAkCSZUG1c" target="_blank" rel="noopener"
+&gt;talk&lt;/a&gt; during Gopherfest, November 18, 2015.&amp;#160;&lt;a href="#fnref:1" class="footnote-backref" role="doc-backlink"&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;</description></item><item><title>Image gallery</title><link>https://xieyuen-org.github.io/p/image-gallery/</link><pubDate>Sat, 26 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/image-gallery/</guid><description>&lt;img src="https://xieyuen-org.github.io/p/image-gallery/2.jpg" alt="Featured image of post Image gallery" /&gt;&lt;p&gt;Hugo theme Stack supports the creation of interactive image galleries using Markdown. It's powered by &lt;a class="link" href="https://photoswipe.com/" target="_blank" rel="noopener"
+&gt;PhotoSwipe&lt;/a&gt; and its syntax was inspired by &lt;a class="link" href="https://typlog.com/" target="_blank" rel="noopener"
+&gt;Typlog&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;To use this feature, the image must be in the same directory as the Markdown file, as it uses Hugo's page bundle feature to read the dimensions of the image. &lt;strong&gt;External images are not supported.&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id="syntax"&gt;Syntax
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;![&lt;span class="nt"&gt;Image 1&lt;/span&gt;](&lt;span class="na"&gt;1.jpg&lt;/span&gt;) ![&lt;span class="nt"&gt;Image 2&lt;/span&gt;](&lt;span class="na"&gt;2.jpg&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="result"&gt;Result
+&lt;/h2&gt;&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/p/image-gallery/1.jpg"
+width="2000"
+height="1400"
+srcset="https://xieyuen-org.github.io/p/image-gallery/1_hu_32a169d2afcbcc04.jpg 480w, https://xieyuen-org.github.io/p/image-gallery/1_hu_3a73c825de3f86b8.jpg 1024w"
+loading="lazy"
+alt="Image 1"
+class="gallery-image"
+data-flex-grow="142"
+data-flex-basis="342px"
+&gt; &lt;img src="https://xieyuen-org.github.io/p/image-gallery/2.jpg"
+width="1500"
+height="2250"
+srcset="https://xieyuen-org.github.io/p/image-gallery/2_hu_2a56812cdca2c35e.jpg 480w, https://xieyuen-org.github.io/p/image-gallery/2_hu_70fe5bdaa5eb1f20.jpg 1024w"
+loading="lazy"
+alt="Image 2"
+class="gallery-image"
+data-flex-grow="66"
+data-flex-basis="160px"
+&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@mymind" target="_blank" rel="noopener"
+&gt;mymind&lt;/a&gt; and &lt;a class="link" href="https://unsplash.com/@lukechesser" target="_blank" rel="noopener"
+&gt;Luke Chesser&lt;/a&gt; on &lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Shortcodes</title><link>https://xieyuen-org.github.io/p/shortcodes/</link><pubDate>Fri, 25 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/shortcodes/</guid><description>&lt;img src="https://xieyuen-org.github.io/p/shortcodes/cover.jpg" alt="Featured image of post Shortcodes" /&gt;&lt;p&gt;For more details, check out the &lt;a class="link" href="https://stack.jimmycai.com/writing/shortcodes" target="_blank" rel="noopener"
+&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="bilibili-video"&gt;Bilibili video
+&lt;/h2&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://player.bilibili.com/player.html?as_wide=1&amp;amp;high_quality=1&amp;amp;page=1&amp;bvid=BV1d4411N7zD"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="tencent-video"&gt;Tencent video
+&lt;/h2&gt;
+&lt;div class="video-wrapper"&gt;
+&lt;iframe src="https://v.qq.com/txp/iframe/player.html?vid=g0014r3khdw&amp;auto=0"
+scrolling="no"
+frameborder="no"
+framespacing="0"
+allowfullscreen="true"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="youtube-video"&gt;YouTube video
+&lt;/h2&gt;&lt;div class="video-wrapper"&gt;
+&lt;iframe loading="lazy"
+src="https://www.youtube.com/embed/0qwALOOvUik"
+allowfullscreen
+title="YouTube Video"
+&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="generic-video-file"&gt;Generic video file
+&lt;/h2&gt;&lt;div class="video-wrapper"&gt;
+&lt;video
+controls
+src="https://www.w3schools.com/tags/movie.mp4"
+&gt;
+&lt;p&gt;
+Your browser doesn't support HTML5 video. Here is a
+&lt;a href="https://www.w3schools.com/tags/movie.mp4"&gt;link to the video&lt;/a&gt; instead.
+&lt;/p&gt;
+&lt;/video&gt;
+&lt;/div&gt;
+&lt;h2 id="gist"&gt;Gist
+&lt;/h2&gt;&lt;script src="https://gist.github.com/CaiJimmy/e2751a943de10b2a5b3a8a6c2120cb86.js"&gt;&lt;/script&gt;
+&lt;h2 id="gitlab"&gt;GitLab
+&lt;/h2&gt;&lt;script
+type="application/javascript"
+src="https://gitlab.com/-/snippets/2589724.js"
+&gt;&lt;/script&gt;
+&lt;h2 id="quote"&gt;Quote
+&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;&lt;span class="cite"&gt;&lt;span&gt;― &lt;/span&gt;&lt;span&gt;A famous person, &lt;/span&gt;&lt;a href="https://en.wikipedia.org/wiki/Book"&gt;&lt;cite&gt;The book they wrote&lt;/cite&gt;&lt;/a&gt;&lt;/span&gt;&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@codioful" target="_blank" rel="noopener"
+&gt;Codioful&lt;/a&gt; on &lt;a class="link" href="https://unsplash.com/photos/WDSN62Qdxuk" target="_blank" rel="noopener"
+&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item><item><title>Math Typesetting</title><link>https://xieyuen-org.github.io/p/math-typesetting/</link><pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/math-typesetting/</guid><description>&lt;p&gt;Stack has built-in support for math typesetting using &lt;a class="link" href="https://katex.org/" target="_blank" rel="noopener"
+&gt;KaTeX&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;It's not enabled by default side-wide,&lt;/strong&gt; but you can enable it for individual posts by adding &lt;code&gt;math: true&lt;/code&gt; to the front matter. Or you can enable it side-wide by adding &lt;code&gt;math = true&lt;/code&gt; to the &lt;code&gt;params.article&lt;/code&gt; section in &lt;code&gt;config.toml&lt;/code&gt;.&lt;/p&gt;
+&lt;h2 id="inline-math"&gt;Inline math
+&lt;/h2&gt;&lt;p&gt;This is an inline mathematical expression: $\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$\varphi = \dfrac{1+\sqrt5}{2}= 1.6180339887…$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="block-math"&gt;Block math
+&lt;/h2&gt;$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; \varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;$$
+f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+$$&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-markdown" data-lang="markdown"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$$
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Hello World</title><link>https://xieyuen-org.github.io/p/hello-world/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/p/hello-world/</guid><description>&lt;img src="https://xieyuen-org.github.io/p/hello-world/cover.jpg" alt="Featured image of post Hello World" /&gt;&lt;p&gt;Welcome to Hugo theme Stack. This is your first post. Edit or delete it, then start writing!&lt;/p&gt;
+&lt;p&gt;For more information about this theme, check the documentation: &lt;a class="link" href="https://stack.jimmycai.com/" target="_blank" rel="noopener"
+&gt;https://stack.jimmycai.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Want a site like this? Check out &lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+&gt;hugo-theme-stack-stater&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a class="link" href="https://unsplash.com/@pawel_czerwinski" target="_blank" rel="noopener"
+&gt;Pawel Czerwinski&lt;/a&gt; on [Unsplash](&lt;a class="link" href="https://unsplash.com/" target="_blank" rel="noopener"
+&gt;https://unsplash.com/&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>

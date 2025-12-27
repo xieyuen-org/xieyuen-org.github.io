@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Answer on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/tags/answer/</link><description>Recent content in Answer on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Fri, 26 Dec 2025 12:30:31 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/tags/answer/index.xml" rel="self" type="application/rss+xml"/><item><title>2025 河源中学高一年级数学竞赛试题解析--第7题</title><link>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</link><pubDate>Fri, 26 Dec 2025 12:30:31 +0000</pubDate><guid>https://xieyuen-org.github.io/p/2025-%E6%B2%B3%E6%BA%90%E4%B8%AD%E5%AD%A6%E9%AB%98%E4%B8%80%E5%B9%B4%E7%BA%A7%E6%95%B0%E5%AD%A6%E7%AB%9E%E8%B5%9B%E8%AF%95%E9%A2%98%E8%A7%A3%E6%9E%90--%E7%AC%AC7%E9%A2%98/</guid><description>&lt;h2 id="原题"&gt;原题
+&lt;/h2&gt;&lt;!--markdownlint-disable MD029--&gt;
+&lt;blockquote&gt;
+&lt;ol start="7"&gt;
+&lt;li&gt;甲、乙两人各有四张卡片, 每张卡片标有一个数字, 甲的卡片上分别标有数字 1, 3, 5, 7, 乙的卡片上分别标有数字 2, 4, 6, 8. 两人进行四轮比赛, 每轮比赛中两人各自从自己的卡片中随机选择一张, 并进行比较, 数字大者得1分, 数字小者不得分, 然后扔掉此轮所选卡片, 则四轮比赛结束后, 甲的得分小于 2 概率为 ______&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="解析"&gt;解析
+&lt;/h2&gt;&lt;p&gt;我们可以用映射的思想来求解.&lt;/p&gt;
+&lt;p&gt;下面是甲乙两人卡片的映射关系：&lt;/p&gt;
+$$
+\begin{matrix}
+甲 &amp; 乙 \\
+1 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;具体的映射并没有用线画出, 但是我们知道甲乙得分有一定的关系:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲得0分 等价于 乙得4分&lt;/li&gt;
+&lt;li&gt;甲得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲得3分 等价于 乙得1分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;并且甲不能得4分, 因为甲有一张 1, 是必输的, 那我们试着把这张1改成9再看看:&lt;/p&gt;
+$$
+\begin{matrix}
+甲' &amp; 乙 \\
+9 &amp; 2 \\
+3 &amp; 4 \\
+5 &amp; 6 \\
+7 &amp; 8 \\
+\end{matrix}
+$$&lt;p&gt;这下甲$'$就因为这张牌就会比原来的甲多一分, 乙就少一分, 也就是说:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;甲$'$得1分 等价于 乙得3分&lt;/li&gt;
+&lt;li&gt;甲$'$得2分 等价于 乙得2分&lt;/li&gt;
+&lt;li&gt;甲$'$得3分 等价于 乙得1分&lt;/li&gt;
+&lt;li&gt;甲$'$得4分 等价于 乙得0分&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;而我们的比赛只是比大小, 所以结果和具体的数字无关, 我们就可以让每张牌都减1, 并且再调序, 变成:&lt;/p&gt;
+$$
+\begin{matrix}
+甲'' &amp; 乙' \\
+2 &amp; 1 \\
+4 &amp; 3 \\
+6 &amp; 5 \\
+8 &amp; 7 \\
+\end{matrix}
+$$&lt;p&gt;这个时候你发现了啥? 甲$''$不就是乙吗? 乙$'$不就是甲吗? 我们把前面的关系串起来, 就知道甲得1分就是甲$''$得2分, 就是乙得2分, 再回到原来的甲, 就是甲得2分. 我们就证明了 $P(甲得1分) = P(甲得2分)$&lt;/p&gt;
+&lt;p&gt;不难注意到, 甲得0分和甲得3分的情况都只有一种, 即 $P(甲得0分) = P(甲得3分)$&lt;/p&gt;
+&lt;p&gt;那题目要求的 $P(甲得分小于2) = P(甲得0分) + P(甲得1分) = \frac{1}{2}[P(甲得0分) + P(甲得1分) + P(甲得2分) + P(甲得3分)] = \frac{1}{2}$&lt;/p&gt;
+&lt;p&gt;所以答案为:&lt;/p&gt;
+$$\boxed{\frac{1}{2}}$$</description></item><item><title>4-27 因式分解专题练习答案</title><link>https://xieyuen-org.github.io/old/factorization-answer/</link><pubDate>Sun, 30 Apr 2023 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/old/factorization-answer/</guid><description>&lt;p&gt;题目📜：&lt;a class="link" href="https://xieyuen-org.github.io/posts/2023/4/28/factorization" &gt;🔗&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;答案📝：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;原式 $ = 3 a b ^ { 2 } c ( a ^{ 2 } - 4 a c + 3 c ^ { 2 } ) \ = 3 a b ^ { 2 } c ( a - 3 c ) ( a - c ) $&lt;/li&gt;
+&lt;li&gt;$ ( 4 x - 9 ) ( 4 x + 9 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = x ( y - 2 ) - 3 ( y - 2 ) \ = ( x - 3 ) ( y - 2 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x ^ { 2 } + y ^ { 2 } ) ( x - y ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x - a ) ( x + b ) $&lt;/li&gt;
+&lt;li&gt;$ a ^ { 2 } ( a + 3 b ) ( a - 3 b ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = x ^ { 3 } + 2 x ^ { 2 } + x ^ { 2 } - 4 \ = x ^ { 2 } ( x + 2 ) + ( x + 2 ) ( x - 2 ) \ = ( x + 2 ) ( x ^ { 2 } + x - 2 ) \ = ( x + 2 ) ^ { 2 } ( x - 1 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = a b x ^ { 2 } + ( a ^ { 2 } - b ^ { 2 } ) x y - a b y ^ { 2 } \ = ( a x - b y ) ( b x + a y ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = ( x + y ) ( a - b - c ) - ( x - y ) ( a - b - c ) \ = ( a - b - c ) ( x + y - x + y ) \ = 2 y ( a - b - c ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = a ^ { 2 } - b ^ { 2 } - ( a + b ) \ = ( a - b ) ( a + b ) - ( a + b ) \ = ( a + b ) ( a - b - 1 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = [ ( 3 a - b ) + 2 ( a + 3 b ) ] ^ { 2 } \ = ( 5 a -5 b ) ^ { 2 } \ = 25 ( a - b ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( a + 3 ) ( a - 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x + 1 ) ( x + 2 ) ( x + 1 - x - 2 ) \ = - ( x + 1 ) ( x + 2 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x - 5 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( x - 10 ) ( x + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ x ( x + 1 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 4 ) ( x - a ) $&lt;/li&gt;
+&lt;li&gt;$ ( 5 x + 7 ) ( 5 x - 7 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 6 x - 5 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x + 3 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( x - 3 ) ( x - 6 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2x - 3 ) ( x - 1 ) $&lt;/li&gt;
+&lt;li&gt;$ 2 ( x - 4 ) ( 6 x - 1 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 x ( x - 2 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 7 x - 5 ) ( 7 x + 5 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x - 1 ) ( 3 x - 5 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 1 ) ( x + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x + 8 ) ( 4 x - 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 6 ) ( x + 5 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = ( x + 2 ) [ 3 ( x - 5 ) - x + 3 ] \ = ( x + 2 ) ( 2 x -12 ) \ = 2 ( x + 2 ) ( x - 6 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x + 7 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ x ^ { 2 } ( x - 7 ) ( x + 5 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 x ^ { 2 } ( x ^ { 2 } + 1 ) ( x + 1 ) ( x - 1 ) $&lt;/li&gt;
+&lt;li&gt;$ ( x + 5 ) ( x - 5) $&lt;/li&gt;
+&lt;li&gt;$ ( x - 10 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ ( x + 1 ) ( x + 3 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 2 x - 1 ) ( 2 x - 5 ) $&lt;/li&gt;
+&lt;li&gt;$ 3 a x ( x - 2 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = ( x + 2 ) ( x - 3 + x + 4 ) \ = ( x + 2 ) ( x + 1 ) $&lt;/li&gt;
+&lt;li&gt;原式 $ = 2 a x ^ { 2 } + ( 2 a - 3 ) x -3 \ = ( 2 a x - 3 ) ( x + 1 ) $&lt;/li&gt;
+&lt;li&gt;$ ( 3 x - 11 ) ^ { 2 } $&lt;/li&gt;
+&lt;li&gt;$ 2 ( 2 - x ) ( 2 + x ) $&lt;/li&gt;
+&lt;li&gt;$ $&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>
