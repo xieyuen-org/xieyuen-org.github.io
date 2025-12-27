@@ -1,6 +1,6 @@
 ---
 title: Mathematics
-description: mathematics related posts
+description: mathematics-related posts
 
 # Badge style
 style:
