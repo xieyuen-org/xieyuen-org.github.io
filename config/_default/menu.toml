@@ -22,3 +22,11 @@ url = "https://wpa.qq.com/msgrd?v=3&uin=2035381689&site=qq&menu=yes"
 
 [social.params]
 icon = "brand-qq"
+
+[[social]]
+identifier = "bilibili"
+name = "Bilibili"
+url = "https://space.bilibili.com/1006776933"
+
+[social.params]
+icon = "brand-bilibili"
