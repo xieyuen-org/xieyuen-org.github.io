@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Papers on xieyuen 的个人站点</title><link>https://xieyuen-org.github.io/paper/</link><description>Recent content in Papers on xieyuen 的个人站点</description><generator>Hugo -- gohugo.io</generator><language>zh-cn</language><lastBuildDate>Tue, 07 Oct 2025 05:54:32 +0000</lastBuildDate><atom:link href="https://xieyuen-org.github.io/paper/index.xml" rel="self" type="application/rss+xml"/><item><title>基于线性回归模型的城市水资源预测模型</title><link>https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/</link><pubDate>Tue, 07 Oct 2025 05:54:32 +0000</pubDate><guid>https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;参赛选手：陈君逸、黄孜勇、罗梓宁、谢瑜恩、叶彬&lt;/br&gt;
+指导老师：蔡维、江滢滢、李艾&lt;/br&gt;
+排名不分先后&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="摘要"&gt;摘要
+&lt;/h2&gt;&lt;p&gt;水，是生命之源.水资源是维系地球生态系统和人类文明存续的基础性资源.虽然我国面积广阔，从水资源总量来看，是一个比较丰富的国家，但是在世界平均水平中人均占有量确仅有
+1/4，被联合国评为“水资源紧缺型”
+的国家.而且水资源分配情况呈现出极度不平衡状态.本文针对水资源的影响因素，基于数学分析方法，分别采用多元线性回归模型进行建模分析.水资源主要影响因素分为自然因素与人文因素.但由于人文因素影响复杂且常年稳定，故本建模以对自然因素的研究为主.&lt;/p&gt;
+&lt;p&gt;首先，我们利用河源市2006~
+2023年的历史数据，使用python绘制散点图，以及计算样本相关系数，判断自变量与因变量的相关性.接着基于多元线性回归模型，利用最小二乘法，我们选取了部分变量作为解释变量.对被解释变量即水资源总量进行初步建模，求解回归系数.在考虑变量的合理性（如是否遗漏关键因素）后剔除相关性不大的变量，进一步建模，通过公式计算模型的决定系数
+，调整 ,检验模型精确度.结果显示，年降水量、年日照时长与水资源总量基本呈线性关系.&lt;/p&gt;
+&lt;p&gt;随后我们尝试对模型进行推广，以运用于其他城市.由于不同城市的自然条件、社会经济状况存在显著差异，适用于河源市的模型直接套用，出现了很大的误差，于是尝试添加更多的解释变量如城市面积、城市大型水库蓄水量、城市用水量进行修正，进一步优化后，得到的模型有一定的预测能力，能在一定条件下实现预测功能.&lt;/p&gt;
+&lt;p&gt;最后，本文对提出的模型进行了全面综合的评价：
+该模型在水资源影响因素的研究有一定意义，其反映了自然因素在水资源配置中几乎发挥了决定性的作用；增加修筑城市内部水利工程，加大力度宣扬节约用水，推广节水设施可以在一定程度上优化城市内水资源配置.但在该基础上，仍可以考虑其他非线性模型优化，提高模型精度与适用性.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;关键词:&lt;/strong&gt; 水资源；R方检测法；线性回归模型；最小二乘法;python&lt;/p&gt;
+&lt;h2 id="一自拟题目描述"&gt;一、自拟题目描述
+&lt;/h2&gt;&lt;p&gt;水，是生命之源.水资源是维系地球生态系统和人类文明存续的基础性资源.然而随着人口增长、经济发展和气候变化影响，水资源短缺与污染问题日益凸显，虽然我国面积广阔，从水资源总量来看，是一个比较丰
+富的国家，但是在世界平均水平中人均占有量确仅有1/4，被联合国评为“水资源紧缺型” 的国家[^1]
+.而且水资源分配情况呈现出极度不平衡状态，主要表现有：时空分布极不均衡、
+供需矛盾日益尖锐、水污染问题突出、利用效率偏低等等.为了优化水资源配置，增强水资源调控能力，请你完成以下数学建模探究：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;以河源市为例，运用数学知识，对水资源总量影响因素进行探究并且建立简单的的数学模型，并你所建立的模型进行优化；&lt;/li&gt;
+&lt;li&gt;(1) 中的模型是否能用于其他城市，如不能，应如何改进？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="二问题分析"&gt;二、问题分析
+&lt;/h2&gt;&lt;p&gt;水资源是关乎区域生态安全与社会经济发展的核心资源，我国水资源总量丰富但人均不足、分布失衡的现状，凸显了精准分析水资源影响因素、构建科学调控模型的重要性.整体而言，问题的核心在于从复杂的水资源系统中提炼关键影响因素，建立可量化的关系模型，并通过对模型适应性的分析，形成具有一定推广意义的研究思路.&lt;/p&gt;
+&lt;h3 id="21-问题-1-的分析"&gt;2.1 问题 1 的分析
+&lt;/h3&gt;&lt;p&gt;针对问题（1）的研究&lt;/p&gt;
+&lt;p&gt;对于城市水资源总量一般情况下往往会有多个因变量对其产生影响，其中包括了自然因素和人文因素.由于人文因素常年波动幅度较小且对水资源总量影响不大，这里我们忽略人文因素，只考虑自然因素，我们选取了年平均气温年降水量，年日照时长年相对湿度作为解释变量.根据所给数据，我们采用图像法以及样本相关系数法[^2]
+观察各自变量与因变量的相关性，得到粗略关系，再进一步建立多元线性回归模型[^3]，检验模型预测准度.&lt;/p&gt;
+&lt;h3 id="22-问题-2-的分析"&gt;2.2 问题 2 的分析
+&lt;/h3&gt;&lt;p&gt;针对问题（2）的研究&lt;/p&gt;
+&lt;p&gt;此问题是在检验模型的适用性，尝试将模型推广到更普适的高度.我们这样先采用已有的模型，输入其他城市的相关数据，并进行检验.此过程中可能会遇到，模型偏差较大的情况.为了简化问题探究过程，我们忽略了城市间在地形，城市布局等各方面的影响因素，尝试添加城市面积、城市主要河流径流、主要水库蓄水面积.作为新的解释变量，进一步优化模型.以期提升其在不同地域的适用性，实现从“个案模型”到“可迁移模型”的转化.&lt;/p&gt;
+&lt;h2 id="三模型假设"&gt;三、模型假设
+&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;假设题目所给的数据真实可靠；&lt;/li&gt;
+&lt;li&gt;假设城市间在地形，城市空间布局等除解释变量的因素都可忽略.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="四定义与符号说明"&gt;四、定义与符号说明
+&lt;/h2&gt;&lt;p&gt;网站暂不给出&lt;/p&gt;
+&lt;h2 id="五模型的建立与求解"&gt;五、模型的建立与求解
+&lt;/h2&gt;&lt;p&gt;数据的预处理：&lt;/p&gt;
+&lt;p&gt;本研究收集到了河源市、北京市、深圳市、上海市、杭州市 2001 至 2022 年相关数据.主创团队首先对收集到的原始数据进行全面梳理，通过
+python matplotlib 可视化方法识别异常值.&lt;/p&gt;
+&lt;p&gt;河源市 2007 年以前的数据缺失，上海市 2009 年以前的数据缺失，杭州市 2006 年以前的数据缺失，我们选择直接舍弃.&lt;/p&gt;
+&lt;p&gt;在收集到的数据中，发现河源市某年年降雨量极端异常.于是我们选择删去，并通过其他渠道补充数据.&lt;/p&gt;
+&lt;h3 id="51问题1的模型建立与求解"&gt;5.1问题1的模型建立与求解
+&lt;/h3&gt;&lt;h4 id="511-对多元线性回归模型的建立"&gt;5.1.1 对多元线性回归模型的建立
+&lt;/h4&gt;&lt;p&gt;首先我们先进行数据的相关性检验，确定 2006~2022
+年河源市年相对湿度年均气温年降水量年日照的时长与水资源总量较相关的有几项.初步分析时，我们同时采用图像与样本相关系数来比较关联程度.以下是各自变量与因变量的样本相关系数.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;自变量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;样本相关系数&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年降雨量&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.9589002143077459&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年均温&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.4907012441700653&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年日照时长&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.8500764086782552&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;年平均相对湿度&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.5083870754427816&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/rain.png"
+width="576"
+height="432"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/rain_hu_fd3d9831b970dd68.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/rain_hu_96879e41bdee2464.png 1024w"
+loading="lazy"
+alt="年降雨量与水资源总量"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;
+！&lt;a class="link" href="temp.png" &gt;年均温与水资源总量&lt;/a&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/time.png"
+width="576"
+height="432"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/time_hu_2c0096ad5fee2357.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/time_hu_863916eccd9bcee3.png 1024w"
+loading="lazy"
+alt="年日照时长与水资源总量"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/hum.png"
+width="576"
+height="432"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/hum_hu_f6d13d984154561f.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/hum_hu_107e345f31892553.png 1024w"
+loading="lazy"
+alt="年平均相对湿度与水资源总量"
+class="gallery-image"
+data-flex-grow="133"
+data-flex-basis="320px"
+&gt;&lt;/p&gt;
+&lt;p&gt;根据样本相关系数及观察图像，我们注意到年日照时长与年均温呈现一定的负相关关系，而降雨量和年均相对湿度呈现正相关关系，于是我们考虑使用多元线性回归模型拟合数据.&lt;/p&gt;
+&lt;p&gt;借助python中的scikit-learn模块我们可以得到如下拟合结果（数值计算的代码见附件，论文内展示数据保留三位小数）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;统计量&lt;/th&gt;
+&lt;th&gt;年降雨量&lt;/th&gt;
+&lt;th&gt;年日照时长&lt;/th&gt;
+&lt;th&gt;年均温&lt;/th&gt;
+&lt;th&gt;年均相对湿度&lt;/th&gt;
+&lt;th&gt;截距&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;回归系数&lt;/td&gt;
+&lt;td&gt;0.071&lt;/td&gt;
+&lt;td&gt;-0.078&lt;/td&gt;
+&lt;td&gt;1.372&lt;/td&gt;
+&lt;td&gt;-0.808&lt;/td&gt;
+&lt;td&gt;192.517&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;P值&lt;/td&gt;
+&lt;td&gt;2.487e-06&lt;/td&gt;
+&lt;td&gt;0.014&lt;/td&gt;
+&lt;td&gt;0.819&lt;/td&gt;
+&lt;td&gt;0.403&lt;/td&gt;
+&lt;td&gt;0.114&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;决定系数 \(R^2\)&lt;/td&gt;
+&lt;td&gt;0.960&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;调整 \(R^2\)&lt;/td&gt;
+&lt;td&gt;0.946&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;得到经验回归方程&lt;/p&gt;
+\[
+\hat{y} = 0.071 x_1 -0.078 x_2 + 1.372 x_3 -0.808 x_4 + 192.517
+\]&lt;h4 id="512多元线性回归模型的优化"&gt;5.1.2多元线性回归模型的优化
+&lt;/h4&gt;&lt;p&gt;基于对1中模型的结果，我们尝试对其进行优化，优化方向如下：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;考虑到问题1我们所建立的模型中，自变量年相对湿度和年平均气温的样本相关系数绝对值较小，相关性较弱，于是我们尝试删去这两个自变量，只保留年降雨量和日照时长.&lt;/li&gt;
+&lt;li&gt;问题（1）中我们没有对数据进行标准化处理，这次我们尝试标准化.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;标准化是数据预处理的常用方法，目的是将不同量级不同单位的数据转换在同一个尺度上,消除量纲差异，使数据更具有可比性.我们使用Z-score
+Normalization的方法进行标准化[^3]，转化公式如下&lt;/p&gt;
+\[
+\hat{x} = \frac{x - \mu}{\sigma}
+\]&lt;p&gt;再删除两个相关性较弱的变量，用python拟合得到结果（数值计算的代码见附件，论文内展示数据保留三位小数）
+以下是经过计算得出的模型数据，&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;统计量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年降雨量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年日照时长&lt;/th&gt;
+&lt;th style="text-align: center"&gt;截距&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;回归系数&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.737&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.295&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4.215e-16&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;P值&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4.769e-07&lt;/td&gt;
+&lt;td style="text-align: center"&gt;3.511e-3&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;决定系数 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.957&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;调整 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.951&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/2.png"
+width="1134"
+height="664"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/2_hu_50deda8484d98bfb.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/2_hu_e3baf19a46f70bfa.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp.png"
+width="1134"
+height="664"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_hu_3ab5a529ee8c1cbb.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_hu_2c662ec5bec2d105.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+&gt;
+&lt;img src="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_pred.png"
+width="1134"
+height="664"
+srcset="https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_pred_hu_3858412606b2c246.png 480w, https://xieyuen-org.github.io/paper/math/modeling/hy2025modeling/exp_pred_hu_e978ff4f92446f08.png 1024w"
+loading="lazy"
+class="gallery-image"
+data-flex-grow="170"
+data-flex-basis="409px"
+&gt;&lt;/p&gt;
+&lt;h4 id="513-结果"&gt;5.1.3 结果
+&lt;/h4&gt;&lt;p&gt;先运用样本相关系数评估了各自变量对因变量的相关性,得出年降雨量和年均气温是城市水资源总量的主要影响因素.&lt;/p&gt;
+&lt;p&gt;接着采用多元线性回归模型，建立水资源总量与各自变量间的关系.建构模型时使用了2007~2023年的数据，观察到决定系数 和调整
+都接近1，可以认为模型较好地反映了自变量与因变量的数量关系.&lt;/p&gt;
+&lt;p&gt;鉴于城市水资源总量与年降雨量、日照时长关联较大，政府可加强雨水收集与利用，以此提高水资源总量.&lt;/p&gt;
+&lt;h3 id="52-问题-2-的模型建立与求解"&gt;5.2 问题 2 的模型建立与求解
+&lt;/h3&gt;&lt;h4 id="521-多元线性回归模型的建立"&gt;5.2.1 多元线性回归模型的建立
+&lt;/h4&gt;&lt;p&gt;我们现在需要尝试推广这个模型，将其应用到更多城市中，使其具有普适性.首先我们，将北京市的数据代入原有模型中，发现模型输出值和真实值差异较大.&lt;/p&gt;
+&lt;p&gt;考虑到不同城市的自然条件、社会经济状况存在显著差异，于是我们尝试进一步考察各城市间的城市的面积，城市大型河流年径流量，城市大型水库蓄水量对水资源总量的影响，添加自变量.自变量
+为城市面积， 为城市用水量， 为城市大型水库蓄水量.&lt;/p&gt;
+&lt;p&gt;借助python中的scikit-learn模块，代入河源市、北京市、杭州市、深圳市、上海市的数据，我们可以得到如下拟合结果（数值计算的代码见附件，论文内展示数据保留三位小数）&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="text-align: center"&gt;统计量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年降雨量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;年日照时长&lt;/th&gt;
+&lt;th style="text-align: center"&gt;城市面积&lt;/th&gt;
+&lt;th style="text-align: center"&gt;城市大型水库蓄水量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;城市用水量&lt;/th&gt;
+&lt;th style="text-align: center"&gt;截距&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;回归系数&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.612&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.303&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.054&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.088&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-0.0388&lt;/td&gt;
+&lt;td style="text-align: center"&gt;-9.021e-17&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;P值&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.957e-06&lt;/td&gt;
+&lt;td style="text-align: center"&gt;4.582e-3&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.295&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.493&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.728&lt;/td&gt;
+&lt;td style="text-align: center"&gt;1.000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;决定系数 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.968&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style="text-align: center"&gt;调整 \(R^2\)&lt;/td&gt;
+&lt;td style="text-align: center"&gt;0.963&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;td style="text-align: center"&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h4 id="522-结果"&gt;5.2.2 结果
+&lt;/h4&gt;&lt;p&gt;找到城市面积城市大型蓄水量和城市用水量，三个数据作为新增的自变量，以适应不同城市水资源配置上的差异.接着进行数据标准化，带入线性回归方程求解，得到的模型，观察数据拟合结果发现本次模型的决定系数
+和调整 也较接近1，说明本次数据拟合效果较好.对于新添加的变量城市面积\城市大型水库蓄水量和城市用水量的p值较大,说明他们与城市总用水量之间可能并非简单的线性关系，由此造成模型误差增加.&lt;/p&gt;
+&lt;p&gt;由以上模型我们可以得到城市面积城市大型水库蓄水量与水资源总量成正相关关系，而城市用水量与水资源总量呈负相关关系.观察模型各自变量的回归系数，我们发现城市面积，城市大型水库蓄水量和城市用水量的回归系数都较小，说明他们在对水资源总量的影响上没有前两者明显.但我们并不可否认此三者对水资源总量的影响.三者中城市大型水库蓄水量的回归系数绝对值最大，反映了相关水利工程在水资源保护中的重要意义.而城市面积一定程度上反映了一个城市在自然条件下富集水资源的能力.城市用水量虽然在三者中回归系数绝对值最小，但仍然不容忽视.它在一定程度上与浪费水资源的现象有关，为城市内部合理调配水资源提供数据参考.&lt;/p&gt;
+&lt;p&gt;综上所述，我们可以得出结论，自然因素在水资源配置中几乎发挥了决定性的作用，这也是造成我国南北水资源差异的主要因素.增加修筑城市内部水利工程，可以有效缓解上述问题.同时政府应该加大力度宣扬节约用水，保护水资源，如设置价梯水价，推广节水设施，鼓励企业采用循环水资源的生产流程，改建农业灌溉技术等等.&lt;/p&gt;
+&lt;h2 id="六模型的评价及优化"&gt;六、模型的评价及优化
+&lt;/h2&gt;&lt;h3 id="61-误差分析"&gt;6.1 误差分析
+&lt;/h3&gt;&lt;h4 id="611-针对问题1的误差分析"&gt;6.1.1 针对问题1的误差分析
+&lt;/h4&gt;&lt;p&gt;模型1在使用python拟合模型的时候并未进行标准化除去量纲带来的影响，并且我们发现年均温与年均相对湿度的样本相关系数的绝对值偏小，P值偏大，我们考虑删除这两个自变量以优化该模型.
+删除两个自变量之后，模型的精度得到了显著的提高.两个自变量的p值极小，最后的决定系数r方和调整r方较接近1.但仍有误差，我们猜测这些误差可能来自于没有将人文因素考虑进去.&lt;/p&gt;
+&lt;h4 id="612-针对问题2的误差分析"&gt;6.1.2 针对问题2的误差分析
+&lt;/h4&gt;&lt;p&gt;本次建模的误差主要来自于各城市间自然条件，社会经济状况差异较大，同时我们只选取了5个城市，得到的模型不能完全反映所有城市的共同特点.同时数据中出现的缺失，主创团队选择了直接舍弃，也是可能存在的误差原因.或许可以采用一些数学方法估计缺失值，从而保留了该年份的其他有效数值.&lt;/p&gt;
+&lt;p&gt;其次，我们使用了软件帮助我们计算，精度误差不可避免地就会产生.&lt;/p&gt;
+&lt;p&gt;再者，误差也极有可能是多元线性回归模型本身的局限性造成的，相关人文因素可能与因变量间并非呈简单的线性关系,可以考虑后续添加交互项来进一步拟合.&lt;/p&gt;
+&lt;h3 id="62-模型的优点建模方法创新求解特色等"&gt;6.2 模型的优点（建模方法创新、求解特色等）
+&lt;/h3&gt;&lt;p&gt;灵活运用了高中所学的多元线性回归模型，适当的建立假设简化模型的分析和计算，同时在数据分析中迅速找到关键因素，建构出来的模型预测精度较高.后续能考虑到模型的普适性，并通过增加自变量对其进行进一步的推广，一定程度上扩大了模型的适用范围，使模型本身对于水资源调配更具有现实意义.&lt;/p&gt;
+&lt;h3 id="63-模型的缺点"&gt;6.3 模型的缺点
+&lt;/h3&gt;&lt;p&gt;本模型到优化后期就受到了数据量的制约影响，限制了模型的精度.模型的预测结果也受一些不可控的因素的影响，存在不确定性.同时多元线性回归模型本身由于忽略自变量问的纠缠，或自变量与因变量非线性关系，也不能完美地反映各自变量与因变量之间的数量关系.&lt;/p&gt;
+&lt;h3 id="64-模型的推广"&gt;6.4 模型的推广
+&lt;/h3&gt;&lt;p&gt;本模型运用到了高中所学的知识，能够有效地预测结果.若要对其推广和优化，我们可以考虑的方向有：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;增加数据的输入量，使预测模型精度更高更可信；&lt;/li&gt;
+&lt;li&gt;引入更多影响因素如城市地形条件、城市植被覆盖率、城市水文条件等等，以更详细地量化自变量与因变量数量关系.&lt;/li&gt;
+&lt;li&gt;对部分数据进行滞后处理，如使用上一年用水量，避免双向因果干扰.&lt;/li&gt;
+&lt;li&gt;考虑更加先进更加复杂的模型（如系统动力学）进行建模.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id="参考文献"&gt;参考文献
+&lt;/h2&gt;&lt;p&gt;[^1] &lt;a class="link" href="http://baike.so.com/doc/4958951-5180921.html" target="_blank" rel="noopener"
+&gt;360 百科&lt;/a&gt;.
+[^2] 高中数学选择性必修三
+[^3] 刘来福、徐晓阳、陈雄.高中数学建模[M].北京西城区新街口外大街12-3号.北京师范大学出版社.&lt;/p&gt;</description></item><item><title>实践是检验真理的唯一标准</title><link>https://xieyuen-org.github.io/paper/politics/practice-is-the-sole-criterion-for-testing-truth/</link><pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate><guid>https://xieyuen-org.github.io/paper/politics/practice-is-the-sole-criterion-for-testing-truth/</guid><description>&lt;p&gt;检验真理的标准是什么？这是早被无产阶级的革命导师解决了的问题。但是这些年来，由于“四人帮”的破坏和他们控制下的舆论工具大量的歪曲宣传，把这个问题搞得混乱不堪。为了深入批判“四人帮”，肃清其流毒和影响，在这个问题上拨乱反正，十分必要。&lt;/p&gt;
+&lt;h3 id="检验真理的标准只能是社会实践"&gt;检验真理的标准只能是社会实践
+&lt;/h3&gt;&lt;p&gt;怎样区别真理与谬误呢？1845年，马克思就提出了检验真理的标准问题：&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="（《马克思恩格斯选集》第1卷第16页）"
+target="_blank" rel="noopener"
+&gt;“人的思维是否具有客观的真理性，这并不是一个理论的问题，而是一个实践的问题。人应该在实践中证明自己思维的真理性，即自己思维的现实性和力量，亦即自己思维的此岸性。关于离开实践的思维是否具有现实性的争论，是一个纯粹经院哲学的问题。”&lt;/a&gt;这就非常清楚地告诉我们，一个理论，是否正确反映了客观实际，是不是真理，只能靠社会实践来检验。这是马克思主义认识论的一个基本原理。&lt;/p&gt;
+&lt;p&gt;实践不仅是检验真理的标准，而且是唯一的标准。毛主席说：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/514673381" title="《新民主主义论》"
+target="_blank" rel="noopener"
+&gt;“真理只有一个，而究竟谁发现了真理，不依靠主观的夸张，而依靠客观的实践。只有千百万人民的革命实践，才是检验真理的尺度。”&lt;/a&gt; &lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="《实践论》"
+target="_blank" rel="noopener"
+&gt;“真理的标准只能是社会的实践。”&lt;/a&gt;这里说：“只能” “才是”，就是说，标准只有一个，没有第二个。这是因为，辩证唯物主义所说的真理是客观真理，是人的思想对于客观世界及其规律的正确反映。因此，作为检验真理的标准，就不能到主观领域内去寻找，不能到理论领域内去寻找，思想、理论自身不能成为检验自身是否符合客观实际的标准，正如在法律上原告是否属实，不能依他自己的起诉为标准一样。作为检验真理的标准，必须具有把人的思想和客观世界联系起来的特性，否则就无法检验。人的社会实践是改造客观世界的活动，是主观见之于客观的东西。实践具有把思想和客观实际联系起来的特性。因此，正是实践，也只有实践，才能够完成检验真理的任务。科学史上的无数事实，充分地说明了这个问题。&lt;/p&gt;
+&lt;p&gt;门捷列夫根据原子量的变化，制定了元素周期表，有人赞同，有人怀疑，争论不休。尔后，根据元素周期表发现了几种元素，它们的化学特性刚好符合元素周期表的预测。这样，元素周期表就被证实了是真理。哥白尼的太阳系学说在300年里一直是一种假说，而当勒维烈从这个太阳系学说所提供的数据，不仅推算出一定还存在一个尚未知道的行星，而且还推算出这个行星在太空中的位置的时候，当加勒于1846年确实发现了海王星这颗行星的时候，哥白尼的太阳系学说才被证实了，成了公认的真理。&lt;/p&gt;
+&lt;p&gt;马克思主义之所以被承认为真理，正是千百万群众长期实践证实的结果。毛主席说：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="《实践论》"
+target="_blank" rel="noopener"
+&gt;“马克思列宁主义之所以被称为真理，也不但在于马克思、恩格斯、列宁、斯大林等人科学地构成这些学说的时候，而且在于为尔后革命的阶级斗争和民族斗争的实践所证实的时候。”&lt;/a&gt;马克思主义原是工人运动中的一个派别，开始并不出名，反动派围攻它，资产阶级学者反对它，其他的社会主义流派攻击它，但是，长期的革命实践证明了马克思主义是真理，终于成为国际共产主义运动的指导思想。&lt;/p&gt;
+&lt;p&gt;检验路线之正确与否，情形也是这样。马克思主义政党在制订自己的路线时，当然要从现实的阶级关系和阶级斗争的情况出发，依据革命理论的指导并且加以论证。但是，国际共产主义运动和各个革命政党的路线是否正确，同样必须由社会实践来检验。20世纪初，国际共产主义运动和俄国工人运动中，都发生了列宁的马克思主义路线与第二国际修正主义路线的激烈斗争，那时第二国际的头面人物是考茨基，列宁主义者是少数，斗争持续了很长一个时间。俄国十月革命和各国无产阶级革命的实践证明列宁主义是真理，宣告了第二国际修正主义路线的破产。&lt;/p&gt;
+&lt;p&gt;毛泽东思想是马克思列宁主义普遍真理与革命具体实践相结合的产物。毛主席的革命路线与“左”、右倾机会主义路线进行了长期的斗争。在一个时期内，毛主席的革命路线没有占主导地位。长期的革命斗争，成功的经验和失败的教训，从正反两个方面证明毛主席的革命路线是正确的，而“左”、右倾机会主义路线是错误的。标准是什么呢？只有一个：就是千百万人民的社会实践。&lt;/p&gt;
+&lt;h3 id="理论与实践的统一是马克思主义的一个最基本的原则"&gt;理论与实践的统一，是马克思主义的一个最基本的原则
+&lt;/h3&gt;&lt;p&gt;有的同志担心，坚持实践是检验真理的唯一标准，会削弱理论的意义。这种担心是多余的。凡是科学的理论，都不会害怕实践的检验。相反，只有坚持实践是检验真理的唯一标准，才能够使伪科学、伪理论现出原形，从而捍卫真正的科学与理论。这一点，对于澄清被“四人帮”搞得非常混乱的理论问题，具有特别重要的意义。&lt;/p&gt;
+&lt;p&gt;“四人帮”出于篡党夺权的反革命需要，鼓吹种种唯心论的先验论，反对实践是检验真理的标准。例如，他们炮制“天才论”，捏造文艺、教育等各条战线的“黑线专政”论，伪造老干部是民主派、民主派必然变成走资派的“规律”，胡诌社会主义生产关系“是产生新的资产阶级分子的经济基础”的谬论，虚构儒法斗争继续到现在的无稽之谈，等等。所有这些，都曾经被奉为神圣不可侵犯的所谓“理论”，谁反对，就会被扣上反对马列主义、反对毛泽东思想的大帽子。但是，这些五花八门的谬论，根本经不起革命实践的检验，它们连同“四人帮”另立的“真理标准”，一个个都像肥皂泡那样很快破灭了。这个事实雄辩地说明，他们自吹自擂证明不了真理，大规模的宣传证明不了真理，强权证明不了真理。他们以马列主义、毛泽东思想的“权威”自居，实践证明他们是反马列主义，反毛泽东思想的政治骗子。&lt;/p&gt;
+&lt;p&gt;马列主义、毛泽东思想之所以有力量，正是由于它是经过实践检验了的客观真理，正是由于它高度概括了实践经验，使之上升为理论，并用来指导实践。正因为这样，我们要非常重视革命理论。列宁指出：&lt;a class="link" href="https://ebook.dswxyjy.org.cn/storage/files/20200426/5cc7233cad059dfe2c08f11c1ff3759539974/mobile/index.html" title="《列宁选集》第一卷第241页"
+target="_blank" rel="noopener"
+&gt;“没有革命的理论，就不会有革命的运动。”&lt;/a&gt;理论所以重要，就是在于它来源于实践，又能正确指导实践，而理论到底是不是正确地指导了实践以及怎样才能正确地指导实践，一点也离不开实践的检验。不掌握这个精神实质，那是不可能真正发挥理论的作用的。&lt;/p&gt;
+&lt;p&gt;有的同志说，我们批判修正主义，难道不是用马列主义、毛泽东思想去衡量，从而证明修正主义是错误的吗？我们说，是的，马列主义、毛泽东思想是我们批判修正主义的锐利武器，也是我们论证的根据。我们用马列主义、毛泽东思想的基本原理去批判修正主义，这些基本原理是马、恩、列、斯和毛主席从革命斗争的实践经验概括起来的，它们被长期的实践证明为不易之真理；但同时我们用这些原理去批判修正主义，仍然一点也不能离开当前的（和过去的）实践，只有从实践经验出发，才能使这些原理显示出巨大的生命力；我们的批判只有结合大量的事实分析，才有说服力。不研究实践经验，不从实践经验出发，是不能最终驳倒修正主义的。&lt;/p&gt;
+&lt;p&gt;客观世界是不断发展的，实践是不断发展的。新事物新问题层出不穷，这就需要在马克思主义一般原理指导下研究新事物、新问题，不断作出新的概括，把理论推向前进。这些新的理论概括是否正确由什么来检验呢？只能用实践来检验。例如，列宁关于帝国主义时代个别国家或少数国家可以取得社会主义革命胜利的学说，是一个新的结论，这个结论正确不正确，不能用马克思主义关于资本主义的一般理论去检验，只有帝国主义时代的实践，第一次世界大战和十月革命的实践，才能证明列宁这个学说是真理。&lt;/p&gt;
+&lt;p&gt;毛主席说：“理论与实践的统一，是马克思主义的一个最基本的原则。”(《毛泽东选集》第5卷第297页)坚持实践是检验真理的唯一标准，就是坚持马克思主义，坚持辩证唯物主义。&lt;/p&gt;
+&lt;h3 id="革命导师是坚持用实践检验真理的榜样"&gt;革命导师是坚持用实践检验真理的榜样
+&lt;/h3&gt;&lt;p&gt;革命导师们不仅提出了实践是检验真理的唯一标准，而且亲自作出了用实践去检验一切理论包括自己所提出的理论的光辉榜样。马克思和恩格斯对待他们所共同创造的著名的马克思主义科学文献&lt;a class="link" href="https://article.xuexi.cn/articles/pdf/index.html?art_id=4971674427756836158" target="_blank" rel="noopener"
+&gt;《共产党宣言》&lt;/a&gt;的态度，就是许多事例当中的一个生动的例子。1848年《宣言》发表后，在45年中马克思和恩格斯一直在用实践来检验它。《宣言》的七篇序言，详细地记载了这个事实。首先，马克思恩格斯指出：“不管最近25年来的情况发生了多大的变化，这个《宣言》中所发挥的一般基本原理整个说来到现在还是完全正确的。”同时，他们又指出，&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="《马克思恩格斯选集》第1卷第228页"
+target="_blank" rel="noopener"
+&gt;“这些基本原理的实际运用，正如《宣言》中所说的，随时随地都要以当时的历史条件为转移。”&lt;/a&gt;马克思和恩格斯根据新实践的不断检验，包括新的历史事实的发现，曾对《宣言》的个别论点作了修改。例如，&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="《马克思恩格斯选集》第1卷第251页"
+target="_blank" rel="noopener"
+&gt;《宣言》第一章的第一句是：“到目前为止的一切社会的历史都是阶级斗争的历史。”恩格斯在1888年的《宣言》英文版上加了一条注释：“确切地说，这是指有文字记载的历史。”&lt;/a&gt;这是因为，《宣言》发表以后人们对于社会的史前史有了进一步的认识，特别是摩尔根的调查研究证明：在阶级社会以前，有一个很长的无阶级社会；阶级是社会发展到一定历史阶段的产物，并非从来就有的。可见，说“一切社会的历史都是阶级斗争的历史”，并不确切。恩格斯根据新发现的历史事实，作了这个说明，修改了《宣言》的旧提法。《宣言》还有一个说法，说到无产阶级要用暴力革命夺取政权，以推翻资产阶级。1872年，两位革命导师在他们共同签名的最后一篇序言中，明确指出：&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804480" title="《马克思恩格斯选集》第1卷第229页"
+target="_blank" rel="noopener"
+&gt;“由于最近25年来大工业已有很大发展而工人阶级的政党组织也跟着发展起来，由于首先有了二月革命的实际经验而后来尤其是有了无产阶级第一次掌握政权达两月之久的巴黎公社的实际经验，所以这个纲领现在有些地方已经过时了。特别是公社已经证明：‘工人阶级不能简单地掌握现成的国家机器，并运用它来达到自己的目的。’”&lt;/a&gt; 列宁对马克思和恩格斯的这个说明十分重视，&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804607" title="《列宁选集》第3卷第201页"
+target="_blank" rel="noopener"
+&gt;他认为这是对《共产党宣言》的一个“重要的修改”。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;正如华主席所指出的：“毛主席从来对思想理论问题采取极其严肃和慎重的态度，他总是要让他的著作经过一段时间的实践的考验以后再来编定他的选集”。毛主席一贯严格要求不断用革命实践来检验自己提出的理论和路线。1955年毛主席在编辑《中国农村的社会主义高潮》一书的时候，写了104篇按语。当时没有预料到1956年以后国际国内所发生的阶级斗争的新情况。因此，1958年在重印一部分按语的时候，毛主席特别写了一个说明，指出这些按语其中有一些现在还没有丧失它们的意义。其中说：“1955年是社会主义与资本主义决战取得基本胜利的一年，这样说不妥当。应当说：1955年是在生产关系的所有制方面取得基本胜利的一年，在生产关系的其他方面以及上层建筑的某些方面即思想战线方面和政治战线方面，则或者还没有基本胜利，或者还没有完全胜利，还有待于尔后努力。”(《毛泽东选集》第5卷第225页)&lt;/p&gt;
+&lt;p&gt;革命导师这种尊重实践的严肃的科学态度，给我们极大的教育。他们并不认为自己提出的理论是已经完成了的绝对真理或“顶峰”，可以不受实践检验的；并不认为只要是他们作出的结论不管实际情况如何都不能改变；更不要说那些根据个别情况作出的个别论断了。他们处处时时用实践来检验自己的理论、论断、指示，坚持真理，修正错误，尊重实践，尊重群众，毫无偏见。他们从不容许别人把他们的言论当作“圣经”来崇拜。毫无疑义，马克思主义的基本原理，马克思主义的立场、观点和方法，必须坚持，决不能动摇；但是，马克思主义的理论宝库并不是一堆僵死不变的教条，它要在实践中不断增加新的观点、新的结论，抛弃那些不再适合新情况的个别旧观点、旧结论。关于哲学，毛主席曾经说过：现在，我们已经进入社会主义时代，出现了一系列新的问题，如果只有几篇原有的哲学著作，不适应新的需要，写出新的著作，形成新的理论，那是不行的。实践、生活的观点是认识论的首要的和基本的观点。实践、生活之树是常青的。正是革命导师的这种坚持实践是检验真理的唯一标准的辩证唯物主义立场，才保证了马克思主义的不断发展，而永葆其青春。&lt;/p&gt;
+&lt;h3 id="任何理论都要不断接受实践的检验"&gt;任何理论都要不断接受实践的检验
+&lt;/h3&gt;&lt;p&gt;我们不仅承认实践是真理的标准，而且要从发展的观点看待实践标准。实践是不断发展的，因此作为检验真理的标准，它既具有绝对的意义，又具有相对的意义。就一切思想和理论都必须由实践来检验这一点讲，它是绝对的、无条件的；就实践在它发展的一定阶段上都有其局限性，不能无条件地完全证实或完全驳倒一切思想和理论这一点来讲，它又是相对的、有条件的；但是，今天的实践回答不了的问题，以后的实践终究会回答它，就这点来讲，它又是绝对的。列宁说：&lt;a class="link" href="https://marx.guat.edu.cn/system/_content/download.jsp?urltype=news.DownloadAttachUrl&amp;amp;owner=1369066848&amp;amp;wbfileid=3804605" title="（《列宁选集》第2卷第142页）"
+target="_blank" rel="noopener"
+&gt;“当然，在这里不要忘记：实践标准实质上决不能完全地证实或驳倒人类的任何表象。这个标准也是这样的‘不确定’，以便不至于使人的知识变成‘绝对’，同时它又是这样的确定，以便同唯心主义和不可知论的一切变种进行无情的斗争。”&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;辩证唯物主义认识论关于实践标准的绝对性和相对性辩证统一的观点，就是任何思想、任何理论必须无例外地、永远地、不断地接受实践的检验的观点，也就是真理发展的观点。任何思想、理论，即使是已经在一定的实践阶段上证明为真理，在其发展过程中仍然要接受新的实践的检验而得到补充、丰富或者纠正。毛主席指出：“人类认识的历史告诉我们，许多理论的真理性是不完全的，经过实践的检验而纠正了它们的不完全性。许多理论是错误的，经过实践的检验而纠正其错误。”又指出：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="《实践论》"
+target="_blank" rel="noopener"
+&gt;“客观现实世界的变化运动永远没有完结，人们在实践中对于真理的认识也就永远没有完结。马克思列宁主义并没有结束真理，而是在实践中不断地开辟认识真理的道路。”&lt;/a&gt;马克思主义强调实践是检验真理的标准，强调在实践中对于真理的认识永远没有完结，就是承认我们的认识不可能一次完成或最终完成。就是承认由于历史的和阶级的局限性，我们的认识可能犯错误，需要由实践来检验，凡经实践证明是错误的或者不符合实际的东西，就应当改变，不应再坚持。事实上这种改变是常有的。毛主席说：&lt;a class="link" href="https://zhuanlan.zhihu.com/p/146378747" title="（《实践论》）"
+target="_blank" rel="noopener"
+&gt;“真正的革命的指导者，不但在于当自己的思想、理论、计划、方案有错误时须得善于改正”，“而且在于当某一客观过程已经从某一发展阶段向另一发展阶段推移转变的时候，须得善于使自己和参加革命的一切人员在主观认识上也跟着推移转变，即是要使新的革命任务和新的工作方案的提出，适合于新的情况的变化。”&lt;/a&gt;林彪、“四人帮”为了篡党夺权，胡诌什么“一句顶一万句” “句句是真理”。实践证明，他们所说的绝不是毛泽东思想的真理，而是他们冒充毛泽东思想的谬论。&lt;/p&gt;
+&lt;p&gt;现在，“四人帮”及其资产阶级帮派体系已被摧毁，但是，“四人帮”加在人们身上的精神枷锁，还远没有完全粉碎。毛主席在第二次国内革命战争时期曾经批评过的&lt;a class="link" href="https://weiyinfu.cn/MaoZeDongAnthology/011-%E8%AE%BA%E5%8F%8D%E5%AF%B9%E6%97%A5%E6%9C%AC%E5%B8%9D%E5%9B%BD%E4%B8%BB%E4%B9%89%E7%9A%84%E7%AD%96%E7%95%A5.html" title="《论反对日本帝国主义的策略》"
+target="_blank" rel="noopener"
+&gt;“圣经上载了的才是对的”&lt;/a&gt;这种倾向依然存在。无论在理论上或实际工作中，“四人帮”都设置了不少禁锢人们思想的“禁区”，对于这些“禁区”我们要敢于去触及，敢于去弄清是非。科学无禁区。凡有超越于实践并自奉为绝对的“禁区”的地方，就没有科学，就没有真正的马列主义、毛泽东思想，而只有蒙昧主义、唯心主义、文化专制主义。&lt;/p&gt;
+&lt;p&gt;党的十一大和五届人大，确定了全党和全国人民在社会主义革命和社会主义建设新的发展时期的总任务。社会主义对于我们来说，有许多地方还是未被认识的必然王国。我们要完成这个伟大的任务，面临着许多新的问题，需要我们去认识，去研究，躺在马列主义毛泽东思想的现成条文上，甚至拿现成的公式去限制、宰割、裁剪无限丰富的飞速发展的革命实践，这种态度是错误的。我们要有共产党人的责任心和胆略，勇于研究生动的实际生活，研究现实的确切事实，研究新的实践中提出的新问题。只有这样，才是对待马克思主义的正确态度，才能够逐步地由必然王国向自由王国前进，顺利地进行新的伟大的长征。&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;载自《光明日报》1978年5月11日&lt;/p&gt;
+&lt;/blockquote&gt;</description></item></channel></rss>
